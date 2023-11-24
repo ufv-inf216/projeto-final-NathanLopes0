@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <string>
+#include <iostream>
 #include "Teacher.h"
 #include "Projectiles/Question.h"
 #include "Projectiles/Task.h"
@@ -43,8 +44,9 @@ void Teacher::OnUpdate(float deltaTime) {
     atkTimer -= deltaTime;
     if(atkTimer < 0)
     {
-        TaskCreation(0.f, 360.f, 0.4f);
-        atkTimer = 1;
+        TaskCreation(145.f, 215.f, 10);
+        //TaskCreation(325.f, 35.f, 325 - 35);
+        atkTimer = 10000;
     }
 
     if (GetGame()->p1Exists()) {
@@ -81,6 +83,7 @@ void Teacher::OnUpdate(float deltaTime) {
     }
 
     //Apenas para teste/melhor visualização. Movimento do Teacher
+    //será colocado em estados inicialmente
 //    float border = 128;
 //    int randNum = Random::GetIntRange(0, 99);
 //    if(left)
@@ -111,6 +114,30 @@ void Teacher::OnUpdate(float deltaTime) {
 void Teacher::CreateExtraPoint() {
     auto point = new PowerUp(mGame);
     point->SetPosition(GetPosition() + Vector2(0, 64));
+}
+
+void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks) {
+
+    std::string spritePath = "../Assets/Icons/PlaceholderTask.png";
+    float difAngle = finalAngle - startAngle;
+    float angleDifference;
+    if (difAngle >= 0)
+        angleDifference = difAngle / (numTasks + 1);
+    else
+        angleDifference = (difAngle + 360) / (numTasks + 1);
+
+    for (int i = 0; i < numTasks; i++) {
+
+        float currAngle = -startAngle - (angleDifference * (i + 1));
+        std::cout << "Task de angulo " << -currAngle << " -> Vetor velocidade normalizado: ";
+        auto task = new Task(GetGame(), this, spritePath, currAngle, 400);
+        auto normVel = Vector2::Normalize(task->GetComponent<RigidBodyComponent>()->GetVelocity());
+        std::cout << normVel.x << ", " << normVel.y << '\n';
+        //std::cout << task->GetComponent<RigidBodyComponent>()->GetVelocity().x << ", " << task->GetComponent<RigidBodyComponent>()->GetVelocity().y << '\n';
+        task->SetPosition(GetPosition());
+
+    }
+
 }
 
 

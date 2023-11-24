@@ -45,6 +45,8 @@ private:
     float atkTimer;
 
     void TaskCreation(float startAngle, float finalAngle, float frequency);
+
+    void TaskCreation(float startAngle, float finalAngle, int numTasks);
 };
 
 
