@@ -40,13 +40,12 @@ private:
     class RigidBodyComponent* mRigidBodyComponent;
     class CircleColliderComponent* mColliderComponent;
     Type mType;
-    bool left, right;
+    bool left, right, reflect; //reflect é para fazer o comportamento de wave nos ataques
     int extraPointCounter;
     float atkTimer;
+    float startAngle, finalAngle; //também para fazer o comportamento de wave nos ataques
 
-    void TaskCreation(float startAngle, float finalAngle, float frequency);
-
-    void TaskCreation(float startAngle, float finalAngle, int numTasks);
+    void TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool wave);
 };
 
 

@@ -19,6 +19,10 @@ Teacher::Teacher(Game *game, Type type)
 
 {
 
+    startAngle = 180;
+    finalAngle = 360;
+    reflect = false;
+
     std::string prefix = "../Assets/Teachers/";
     switch(mType)
     {
@@ -42,11 +46,31 @@ Teacher::Teacher(Game *game, Type type)
 void Teacher::OnUpdate(float deltaTime) {
 
     atkTimer -= deltaTime;
-    if(atkTimer < 0)
-    {
-        TaskCreation(145.f, 215.f, 10);
-        //TaskCreation(325.f, 35.f, 325 - 35);
-        atkTimer = 10000;
+    bool wave = false;
+    if (atkTimer < 0) {
+        if (wave) {
+
+            TaskCreation(startAngle - 10, startAngle + 10, 1, 400, false);
+            if (!reflect)
+                startAngle += 5;
+            else
+                startAngle -=5;
+
+            if(startAngle >= finalAngle && !reflect) {
+                startAngle = 360;
+                finalAngle = 180;
+                reflect = true;
+            }
+            else if (startAngle <= finalAngle && reflect)
+            {
+                startAngle = 180;
+                finalAngle = 360;
+                reflect = false;
+            }
+        } else {
+            TaskCreation(180.f, 360.f, 50, 400, false);
+            atkTimer = 10000;
+        }
     }
 
     if (GetGame()->p1Exists()) {
@@ -116,7 +140,7 @@ void Teacher::CreateExtraPoint() {
     point->SetPosition(GetPosition() + Vector2(0, 64));
 }
 
-void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks) {
+void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool wave) {
 
     std::string spritePath = "../Assets/Icons/PlaceholderTask.png";
     float difAngle = finalAngle - startAngle;
@@ -130,30 +154,14 @@ void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks) {
 
         float currAngle = -startAngle - (angleDifference * (i + 1));
         std::cout << "Task de angulo " << -currAngle << " -> Vetor velocidade normalizado: ";
-        auto task = new Task(GetGame(), this, spritePath, currAngle, 400);
+        auto task = new Task(GetGame(), this, spritePath, currAngle, speed);
+        task->SetPosition(GetPosition());
+
+        //DEBUG
         auto normVel = Vector2::Normalize(task->GetComponent<RigidBodyComponent>()->GetVelocity());
         std::cout << normVel.x << ", " << normVel.y << '\n';
-        //std::cout << task->GetComponent<RigidBodyComponent>()->GetVelocity().x << ", " << task->GetComponent<RigidBodyComponent>()->GetVelocity().y << '\n';
-        task->SetPosition(GetPosition());
-
-    }
-
-}
 
 
-void Teacher::TaskCreation(float startAngle, float finalAngle, float frequency) {
-
-    std::string spritePath = "../Assets/Icons/PlaceholderTask.png";
-    float difAngle = finalAngle - startAngle;
-    int numTasks = (difAngle * frequency); //numero de Tasks necessárias para preencher o intervalo inteiro, de acordo com a frequencia
-    std::clamp(numTasks, 1, 360);
-    float angleDifference = difAngle / numTasks;
-
-
-    for (int i = 0; i < numTasks; i++)
-    {
-        auto task = new Task(GetGame(), this, spritePath, (-startAngle - i * (angleDifference)), 400);
-        task->SetPosition(GetPosition());
     }
 
 }
