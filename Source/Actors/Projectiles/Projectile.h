@@ -9,7 +9,7 @@
 #include <string>
 #include "../Actor.h"
 #include "../Player.h"
-#include "../Teacher.h"
+#include "../Teachers/Teacher.h"
 #include "../../Components/ColliderComponents/CircleColliderComponent.h"
 
 

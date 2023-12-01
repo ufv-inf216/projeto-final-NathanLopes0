@@ -23,6 +23,8 @@ Game::Game(int windowWidth, int windowHeight)
         ,mWindowHeight(windowHeight)
         ,mPlayer1(nullptr)
         ,mPlayer2(nullptr)
+        ,mGameWindowWidth(windowWidth / 2 - 50)
+        ,mGameWindowHeight(windowHeight - 50)
 {
 
 
@@ -72,8 +74,6 @@ void Game::InitializeActors()
 
     auto teacher = new Teacher(this, Teacher::Ricardo);
     mTeacher.push_back(teacher);
-
-    mTeacher[0]->SetPosition(Vector2(600, 100));
 
 }
 
@@ -268,4 +268,17 @@ void Game::Shutdown()
     SDL_DestroyRenderer(mRenderer);
     SDL_DestroyWindow(mWindow);
     SDL_Quit();
+}
+
+void Game::RemoveTask(struct Task *task) {
+
+    auto iter = std::find(mTasks.begin(), mTasks.end(), task);
+
+    if (iter != mTasks.end())
+    {
+        // Swap to end of vector and pop off (avoid erase copies)
+        std::iter_swap(iter, mTasks.end() - 1);
+        mTasks.pop_back();
+    }
+
 }

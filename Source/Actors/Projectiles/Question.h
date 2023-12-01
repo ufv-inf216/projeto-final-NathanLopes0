@@ -19,6 +19,7 @@ private:
     float mFowardSpeed;
 
     void OnUpdate(float deltaTime);
+    int dmg;
 };
 
 

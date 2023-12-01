@@ -7,7 +7,7 @@
 
 #include "Projectile.h"
 #include "../../Components/RigidBodyComponent.h"
-#include "../Teacher.h"
+#include "../Teachers/Teacher.h"
 
 class Task : public Projectile {
 

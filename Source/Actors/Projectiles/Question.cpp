@@ -7,7 +7,8 @@
 Question::Question(Game *game, Player *owner, std::string &spritePath)
     : Projectile(game, spritePath),
     mOwner(owner),
-    mFowardSpeed(800)
+    mFowardSpeed(800),
+    dmg(1)
 {
     mDrawSprite = new DrawSpriteComponent(this, spritePath, 32, 32);
     mColliderComponent = new CircleColliderComponent(this, 32);

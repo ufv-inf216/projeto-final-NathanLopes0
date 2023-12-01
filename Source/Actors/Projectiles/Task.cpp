@@ -17,12 +17,13 @@ Task::Task(Game *game, Teacher *owner, std::string &spritePath, float angleDirec
     mRigidBodyComponent = new RigidBodyComponent(this);
     mColliderComponent = new CircleColliderComponent(this, 8);
 
+
     float currVelocityX = Math::Cos(mDirection * (Math::Pi / 180)); //convertendo graus para radians e tirando sin e cos
     float currVelocityY = Math::Sin(mDirection * (Math::Pi / 180));
 
     mRigidBodyComponent->SetVelocity(Vector2(currVelocityX, currVelocityY) * mFowardSpeed);
 
-    //mGame->AddTask(this);
+    mGame->AddTask(this);
 }
 
 Task::~Task() {
@@ -35,6 +36,7 @@ void Task::OnUpdate(float deltaTime)  {
     || GetPosition().x < -GetComponent<DrawSpriteComponent>()->GetSpriteWidth() || GetPosition().x > GetGame()->GetWindowWidth())
     {
         SetState(ActorState::Destroy);
+        mGame->RemoveTask(this);
     }
 
 }

@@ -5,6 +5,7 @@
 #include <algorithm>
 #include "Player.h"
 #include "Projectiles/Question.h"
+#include "Projectiles/Task.h"
 
 Player::Player(struct Game *game, std::string &avatarPath)
         :Actor(game)
@@ -17,7 +18,7 @@ Player::Player(struct Game *game, std::string &avatarPath)
     mRigidBodyComponent = new RigidBodyComponent(this);
     mColliderComponent = new CircleColliderComponent(this, 16);
 
-    SetPosition(Vector2(600, 600));
+    SetPosition(Vector2(GetGame()->GetGameWindowWidth() / 2, GetGame()->GetGameWindowHeight() - GetComponent<DrawSpriteComponent>()->GetSpriteHeight()));
     std::string spriteQuestionPath = "../Assets/Player/DPIBHStudentProjectile(Question)v3.png";
 
     for (int i = 0; i < 500; i++)
@@ -35,13 +36,26 @@ void Player::OnUpdate(float deltaTime) {
 
     atkTimer -= deltaTime;
 
-//    for (auto it : GetGame()->GetTasks())
-//    {
-//        if(GetComponent<CircleColliderComponent>()->Intersect())
-//        {
-//            SetState(ActorState::Destroy);
-//        }
-//    }
+    for (auto i : GetGame()->GetTasks())
+    {
+        if(GetComponent<CircleColliderComponent>()->Intersect(*i->GetComponent<CircleColliderComponent>()))
+        {
+
+            SetState(ActorState::Destroy);
+
+            //diminui nota ao invés de destruir. também ganha um tempo de invencibilidade que não conta pontos caso desvie,
+            //mas não diminui nota caso seja acertade.
+            break;
+        }
+    }
+
+    if (GetComponent<CircleColliderComponent>()->Intersect(*mGame->GetTeacher()->GetComponent<CircleColliderComponent>()))
+    {
+        SetState(ActorState::Destroy);
+        //diminuir nota, ativar invencibility frames ou então não deixar o jogador se aproximar?
+
+    }
+
 
 }
 
@@ -73,8 +87,8 @@ void Player::OnProcessInput(const Uint8 *keyState) {
     GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(newXSpeed,newYSpeed));
 
     //limitando (um pouco) o jogador aos limites da tela
-    SetPosition(Vector2(std::clamp(GetPosition().x, (float) GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 2.f,(float)GetGame()->GetWindowWidth() - (float)GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 2.f),
-                        std::clamp(GetPosition().y, (float) GetComponent<DrawSpriteComponent>()->GetSpriteHeight() / 2.f, (float)GetGame()->GetWindowHeight() - (float)GetComponent<DrawSpriteComponent>()->GetSpriteHeight() / 2.f)
+    SetPosition(Vector2(std::clamp(GetPosition().x, (float) GetComponent<DrawSpriteComponent>()->GetSpriteWidth(),(float)GetGame()->GetGameWindowWidth()),
+                        std::clamp(GetPosition().y, (float) GetComponent<DrawSpriteComponent>()->GetSpriteHeight(), (float)GetGame()->GetGameWindowHeight())
     ));
 
 

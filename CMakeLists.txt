@@ -11,13 +11,13 @@ add_executable(DPIBulletHell
         Source/Main.cpp
         Source/Actors/Actor.cpp
         Source/Actors/Player.h
-        Source/Actors/Teacher.h
+        Source/Actors/Teachers/Teacher.h
         Source/Components/ColliderComponents/CircleColliderComponent.cpp
         Source/Components/Component.cpp
         Source/Actors/Player.cpp
         Source/Actors/Player.h
-        Source/Actors/Teacher.cpp
-        Source/Actors/Teacher.h
+        Source/Actors/Teachers/Teacher.cpp
+        Source/Actors/Teachers/Teacher.h
         Source/Components/DrawComponents/DrawComponent.cpp
         Source/Components/DrawComponents/DrawAnimatedComponent.cpp
         Source/Components/RigidBodyComponent.cpp
@@ -41,6 +41,14 @@ add_executable(DPIBulletHell
         Source/Scene.h
         Source/AudioSystem.cpp
         Source/AudioSystem.h
+        Source/Components/AIComponents/FSMComponent.cpp
+        Source/Components/AIComponents/FSMState.cpp
+        Source/Actors/Teachers/TStates/StartState.cpp
+        Source/Actors/Teachers/TStates/StartState.h
+        Source/Actors/Teachers/TStates/TState.cpp
+        Source/Actors/Teachers/TStates/TState.h
+        Source/Actors/Teachers/TStates/StateOne.cpp
+        Source/Actors/Teachers/TStates/StateOne.h
 )
 
 find_package(SDL2 2.28.2 EXACT REQUIRED)

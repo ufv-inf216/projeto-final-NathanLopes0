@@ -17,12 +17,14 @@ PowerUp::PowerUp(Game *game) : Actor(game) {
 
 void PowerUp::OnUpdate(float deltaTime) {
 
-    if(GetComponent<CircleColliderComponent>()->Intersect(*GetGame()->GetPlayer1()->GetComponent<CircleColliderComponent>()))
-    {
+    if(GetGame()->GetPlayer1()->GetState() == ActorState::Active) {
+        if (GetComponent<CircleColliderComponent>()->Intersect(
+                *GetGame()->GetPlayer1()->GetComponent<CircleColliderComponent>())) {
 
-        GetGame()->GetPlayer1()->AddPontoExtra();
-        SetState(ActorState::Destroy);
+            GetGame()->GetPlayer1()->AddPontoExtra();
+            SetState(ActorState::Destroy);
 
+        }
     }
 
 }

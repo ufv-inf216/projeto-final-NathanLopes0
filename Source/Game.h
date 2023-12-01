@@ -7,7 +7,7 @@
 #include "Math.h"
 #include "AudioSystem.h"
 #include "Actors/Player.h"
-#include "Actors/Teacher.h"
+#include "Actors/Teachers/Teacher.h"
 #include "Actors/Projectiles/Projectile.h"
 //#include "Actors/Projectiles/Task.h"
 
@@ -47,6 +47,8 @@ public:
     // Window functions
     int GetWindowWidth() const { return mWindowWidth; }
     int GetWindowHeight() const { return mWindowHeight; }
+    int GetGameWindowWidth() const { return mGameWindowWidth; }
+    int GetGameWindowHeight() const { return mGameWindowHeight; }
 
     AudioSystem* GetAudio() { return mAudio; }
 
@@ -61,7 +63,12 @@ public:
     void SetNota(const float newNota, const std::string& materia) { mNotas[materia] = newNota; }
     bool Passou(const std::string& materia) { return mNotas[materia] >= 60; }
 
-    //void AddTask(Task * task) { mTasks.push_back(task); }
+    std::vector<class Task *> GetTasks() {return mTasks;}
+    void AddTask(class Task * task) { mTasks.push_back(task); }
+    void RemoveTask(class Task * task);
+
+    //versão inicial, quando só tem 1 Teacher (protótipo do jogo)
+    class Teacher * GetTeacher() { return mTeacher[0]; }
 
 
 private:
@@ -89,6 +96,8 @@ private:
     // Window properties
     int mWindowWidth;
     int mWindowHeight;
+    int mGameWindowWidth;
+    int mGameWindowHeight;
 
     // Track elapsed time since game start
     Uint32 mTicksCount;
@@ -105,6 +114,6 @@ private:
     class std::map<std::string, float> mNotas;
 
     std::vector<class Teacher*> mTeacher;
-    //std::vector<class Task*> mTasks;
+    std::vector<class Task*> mTasks;
 
 };
