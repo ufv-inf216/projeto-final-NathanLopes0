@@ -78,9 +78,20 @@ void Teacher::CreateExtraPoint() {
     point->SetPosition(GetPosition() + Vector2(0, 64));
 }
 
-void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, float speed) {
+void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool playerDirection, double waitTime) {
 
-    std::string spritePath = "../Assets/Icons/PlaceholderTask.png";
+    std::string spritePath;
+    switch (GetType())
+    {
+        case Type::Ricardo:
+            spritePath = "../Assets/Teachers/DPIBHArduinoPrototype2.png";
+            break;
+        default:
+            spritePath = "../Assets/Icons/PlaceholderTask.png";
+            break;
+
+    }
+
     float difAngle = finalAngle - startAngle;
     float angleDifference;
     if (difAngle >= 0)
@@ -92,7 +103,7 @@ void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, flo
 
         float currAngle = -startAngle - (angleDifference * (i + 1));
         std::cout << "Task de angulo " << -currAngle << " -> Vetor velocidade normalizado: ";
-        auto task = new Task(GetGame(), this, spritePath, currAngle, speed);
+        auto task = new Task(GetGame(), this, spritePath, currAngle, speed, playerDirection, waitTime);
         task->SetPosition(GetPosition());
 
         //DEBUG

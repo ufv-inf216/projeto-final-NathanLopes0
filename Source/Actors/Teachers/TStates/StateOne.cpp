@@ -7,7 +7,10 @@
 #include "../../Projectiles/Question.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
 
-StateOne::StateOne(FSMComponent *fsm) : TState(fsm, "stateOne"){
+StateOne::StateOne(FSMComponent *fsm)
+    : TState(fsm, "stateOne"),
+    atkTimer(0)
+{
     hp = 40;
 }
 
@@ -20,6 +23,12 @@ void StateOne::Start() {
 void StateOne::Update(float deltaTime) {
 
     Movement();
+    atkTimer -= deltaTime;
+    if (atkTimer < 0)
+    {
+        mTeacher->TaskCreation(180, 360, 1, 200, true, 1);
+        atkTimer = 10;
+    }
     DetectCollision();
 
 }

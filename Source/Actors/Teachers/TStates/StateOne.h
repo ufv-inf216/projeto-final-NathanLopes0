@@ -23,6 +23,8 @@ protected:
 private:
 
     void DetectCollision();
+    float atkTimer;
+
 };
 
 

@@ -19,7 +19,7 @@ void StartState::Start() {
 
 void StartState::HandleStateTransition(float stateTime) {
 
-    SDL_Log("%f", mTeacher->GetPosition().y);
+    //SDL_Log("%f", mTeacher->GetPosition().y);
     if(mTeacher->GetPosition().y >= (float)mTeacher->GetSpriteHeight())
     {
         mFSM->SetState("stateOne");

@@ -37,6 +37,8 @@ public:
     int GetSpriteHeight() {return GetComponent<DrawSpriteComponent>()->GetSpriteHeight(); }
     int GetSpriteWidth() { return GetComponent<DrawSpriteComponent>()->GetSpriteWidth(); }
 
+    void TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool playerDirection, double waitTime);
+
 
     bool left;
     bool right;
@@ -53,10 +55,6 @@ private:
     int hp;
     float atkTimer;
     float startAngle, finalAngle; //também para fazer o comportamento de wave nos ataques
-
-
-
-    void TaskCreation(float startAngle, float finalAngle, int numTasks, float speed);
 };
 
 

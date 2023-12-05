@@ -13,7 +13,7 @@ class Task : public Projectile {
 
 public:
 
-    Task(Game* game, Teacher* owner, std::string & spritePath, float angleDirection, float fspeed);
+    Task(Game *game, Teacher *owner, std::string &spritePath, float angleDirection, float fspeed, bool playerDirection, double waitTime);
     ~Task();
 
     Teacher * GetOwner() { return mOwner; }
@@ -32,6 +32,9 @@ private:
 
 
     void OnUpdate(float deltaTime);
+
+    bool playerDirection;
+    double waitTime;
 };
 
 
