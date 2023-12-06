@@ -61,9 +61,6 @@ Teacher::Teacher(Game *game, Type type)
 
 void Teacher::OnUpdate(float deltaTime) {
 
-    //SDL_Log("%f", GetPosition().y);
-
-
     if (extraPointCounter <= 0)
     {
         CreateExtraPoint();
@@ -102,14 +99,14 @@ void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, flo
     for (int i = 0; i < numTasks; i++) {
 
         float currAngle = -startAngle - (angleDifference * (i + 1));
-        std::cout << "Task de angulo " << -currAngle << " -> Vetor velocidade normalizado: ";
+        //std::cout << "Task de angulo " << -currAngle << " -> Vetor velocidade normalizado: ";
         auto task = new Task(GetGame(), this, spritePath, currAngle, speed, playerDirection, waitTime);
         task->SetPosition(GetPosition());
 
         //DEBUG
-        auto aux = task->GetComponent<RigidBodyComponent>()->GetVelocity();
-        auto normVel = Vector2::Normalize(aux);
-        std::cout << normVel.x << ", " << normVel.y << '\n';
+//        auto aux = task->GetComponent<RigidBodyComponent>()->GetVelocity();
+//        auto normVel = Vector2::Normalize(aux);
+//        std::cout << normVel.x << ", " << normVel.y << '\n';
 
 
     }

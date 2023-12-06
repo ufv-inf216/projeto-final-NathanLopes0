@@ -9,12 +9,6 @@
 #include "Actors/Player.h"
 #include "Actors/Teachers/Teacher.h"
 #include "Actors/Projectiles/Projectile.h"
-//#include "Actors/Projectiles/Task.h"
-
-// se eu der o include acima, da erro na classe Task. expected class-name before '{' token
-// error: "class Task : public Projectile {"
-
-//porem preciso dele pra conseguir fazer o vetor de Tasks no Game.
 
 class Game
 {
@@ -57,8 +51,8 @@ public:
     // Game-specific
     class Player * GetPlayer1() { return mPlayer1; }
     class Player* GetPlayer2() { return mPlayer2; }
-    bool p1Exists() {return mPlayer1 != nullptr; }
-    bool p2Exists() {return mPlayer2 != nullptr; }
+    bool p1Exists() {return mPlayer1!= nullptr && mPlayer1->GetState() != ActorState::Destroy; }
+    bool p2Exists() {return mPlayer2 != nullptr && mPlayer2->GetState() != ActorState::Destroy; }
     float GetNota(const std::string& materia) { return mNotas[materia]; }
     void SetNota(const float newNota, const std::string& materia) { mNotas[materia] = newNota; }
     bool Passou(const std::string& materia) { return mNotas[materia] >= 60; }

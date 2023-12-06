@@ -40,37 +40,13 @@ void Task::OnUpdate(float deltaTime)  {
         SetState(ActorState::Destroy);
         mGame->RemoveTask(this);
     }
-    if (playerDirection) {
+    if (playerDirection && GetGame()->p1Exists()) {
         if (waitTime > 0) {
             waitTime -= deltaTime;
         } else {
-            float currVelocityX;
-            float currVelocityY;
-            float angleToPlayer;
-
-            if (GetGame()->p1Exists())
-            {
-                auto Ovc = Vector2(GetPosition().x, GetPosition().y);
-                float Ox1 = Ovc.x;
-                float Oy = Ovc.y;
-
-                auto Pvc = GetGame()->GetPlayer1()->GetPosition();
-                float Px = Pvc.x;
-                float Py = Pvc.y;
-
-                auto formula =( (Ox1 * Px) + (Oy * Py) / (Pvc.Length() * Ovc.Length()));
-
-                angleToPlayer = acos(formula);
-                currVelocityX = Math::Cos(angleToPlayer);
-                currVelocityY = Math::Sin(angleToPlayer);
-                SDL_Log("%f", angleToPlayer);
-                mDirection = angleToPlayer * 180 / Math::Pi;
-
-                mRigidBodyComponent->SetVelocity(Vector2(currVelocityX, -currVelocityY));
-                playerDirection = false;
-            }
-
+            auto dTP = GetGame()->GetPlayer1()->directionToPlayer(this);
+            mRigidBodyComponent->SetVelocity(dTP * mFowardSpeed);
+            playerDirection = false;
         }
     }
-
 }

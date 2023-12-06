@@ -116,3 +116,13 @@ bool Player::AddPontoExtra() {
     numPontosExtras++;
     return true;
 }
+
+Vector2 Player::directionToPlayer(const Actor *object) {
+    auto objectPosition = object->GetPosition();
+    auto directionToPlayer = GetPosition() - objectPosition;
+
+    directionToPlayer.Normalize();
+
+    return directionToPlayer;
+
+}

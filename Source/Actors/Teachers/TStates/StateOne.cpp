@@ -26,8 +26,17 @@ void StateOne::Update(float deltaTime) {
     atkTimer -= deltaTime;
     if (atkTimer < 0)
     {
-        mTeacher->TaskCreation(180, 360, 1, 200, true, 1);
-        atkTimer = 10;
+        int numTasks = 40;
+        float startAngle = 0;
+        float finalAngle = 360;
+        float angleInterval = (finalAngle - startAngle) / numTasks;
+        bool pD = false;
+        for (int i = 0; i < numTasks; i++) {
+            pD = !pD;
+            mTeacher->TaskCreation(startAngle + angleInterval * i, startAngle + angleInterval * i,
+                                   1, 250, pD, 1);
+        }
+        atkTimer = 1;
     }
     DetectCollision();
 
