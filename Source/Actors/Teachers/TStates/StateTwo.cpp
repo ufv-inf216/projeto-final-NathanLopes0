@@ -43,9 +43,15 @@ void StateTwo::moveToCenter()
 
 void StateTwo::Update(float deltaTime) {
 
+    stateTime += deltaTime;
 }
 
 void StateTwo::HandleStateTransition(float stateTimer) {
+
+    if (stateTimer > 10)
+    {
+        mFSM->SetState("stateOne");
+    }
 
 }
 

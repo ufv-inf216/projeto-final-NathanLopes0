@@ -28,7 +28,7 @@ void StateOne::Update(float deltaTime) {
     atkTimer -= deltaTime;
     if (atkTimer < 0)
     {
-        int numTasks = 40;
+        int numTasks = 10;
         float startAngle = 0;
         float finalAngle = 360;
         float angleInterval = (finalAngle - startAngle) / (float)numTasks;
