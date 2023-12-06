@@ -17,7 +17,7 @@ Teacher::Teacher(Game *game, Type type)
     mType(type),
     left(true),
     right(false),
-    extraPointCounter(10),
+    extraPointCounter(1),
     atkTimer(2)
 
 {

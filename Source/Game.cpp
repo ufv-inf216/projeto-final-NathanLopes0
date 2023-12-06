@@ -9,8 +9,6 @@
 #include "Actors/Actor.h"
 #include "Components/DrawComponents/DrawComponent.h"
 #include "Actors/Player.h"
-#include "Actors/PowerUp.h"
-//#include "Actors/Projectiles/Task.h"
 
 
 Game::Game(int windowWidth, int windowHeight)

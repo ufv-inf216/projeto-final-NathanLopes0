@@ -11,7 +11,7 @@ Player::Player(struct Game *game, std::string &avatarPath)
         :Actor(game)
         ,pSpeed(300.0f)
         ,atkTimer(0.1f)
-        ,numPontosExtras(0)
+        ,numPontosExtras(1)
 {
 
     mDrawSprite = new DrawSpriteComponent(this, avatarPath, 32, 32, 100);
@@ -38,6 +38,7 @@ void Player::OnUpdate(float deltaTime) {
 
     for (auto i : GetGame()->GetTasks())
     {
+
         if(GetComponent<CircleColliderComponent>()->Intersect(*i->GetComponent<CircleColliderComponent>()))
         {
 
@@ -106,6 +107,16 @@ void Player::OnProcessInput(const Uint8 *keyState) {
             }
             mGame->GetAudio()->PlaySound("qst00.wav");
             atkTimer = 0.1;
+        }
+    }
+
+    if (keyState[SDL_SCANCODE_B] && numPontosExtras > 0)
+    {
+        numPontosExtras--;
+        for(auto it : GetGame()->GetTasks())
+        {
+            it->SetState(ActorState::Destroy);
+            GetGame()->RemoveTask(it);
         }
     }
 }

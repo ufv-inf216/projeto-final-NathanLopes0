@@ -49,6 +49,7 @@ private:
     class RigidBodyComponent* mRigidBodyComponent;
     class CircleColliderComponent* mColliderComponent;
     class FSMComponent* mFSMComponent;
+    std::vector<class Task*> mTasks;
 
     Type mType;
     bool reflect; //reflect é para fazer o comportamento de wave nos ataques

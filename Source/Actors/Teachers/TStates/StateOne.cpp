@@ -29,10 +29,11 @@ void StateOne::Update(float deltaTime) {
         int numTasks = 40;
         float startAngle = 0;
         float finalAngle = 360;
-        float angleInterval = (finalAngle - startAngle) / numTasks;
+        float angleInterval = (finalAngle - startAngle) / (float)numTasks;
         bool pD = false;
         for (int i = 0; i < numTasks; i++) {
             pD = !pD;
+            if (!mTeacher->GetGame()->p1Exists()) pD = false;
             mTeacher->TaskCreation(startAngle + angleInterval * i, startAngle + angleInterval * i,
                                    1, 250, pD, 1);
         }

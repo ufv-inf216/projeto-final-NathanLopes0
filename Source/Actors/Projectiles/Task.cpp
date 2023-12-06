@@ -40,7 +40,7 @@ void Task::OnUpdate(float deltaTime)  {
         SetState(ActorState::Destroy);
         mGame->RemoveTask(this);
     }
-    if (playerDirection && GetGame()->p1Exists()) {
+    if (playerDirection) {
         if (waitTime > 0) {
             waitTime -= deltaTime;
         } else {
