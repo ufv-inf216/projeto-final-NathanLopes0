@@ -20,7 +20,7 @@ public:
 protected:
 
     class Teacher* mTeacher;
-    int hp;
+    float stateTime;
 
 };
 

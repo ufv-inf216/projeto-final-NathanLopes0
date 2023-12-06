@@ -11,6 +11,7 @@
 #include "../../Components/AIComponents/FSMComponent.h"
 #include "TStates/StartState.h"
 #include "TStates/StateOne.h"
+#include "TStates/StateTwo.h"
 
 Teacher::Teacher(Game *game, Type type)
     :Actor(game),
@@ -50,6 +51,7 @@ Teacher::Teacher(Game *game, Type type)
     mFSMComponent = new FSMComponent(this);
     new StartState(mFSMComponent);
     new StateOne(mFSMComponent);
+    new StateTwo(mFSMComponent);
 
     //colocando o estado inicial "start"
     //a ideia é ele estar na posição setada acima, com SetPosition, e colocar ele descendo no início do estado Start.

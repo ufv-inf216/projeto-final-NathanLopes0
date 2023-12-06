@@ -11,7 +11,7 @@ StateOne::StateOne(FSMComponent *fsm)
     : TState(fsm, "stateOne"),
     atkTimer(0)
 {
-    hp = 40;
+
 }
 
 void StateOne::Start() {
@@ -21,6 +21,8 @@ void StateOne::Start() {
 }
 
 void StateOne::Update(float deltaTime) {
+
+    stateTime += deltaTime;
 
     Movement();
     atkTimer -= deltaTime;
@@ -79,7 +81,6 @@ void StateOne::DetectCollision() {
                     it->SetState(ActorState::Paused);
                     it->GetComponent<DrawSpriteComponent>()->SetIsVisible(false);
                     mTeacher->extraPointCounter--;
-                    hp--;
                     break;
                 }
             }
@@ -91,7 +92,6 @@ void StateOne::DetectCollision() {
                 if (mTeacher->GetComponent<CircleColliderComponent>()->Intersect(*it->GetComponent<CircleColliderComponent>())) {
                     it->SetState(ActorState::Destroy);
                     mTeacher->extraPointCounter--;
-                    hp--;
                     break;
                 }
             }
@@ -103,11 +103,9 @@ void StateOne::DetectCollision() {
 
 void StateOne::HandleStateTransition(float stateTimer) {
 
-    if (hp < 0)
+    if (stateTimer > 30)
     {
-        hp = 400;
-        mFSM->SetState("start");
-
+        mFSM->SetState("stateTwo");
     }
 }
 
