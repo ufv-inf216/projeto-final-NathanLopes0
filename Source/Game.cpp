@@ -9,6 +9,7 @@
 #include "Actors/Actor.h"
 #include "Components/DrawComponents/DrawComponent.h"
 #include "Actors/Player.h"
+#include "Actors/LimiterMenu.h"
 
 
 Game::Game(int windowWidth, int windowHeight)
@@ -67,12 +68,35 @@ bool Game::Initialize()
 void Game::InitializeActors()
 {
 
-    std::string player1avatar = "../Assets/Player/DPIBHPlayerPlaceholder.png";
+    std::string limiterMenuPath = "../Assets/DPIBHBackgroundPlaceholder.png";
+    mLimiterMenu = new LimiterMenu(this, limiterMenuPath, mWindowWidth, mWindowHeight);
+    GetAudio()->PlaySound("backgroundmusic.mp3", true);
+
+    std::string player1avatar = "../Assets/Player/DPIBHPlayerPrototype.png";
     mPlayer1 = new Player(this, player1avatar);
 
     auto teacher = new Teacher(this, Teacher::Ricardo);
-    mTeacher.push_back(teacher);
+    auto teacher2 = new Teacher(this, Teacher::Salles);
 
+    for(auto it : mTeachers)
+    {
+        it->SetState(ActorState::Paused);
+        it->GetComponent<DrawSpriteComponent>()->SetIsVisible(false);
+    }
+
+    activeTeacher = mTeachers[0];
+    activeTeacher->Start();
+
+
+}
+
+Teacher* Game::GetActiveTeacher() { return activeTeacher;}
+
+void Game::SetActiveTeacher(int teacherIndex) {
+    activeTeacher->SetState(ActorState::Paused);
+    activeTeacher->GetComponent<DrawSpriteComponent>()->SetIsVisible(false);
+    activeTeacher = mTeachers[teacherIndex];
+    activeTeacher->Start();
 }
 
 void Game::RunLoop()

@@ -20,6 +20,7 @@ void DrawSpriteComponent::Draw(SDL_Renderer *renderer)
 
 
     //coloquei -mWidth/2 e -mHeight/2 para centralizar o desenho com o centro do círculo do ColliderComponent
+    //porem da ruim na hora de desenhar o menu..
 
     auto srcrect = new SDL_Rect{0, 0, mWidth, mHeight};
     int posx = GetOwner()->GetPosition().x - GetOwner()->GetGame()->GetCameraPos().x - mWidth/2;

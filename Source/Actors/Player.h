@@ -23,7 +23,8 @@ public:
     std::vector<class Question *> GetProjectiles() { return mQuestions; }
     bool AddPontoExtra();
     Vector2 directionToPlayer(const Actor* object);
-
+    void addStage();
+    int GetStage() const { return stage; }
 
 private:
 
@@ -39,6 +40,7 @@ private:
 
 
     void OnProcessInput(const Uint8 *keyState) override;
+    int stage;
 };
 
 

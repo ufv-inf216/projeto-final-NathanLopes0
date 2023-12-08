@@ -18,14 +18,9 @@ Teacher::Teacher(Game *game, Type type)
     mType(type),
     left(true),
     right(false),
-    extraPointCounter(1),
-    atkTimer(2)
+    extraPointCounter(1)
 
 {
-
-    startAngle = 180;
-    finalAngle = 360;
-    reflect = false;
 
     std::string prefix = "../Assets/Teachers/";
     //escolher a sprite de acordo com o tipo
@@ -42,6 +37,8 @@ Teacher::Teacher(Game *game, Type type)
             break;
     }
 
+
+    mGame->AddTeacher(this);
     //componentes
     mDrawSprite = new DrawSpriteComponent(this, prefix + ".png", 128, 128, 100);
     mRigidBodyComponent = new RigidBodyComponent(this);
@@ -53,12 +50,10 @@ Teacher::Teacher(Game *game, Type type)
     new StateOne(mFSMComponent);
     new StateTwo(mFSMComponent);
 
-    //colocando o estado inicial "start"
-    //a ideia é ele estar na posição setada acima, com SetPosition, e colocar ele descendo no início do estado Start.
-    //SetState chama o Start do estado com nome "start"
+}
+
+void Teacher::Start() {
     mFSMComponent->Start("start");
-
-
 }
 
 void Teacher::OnUpdate(float deltaTime) {
@@ -66,10 +61,11 @@ void Teacher::OnUpdate(float deltaTime) {
     if (extraPointCounter <= 0)
     {
         CreateExtraPoint();
-        //mudar para 80 depois, 40 apenas para mostrar/debug
-        extraPointCounter = 40;
-        GetGame()->GetAudio()->PlaySound("extraPt.wav");
+        extraPointCounter = 60;
+        GetGame()->GetAudio()->PlaySound("kira00.wav");
     }
+
+    if (!mGame->p1Exists()) SDL_Quit();
 }
 
 void Teacher::CreateExtraPoint() {
@@ -101,16 +97,8 @@ void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, flo
     for (int i = 0; i < numTasks; i++) {
 
         float currAngle = -startAngle - (angleDifference * (i + 1));
-        //std::cout << "Task de angulo " << -currAngle << " -> Vetor velocidade normalizado: ";
         auto task = new Task(GetGame(), this, spritePath, currAngle, speed, playerDirection, waitTime);
         task->SetPosition(GetPosition());
 
-        //DEBUG
-//        auto aux = task->GetComponent<RigidBodyComponent>()->GetVelocity();
-//        auto normVel = Vector2::Normalize(aux);
-//        std::cout << normVel.x << ", " << normVel.y << '\n';
-
-
     }
-
 }

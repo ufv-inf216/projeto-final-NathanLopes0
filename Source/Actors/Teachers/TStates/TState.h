@@ -19,8 +19,16 @@ public:
 
 protected:
 
+    bool DetectCollision();
+    void Attack(float deltaTime, float startAngle,
+                float finalAngle, bool dividefocus, bool playerDirection,
+                float atkTimer_, int numTasks, float speed, float waitTime);
     class Teacher* mTeacher;
+    float atkTimer;
     float stateTime;
+    float soundTime;
+    void PlayAttackAudio();
+
 
 };
 

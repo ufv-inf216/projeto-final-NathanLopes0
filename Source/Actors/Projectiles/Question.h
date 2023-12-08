@@ -18,8 +18,7 @@ private:
     Player* mOwner;
     float mFowardSpeed;
 
-    void OnUpdate(float deltaTime);
-    int dmg;
+    void OnUpdate(float deltaTime) override;
 };
 
 

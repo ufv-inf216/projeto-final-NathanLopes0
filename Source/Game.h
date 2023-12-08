@@ -61,9 +61,14 @@ public:
     void AddTask(class Task * task) { mTasks.push_back(task); }
     void RemoveTask(class Task * task);
 
-    //versão inicial, quando só tem 1 Teacher (protótipo do jogo)
-    class Teacher * GetTeacher() { return mTeacher[0]; }
+    class Teacher * GetTeacher(int i) { return mTeachers[i]; }
+    std::vector<Teacher*> GetTeachers() { return mTeachers; }
+    void AddTeacher(class Teacher* teacher) { mTeachers.push_back(teacher); }
 
+
+    void SetActiveTeacher(int teacherIndex);
+
+    Teacher *GetActiveTeacher();
 
 private:
     void ProcessInput();
@@ -107,7 +112,10 @@ private:
     class Player* mPlayer2;
     class std::map<std::string, float> mNotas;
 
-    std::vector<class Teacher*> mTeacher;
+    class Teacher* activeTeacher;
+    Actor* mLimiterMenu;
+
+    std::vector<class Teacher*> mTeachers;
     std::vector<class Task*> mTasks;
 
 };

@@ -43,6 +43,9 @@ public:
     bool left;
     bool right;
     int extraPointCounter;
+
+    void Start();
+
 private:
 
     class DrawSpriteComponent* mDrawSprite;
@@ -52,10 +55,7 @@ private:
     std::vector<class Task*> mTasks;
 
     Type mType;
-    bool reflect; //reflect é para fazer o comportamento de wave nos ataques
     int hp;
-    float atkTimer;
-    float startAngle, finalAngle; //também para fazer o comportamento de wave nos ataques
 };
 
 

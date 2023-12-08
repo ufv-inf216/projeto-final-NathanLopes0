@@ -1,0 +1,9 @@
+Personalizar stateOne para os dois profs que estao adicionados
+(no pior dos casos, apresentar apenas eles com 1 estado)
+	-terminar Ricardo primeiro
+		-adicionar Drones e ataques dos Drones, coloca-los como
+		ataque do StateOne. (StateOne do Ricardo? ou colocar Switch)
+
+Colocar fundo para jogador saber os limites da tela
+	-fundo do jogo enquanto gameplay esta acontecendo. Usar UIScreen?
+	

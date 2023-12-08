@@ -15,15 +15,14 @@ public:
     explicit StateOne(FSMComponent* fsm);
     void Start() override;
     void Update(float deltaTime);
-    void HandleStateTransition(float stateTimer) override;
     void Movement();
+    void HandleStateTransition(float stateTimer) override;
 
 protected:
 
 private:
-
-    void DetectCollision();
-    float atkTimer;
+    float mTaskSpeed;
+    float stateAtkTimer;
 
 };
 

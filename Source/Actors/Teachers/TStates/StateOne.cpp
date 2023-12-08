@@ -8,15 +8,27 @@
 #include "../../../Components/AIComponents/FSMComponent.h"
 
 StateOne::StateOne(FSMComponent *fsm)
-    : TState(fsm, "stateOne"),
-    atkTimer(0)
+    : TState(fsm, "stateOne")
 {
-
+    switch (mTeacher->GetType()) {
+        case Teacher::Ricardo:
+            mTaskSpeed = 150;
+            stateAtkTimer = 1.3;
+            break;
+        case Teacher::Salles:
+            mTaskSpeed = 280;
+            stateAtkTimer = 0.6;
+            break;
+        default:
+            mTaskSpeed = 0;
+            break;
+    }
 }
 
 void StateOne::Start() {
 
     mTeacher->GetComponent<RigidBodyComponent>()->SetVelocity(Vector2::Zero);
+    stateTime = 0;
 
 }
 
@@ -24,30 +36,34 @@ void StateOne::Update(float deltaTime) {
 
     stateTime += deltaTime;
 
-    Movement();
-    atkTimer -= deltaTime;
-    if (atkTimer < 0)
+    switch(mTeacher->GetType())
     {
-        int numTasks = 10;
-        float startAngle = 0;
-        float finalAngle = 360;
-        float angleInterval = (finalAngle - startAngle) / (float)numTasks;
-        bool pD = false;
-        for (int i = 0; i < numTasks; i++) {
-            pD = !pD;
-            if (!mTeacher->GetGame()->p1Exists()) pD = false;
-            mTeacher->TaskCreation(startAngle + angleInterval * i, startAngle + angleInterval * i,
-                                   1, 250, pD, 1);
+        case Teacher::Ricardo: {
+            Movement();
+            Attack(deltaTime, 0, 360, true, true, stateAtkTimer, 30, mTaskSpeed, 1);
+            break;
         }
-        atkTimer = 1;
+        case Teacher::Salles: {
+            Movement();
+            float startAngle = Random::GetFloatRange(180, 360);
+            int playerDirectionInt = Random::GetIntRange(0, 99);
+            bool playerDirection = false;
+            if (playerDirectionInt < 20) playerDirection = true;
+            Attack(deltaTime, startAngle, startAngle + 20, false, playerDirection, stateAtkTimer, 2, mTaskSpeed, 1.2);
+            break;
+        }
+        default:
+            break;
     }
-    DetectCollision();
+
+    if(DetectCollision()) stateTime += 3 * deltaTime;
+    HandleStateTransition(stateTime);
 
 }
 
 void StateOne::Movement()
 {
-    float border = 128;
+    float border = 64;
     int randNum = Random::GetIntRange(0, 99);
     if(mTeacher->left)
     {
@@ -65,7 +81,7 @@ void StateOne::Movement()
         }
     }
 
-    if (mTeacher->GetPosition().x > (float)mTeacher->GetGame()->GetGameWindowWidth() - border || mTeacher->GetPosition().x < border) {
+    if (mTeacher->GetPosition().x > (float)mTeacher->GetGame()->GetGameWindowWidth() || mTeacher->GetPosition().x < border) {
         if(mTeacher->left) mTeacher->SetPosition(Vector2(mTeacher->GetPosition().x + (float)mTeacher->GetSpriteWidth() / 6, mTeacher->GetPosition().y));
         if(mTeacher->right) mTeacher->SetPosition(Vector2(mTeacher->GetPosition().x - (float)mTeacher->GetSpriteWidth() / 6, mTeacher->GetPosition().y));
         mTeacher->left = !mTeacher->left;
@@ -73,39 +89,19 @@ void StateOne::Movement()
     }
 
 }
-void StateOne::DetectCollision() {
-    if (mTeacher->GetGame()->p1Exists()) {
-        for (auto it: mTeacher->GetGame()->GetPlayer1()->GetProjectiles()) {
-            if (it->GetState() == ActorState::Active) {
-                if (mTeacher->GetComponent<CircleColliderComponent>()->Intersect(*it->GetComponent<CircleColliderComponent>())) {
-                    it->SetState(ActorState::Paused);
-                    it->GetComponent<DrawSpriteComponent>()->SetIsVisible(false);
-                    mTeacher->extraPointCounter--;
-                    break;
-                }
-            }
-        }
-    }
-    if (mTeacher->GetGame()->p2Exists()) {
-        for (auto it: mTeacher->GetGame()->GetPlayer2()->GetProjectiles()) {
-            if (it->GetState() == ActorState::Active) {
-                if (mTeacher->GetComponent<CircleColliderComponent>()->Intersect(*it->GetComponent<CircleColliderComponent>())) {
-                    it->SetState(ActorState::Destroy);
-                    mTeacher->extraPointCounter--;
-                    break;
-                }
-            }
-        }
-    }
-}
-
 
 
 void StateOne::HandleStateTransition(float stateTimer) {
 
-    if (stateTimer > 30)
+    //fazer o 30 ser uma variável que é recebida no Start e modificada, para poder ficar no estado por tempos
+    //diferentes caso tenham professores diferentes.
+    if (stateTimer > 40)
     {
-        mFSM->SetState("stateTwo");
+        mTaskSpeed += 40;
+        stateAtkTimer = Math::Max(stateAtkTimer - 0.25, 0.1);
+        mTeacher->GetGame()->GetAudio()->PlaySound("enep01.wav");
+        mTeacher->GetGame()->GetPlayer1()->addStage();
+        mTeacher->GetGame()->SetActiveTeacher(mTeacher->GetGame()->GetPlayer1()->GetStage());
     }
 }
 

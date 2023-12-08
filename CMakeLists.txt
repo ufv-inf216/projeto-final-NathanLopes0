@@ -51,6 +51,10 @@ add_executable(DPIBulletHell
         Source/Actors/Teachers/TStates/StateOne.h
         Source/Actors/Teachers/TStates/StateTwo.cpp
         Source/Actors/Teachers/TStates/StateTwo.h
+        Source/Actors/Teachers/Drone.cpp
+        Source/Actors/Teachers/Drone.h
+        Source/Actors/LimiterMenu.cpp
+        Source/Actors/LimiterMenu.h
 )
 
 find_package(SDL2 2.28.2 EXACT REQUIRED)

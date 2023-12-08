@@ -76,7 +76,7 @@ SoundHandle AudioSystem::PlaySound(const std::string& soundName, bool looping)
         for(auto &handleMap : mHandleMap) {
             if(handleMap.second.mSoundName == soundName) {
                 availableChannel = handleMap.second.mChannel;
-                SDL_Log("[AudioSystem] PlaySound ran out of channels playing %s! Stopping %s", soundName.c_str(), handleMap.second.mSoundName.c_str());
+                //SDL_Log("[AudioSystem] PlaySound ran out of channels playing %s! Stopping %s", soundName.c_str(), handleMap.second.mSoundName.c_str());
                 mHandleMap.erase(handleMap.first);
                 break;
             }

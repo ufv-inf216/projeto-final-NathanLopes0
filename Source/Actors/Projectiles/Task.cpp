@@ -15,7 +15,7 @@ Task::Task(Game *game, Teacher *owner, std::string &spritePath, float angleDirec
     waitTime(d)
 
 {
-    mDrawSprite = new DrawSpriteComponent(this, spritePath, 16, 16, 100);
+    mDrawSprite = new DrawSpriteComponent(this, spritePath, 16, 16, 97);
     mRigidBodyComponent = new RigidBodyComponent(this);
     mColliderComponent = new CircleColliderComponent(this, 8);
 

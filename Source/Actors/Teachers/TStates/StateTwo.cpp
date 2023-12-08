@@ -44,6 +44,7 @@ void StateTwo::moveToCenter()
 void StateTwo::Update(float deltaTime) {
 
     stateTime += deltaTime;
+    DetectCollision();
 }
 
 void StateTwo::HandleStateTransition(float stateTimer) {

@@ -7,7 +7,7 @@
 
 PowerUp::PowerUp(Game *game) : Actor(game) {
 
-    mDrawSprite = new DrawSpriteComponent(this, "../Assets/Icons/ExtraPoint.png", 32, 32, 0);
+    mDrawSprite = new DrawSpriteComponent(this, "../Assets/Icons/ExtraPoint.png", 32, 32, 99);
     mRigidBodyComponent = new RigidBodyComponent(this);
     mColliderComponent = new CircleColliderComponent(this, 8);
 
@@ -17,11 +17,12 @@ PowerUp::PowerUp(Game *game) : Actor(game) {
 
 void PowerUp::OnUpdate(float deltaTime) {
 
-    if(GetGame()->GetPlayer1()->GetState() == ActorState::Active) {
+    if(mGame->p1Exists()) {
         if (GetComponent<CircleColliderComponent>()->Intersect(
-                *GetGame()->GetPlayer1()->GetComponent<CircleColliderComponent>())) {
+                *mGame->GetPlayer1()->GetComponent<CircleColliderComponent>())) {
 
-            GetGame()->GetPlayer1()->AddPontoExtra();
+            mGame->GetPlayer1()->AddPontoExtra();
+            mGame->GetAudio()->PlaySound("powerup.wav");
             SetState(ActorState::Destroy);
 
         }
