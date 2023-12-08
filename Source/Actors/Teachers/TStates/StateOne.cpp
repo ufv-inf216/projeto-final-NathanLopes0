@@ -13,11 +13,11 @@ StateOne::StateOne(FSMComponent *fsm)
     switch (mTeacher->GetType()) {
         case Teacher::Ricardo:
             mTaskSpeed = 150;
-            stateAtkTimer = 1.3;
+            stateAtkTimer = 1.6;
             break;
         case Teacher::Salles:
             mTaskSpeed = 280;
-            stateAtkTimer = 0.6;
+            stateAtkTimer = 0.4;
             break;
         default:
             mTaskSpeed = 0;
@@ -98,7 +98,7 @@ void StateOne::HandleStateTransition(float stateTimer) {
     if (stateTimer > 40)
     {
         mTaskSpeed += 40;
-        stateAtkTimer = Math::Max(stateAtkTimer - 0.25, 0.1);
+        stateAtkTimer = Math::Max(stateAtkTimer - 0.2, 0.1);
         mTeacher->GetGame()->GetAudio()->PlaySound("enep01.wav");
         mTeacher->GetGame()->GetPlayer1()->addStage();
         mTeacher->GetGame()->SetActiveTeacher(mTeacher->GetGame()->GetPlayer1()->GetStage());

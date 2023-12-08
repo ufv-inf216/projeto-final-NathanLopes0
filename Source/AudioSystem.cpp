@@ -83,24 +83,20 @@ SoundHandle AudioSystem::PlaySound(const std::string& soundName, bool looping)
         }
     }
 
-    if(availableChannel == -1) {
-        for (auto &handleMap: mHandleMap) {
-            if (handleMap.second.mIsLooping) {
-                StopSound(handleMap.first);
-                availableChannel = handleMap.second.mChannel;
+    //tava tirando minha musica de fundo... como resolver isso sem mudar o AudioSystem?
+//    if(availableChannel == -1) {
+//        for (auto &handleMap: mHandleMap) {
+//            if (handleMap.second.mIsLooping) {
+//                StopSound(handleMap.first);
+//                availableChannel = handleMap.second.mChannel;
+//
+//                SDL_Log("[AudioSystem] PlaySound ran out of channels playing %s! Stopping %s", soundName.c_str(), handleMap.second.mSoundName.c_str());
+//                break;
+//            }
+//        }
+//    }
 
-                SDL_Log("[AudioSystem] PlaySound ran out of channels playing %s! Stopping %s", soundName.c_str(), handleMap.second.mSoundName.c_str());
-                break;
-            }
-        }
-    }
-
-    if(availableChannel == -1) {
-        SDL_Log("[AudioSystem] PlaySound ran out of channels playing %s! Stopping %s", soundName.c_str(), mHandleMap.begin()->second.mSoundName.c_str());
-
-        StopSound(mHandleMap.begin()->first);
-        availableChannel = mHandleMap.begin()->second.mChannel;
-    }
+//
 
     // Update sound handle
     mLastHandle++;
