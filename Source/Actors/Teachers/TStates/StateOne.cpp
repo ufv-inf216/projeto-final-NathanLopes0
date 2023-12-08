@@ -6,6 +6,7 @@
 #include "../Teacher.h"
 #include "../../Projectiles/Question.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
+#include "../../../Actors/LimiterMenu.h"
 
 StateOne::StateOne(FSMComponent *fsm)
     : TState(fsm, "stateOne")
@@ -30,6 +31,7 @@ void StateOne::Start() {
 
     mTeacher->GetComponent<RigidBodyComponent>()->SetVelocity(Vector2::Zero);
     stateTime = 0;
+    mTeacher->SetCurrentStateRepresentation(this);
 
 }
 
@@ -74,9 +76,6 @@ void StateOne::Update(float deltaTime) {
         mTeacher->GetGame()->SetNota(mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()) + points,
                                      mTeacher->GetGame()->GetActiveMateria());
     }
-
-    SDL_Log("State Time: %f, Nota Atual: %f", stateTime, mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()));
-
 }
 
 void StateOne::Movement(float deltaTime)
@@ -128,11 +127,48 @@ void StateOne::HandleStateTransition(float stateTimer) {
             mTeacher->GetGame()->GetAudio()->PlaySound("enep01.wav");
             mTeacher->GetGame()->GetPlayer1()->addStage();
             mTeacher->GetGame()->SetActiveTeacher(mTeacher->GetGame()->GetPlayer1()->GetStage());
+            switch (mTeacher->GetType())
+            {
+                case Teacher::Ricardo: {
+                    if (mTaskSpeed == 190) {
+                        std::string nTxt = "Ricardo Prova 1 de 3";
+                        mTeacher->GetGame()->GetLimiterMenu()->writeNew(nTxt, 6);
+                    }
+                    if (mTaskSpeed == 230) {
+                        std::string nTxt = "Ricardo Prova 2 de 3";
+                        mTeacher->GetGame()->GetLimiterMenu()->changeText(3, nTxt);
+                    }
+                    if (mTaskSpeed == 270) {
+                        std::string nTxt = "Ricardo Prova 3 de 3! Passou em INF 250!!";
+                        mTeacher->GetGame()->GetLimiterMenu()->changeText(3, nTxt);
+                    }
+                    break;
+                }
+                    case Teacher::Salles: {
+                        if(mTaskSpeed == 320)
+                        {
+                            std::string nTxt = "Salles Prova 1 de 3";
+                            mTeacher->GetGame()->GetLimiterMenu()->writeNew(nTxt, 8);
+                        }
+                        if(mTaskSpeed == 360)
+                        {
+                            std::string nTxt = "Salles Prova 2 de 3";
+                            mTeacher->GetGame()->GetLimiterMenu()->changeText(4, nTxt);
+                        }
+                        if(mTaskSpeed == 400)
+                        {
+                            std::string nTxt = "Salles Prova 3 de 3! Passou de INF 213!!";
+                            mTeacher->GetGame()->GetLimiterMenu()->changeText(4, nTxt);
+                        }
+                        break;
+                    }
+                    default:
+                        break;
+            }
         }
         else {
             mTeacher->GetGame()->SetActiveTeacher(mTeacher->GetGame()->GetPlayer1()->GetStage());
         }
-
     }
 }
 

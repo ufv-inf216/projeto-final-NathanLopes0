@@ -18,7 +18,7 @@ Teacher::Teacher(Game *game, Type type)
     mType(type),
     left(true),
     right(false),
-    extraPointCounter(1)
+    extraPointCounter(20)
 
 {
 
@@ -64,7 +64,8 @@ void Teacher::OnUpdate(float deltaTime) {
     if (extraPointCounter <= 0)
     {
         CreateExtraPoint();
-        extraPointCounter = 60;
+
+        extraPointCounter = Random::GetIntRange(40, 80);
         GetGame()->GetAudio()->PlaySound("kira00.wav");
     }
 

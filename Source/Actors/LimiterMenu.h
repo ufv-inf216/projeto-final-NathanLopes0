@@ -12,8 +12,21 @@
 class LimiterMenu : public Actor {
 public:
     LimiterMenu(Game* game, std::string& spritePath, int width, int height);
+    void SetNotaAtual(float notaAtual);
+    void SetStateTimeAtual(float stateTimer);
+    void OnUpdate(float deltaTime) override;
+    void writeNew(std::string & newString, int offSetY_);
+    void changeText(int index, std::string& newText);
 private:
+
+    float offSetX, offSetY;
+
     class DrawSpriteComponent * mDrawComponent;
+    class Font* mFont;
+    std::vector<class DrawTextComponent *> mDrawTextComponent;
+
+
+    void SetPontosPlayer(int pontos);
 };
 
 

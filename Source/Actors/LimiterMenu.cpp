@@ -3,12 +3,102 @@
 //
 
 #include "LimiterMenu.h"
+#include "../Font.h"
 #include "../Components/DrawComponents/DrawSpriteComponent.h"
+#include "../Components/DrawComponents/DrawTextComponent.h"
 #include "../Game.h"
+#include "../Actors/Teachers/TStates/TState.h"
 
-LimiterMenu::LimiterMenu(Game* game, std::string& spritePath, int width, int height) : Actor(game) {
+LimiterMenu::LimiterMenu(Game* game, std::string& spritePath, int width, int height)
+    :Actor(game)
+    ,offSetX(256)
+    ,offSetY(48) {
 
     mDrawComponent = new DrawSpriteComponent(this, spritePath, width, height, 101);
     SetPosition(Vector2(GetGame()->GetWindowWidth() / 2, GetGame()->GetWindowHeight() / 2));
 
+    mFont = new Font();
+    mFont->Load("../Assets/Fonts/Zelda.ttf");
+
+    Vector2 textPosition = Vector2((float) mGame->GetGameWindowWidth() + offSetX,
+                                   (float) mGame->GetGameWindowHeight() / 8);
+    Vector2 offSetYVec = Vector2(0, offSetY);
+
+    //Nota do Aluno
+    auto mostraNota = new Actor(mGame);
+    mostraNota->SetPosition(textPosition + offSetYVec * 0);
+    auto tMostraNota = new DrawTextComponent(mostraNota, "00", mFont, 256, 32, 32, 102);
+    mDrawTextComponent.push_back(tMostraNota);
+
+    //Timer do Estado
+    auto mostraTimer = new Actor(mGame);
+    mostraTimer->SetPosition(textPosition + offSetYVec * 4 + Vector2(128, 0));
+    auto tMostraTimer = new DrawTextComponent(mostraTimer, "00", mFont, 512, 64, 32, 102);
+    mDrawTextComponent.push_back(tMostraTimer);
+
+    //Numero de Pontos Extras
+    auto mostraPontos = new Actor(mGame);
+    mostraPontos->SetPosition(textPosition + offSetYVec * 1 + Vector2(64, 0));
+    auto tMostraPontos = new DrawTextComponent(mostraPontos, "00", mFont, 384, 32, 32, 102);
+    mDrawTextComponent.push_back(tMostraPontos);
+}
+
+
+void LimiterMenu::SetNotaAtual(float notaAtual) {
+
+    float currNote = roundf(notaAtual);
+    int currNoteInt = (int)currNote;
+    std::string NotaAtualStr = std::to_string(currNoteInt);
+    if(NotaAtualStr.size() == 1)
+        NotaAtualStr = "0" + NotaAtualStr;
+    NotaAtualStr = "Nota: " + NotaAtualStr + " de 100";
+    mDrawTextComponent[0]->SetText(NotaAtualStr);
+}
+
+void LimiterMenu::SetStateTimeAtual(float stateTimer) {
+
+    int currTimer = 30 - (int)stateTimer;
+
+    std::string StateTimeAtual = std::to_string(currTimer);
+    if(StateTimeAtual.size() == 1)
+        StateTimeAtual = "0" + StateTimeAtual;
+    StateTimeAtual = StateTimeAtual + " Segundos restantes para\na prova acabar";
+    mDrawTextComponent[1]->SetText(StateTimeAtual);
+}
+
+void LimiterMenu::SetPontosPlayer(int pontos)
+{
+    std::string PontosAtual = "Numero de Pontos Extras: " + std::to_string(pontos) + " de 3";
+    mDrawTextComponent[2]->SetText(PontosAtual);
+}
+
+void LimiterMenu::OnUpdate(float deltaTime) {
+
+    float currNote = mGame->GetNota(mGame->GetActiveMateria());
+    SetNotaAtual(currNote);
+
+    float currTimer = mGame->GetActiveTeacher()->GetCurrentState()->GetStateTime();
+    SetStateTimeAtual(currTimer);
+
+    int currPontos = mGame->GetPlayer1()->GetNumPontosExtras();
+    SetPontosPlayer(currPontos);
+
+
+
+}
+
+void LimiterMenu::writeNew(std::string &newString, int offSetY_) {
+
+    auto newTextActor = new Actor(mGame);
+    auto textPosition = Vector2((float)mGame->GetGameWindowWidth() + offSetX,
+                                (float)mGame->GetGameWindowHeight() / 8);
+
+    newTextActor->SetPosition(textPosition + Vector2(0, offSetY * offSetY_));
+    auto tMostraTexto = new DrawTextComponent(newTextActor, newString, mFont, 256, 32, 32, 102);
+    mDrawTextComponent.push_back(tMostraTexto);
+}
+
+void LimiterMenu::changeText(int index, std::string & newText)
+{
+    mDrawTextComponent[index]->SetText(newText);
 }

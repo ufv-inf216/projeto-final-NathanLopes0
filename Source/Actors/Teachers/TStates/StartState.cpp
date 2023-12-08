@@ -14,6 +14,7 @@ void StartState::Start() {
 
     mTeacher->SetState(ActorState::Active);
     mTeacher->GetComponent<DrawSpriteComponent>()->SetIsVisible(true);
+    mTeacher->SetCurrentStateRepresentation(this);
 
     switch (mTeacher->GetType()) {
         case Teacher::Ricardo:

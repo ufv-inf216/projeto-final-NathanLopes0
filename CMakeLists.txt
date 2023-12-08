@@ -55,11 +55,16 @@ add_executable(DPIBulletHell
         Source/Actors/Teachers/Drone.h
         Source/Actors/LimiterMenu.cpp
         Source/Actors/LimiterMenu.h
+        Source/Scenes/Scene.cpp
+        Source/Components/DrawComponents/DrawTextComponent.cpp
+        Source/Font.cpp
+        Source/CSV.h
 )
 
 find_package(SDL2 2.28.2 EXACT REQUIRED)
 find_package(SDL2_image REQUIRED)
 find_package(SDL2_mixer REQUIRED)
+find_package(SDL2_ttf REQUIRED)
 
 include_directories(${SDL2_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} SDL2_image::SDL2_image SDL2_mixer::SDL2_mixer)
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} SDL2_image::SDL2_image SDL2_mixer::SDL2_mixer SDL2_ttf::SDL2_ttf)

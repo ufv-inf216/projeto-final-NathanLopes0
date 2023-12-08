@@ -33,6 +33,8 @@ public:
     void OnUpdate(float deltaTime) override;
     void CreateExtraPoint();
     Type GetType() { return mType; }
+    class TState * GetCurrentState() {return mCurrentState; }
+    void SetCurrentStateRepresentation(TState* state) {mCurrentState = state;}
 
     int GetSpriteHeight() {return GetComponent<DrawSpriteComponent>()->GetSpriteHeight(); }
     int GetSpriteWidth() { return GetComponent<DrawSpriteComponent>()->GetSpriteWidth(); }
@@ -52,6 +54,7 @@ private:
     class RigidBodyComponent* mRigidBodyComponent;
     class CircleColliderComponent* mColliderComponent;
     class FSMComponent* mFSMComponent;
+    class TState* mCurrentState;
     std::vector<class Task*> mTasks;
 
     Type mType;

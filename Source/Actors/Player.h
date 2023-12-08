@@ -22,6 +22,7 @@ public:
     void OnUpdate(float deltaTime) override;
     std::vector<class Question *> GetProjectiles() { return mQuestions; }
     bool AddPontoExtra();
+    int GetNumPontosExtras() { return numPontosExtras; }
     Vector2 directionToPlayer(const Actor* object);
     void addStage();
     int GetStage() const { return stage; }

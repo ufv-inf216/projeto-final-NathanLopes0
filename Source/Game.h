@@ -42,6 +42,7 @@ public:
 
     Vector2& GetCameraPos() { return mCameraPos; };
     void SetCameraPos(const Vector2& position) { mCameraPos = position; };
+    SDL_Renderer* GetRenderer() { return mRenderer; }
 
     // Window functions
     int GetWindowWidth() const { return mWindowWidth; }
@@ -79,6 +80,7 @@ public:
 
     Materia GetActiveMateria()  { return mActiveMateria; }
     void SetActiveMateria(Game::Materia materia) { mActiveMateria = materia;}
+    class LimiterMenu* GetLimiterMenu() {return mLimiterMenu;}
 
 private:
     void ProcessInput();
@@ -124,7 +126,7 @@ private:
     class std::map<Materia, float> mNotas;
 
     class Teacher* activeTeacher;
-    Actor* mLimiterMenu;
+    class LimiterMenu* mLimiterMenu;
     Materia mActiveMateria;
 
 

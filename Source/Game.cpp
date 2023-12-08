@@ -3,13 +3,16 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <SDL_ttf.h>
 #include "SDL_image.h"
 #include "Random.h"
 #include "Game.h"
 #include "Actors/Actor.h"
-#include "Components/DrawComponents/DrawComponent.h"
 #include "Actors/Player.h"
 #include "Actors/LimiterMenu.h"
+#include "Components/DrawComponents/DrawComponent.h"
+#include "Components/DrawComponents/DrawTextComponent.h"
+
 
 
 Game::Game(int windowWidth, int windowHeight)
@@ -25,7 +28,6 @@ Game::Game(int windowWidth, int windowHeight)
         ,mGameWindowWidth(windowWidth / 2 - 50)
         ,mGameWindowHeight(windowHeight - 50)
 {
-
 
 }
 
@@ -50,6 +52,12 @@ bool Game::Initialize()
     if (!mRenderer)
     {
         SDL_Log("Failed to create renderer: %s", SDL_GetError());
+        return false;
+    }
+
+    if (TTF_Init() != 0)
+    {
+        SDL_Log("Failed to initialize SDL_ttf");
         return false;
     }
 

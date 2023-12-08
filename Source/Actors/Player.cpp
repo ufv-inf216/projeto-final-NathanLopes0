@@ -56,8 +56,9 @@ void Player::OnUpdate(float deltaTime) {
 
             if (GetComponent<CircleColliderComponent>()->Intersect(*i->GetComponent<CircleColliderComponent>())) {
                 float deduceNota = Random::GetFloatRange(9.0f, 13.0f);
+                mGame->GetAudio()->PlaySound("pldead00.wav");
                 mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, mGame->GetActiveMateria());
-                invencibilityTime = 1.2;
+                invencibilityTime = 1.8;
                 if (mGame->GetNota(mGame->GetActiveMateria()) <= 0) {
                     SetState(ActorState::Destroy);
                 }
@@ -128,9 +129,10 @@ void Player::OnProcessInput(const Uint8 *keyState) {
         }
     }
 
-    if (keyState[SDL_SCANCODE_B] && numPontosExtras > 0)
+    if (keyState[SDL_SCANCODE_B] && numPontosExtras > 0 && atkTimer < 0)
     {
         numPontosExtras--;
+        mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) + 10, mGame->GetActiveMateria());
         for(auto it : GetGame()->GetTasks())
         {
             it->SetState(ActorState::Destroy);

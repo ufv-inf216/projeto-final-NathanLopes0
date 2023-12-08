@@ -15,6 +15,7 @@ public:
 
     TState(FSMComponent* fsm, const std::string& name);
     void Update(float deltaTime);
+    float GetStateTime() const { return stateTime; }
 
 
 protected:
