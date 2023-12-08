@@ -27,6 +27,7 @@ protected:
     float atkTimer;
     float stateTime;
     float soundTime;
+    float moveTime;
     void PlayAttackAudio();
 
 

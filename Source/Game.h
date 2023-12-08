@@ -13,6 +13,11 @@
 class Game
 {
 public:
+    enum Materia {
+        INF250,
+        INF213
+    };
+
     Game(int windowWidth, int windowHeight);
 
     bool Initialize();
@@ -53,9 +58,11 @@ public:
     class Player* GetPlayer2() { return mPlayer2; }
     bool p1Exists() {return mPlayer1!= nullptr && mPlayer1->GetState() != ActorState::Destroy; }
     bool p2Exists() {return mPlayer2 != nullptr && mPlayer2->GetState() != ActorState::Destroy; }
-    float GetNota(const std::string& materia) { return mNotas[materia]; }
-    void SetNota(const float newNota, const std::string& materia) { mNotas[materia] = newNota; }
-    bool Passou(const std::string& materia) { return mNotas[materia] >= 60; }
+
+    //funções de Nota
+    float GetNota(const Materia materia) { return mNotas[materia]; }
+    void SetNota(const float newNota, Materia materia) { mNotas[materia] = newNota; }
+    bool Passou(const Materia materia) { return mNotas[materia] >= 60; }
 
     std::vector<class Task *> GetTasks() {return mTasks;}
     void AddTask(class Task * task) { mTasks.push_back(task); }
@@ -68,7 +75,10 @@ public:
 
     void SetActiveTeacher(int teacherIndex);
 
-    Teacher *GetActiveTeacher();
+    Teacher *GetActiveTeacher() { return activeTeacher; }
+
+    Materia GetActiveMateria()  { return mActiveMateria; }
+    void SetActiveMateria(Game::Materia materia) { mActiveMateria = materia;}
 
 private:
     void ProcessInput();
@@ -110,10 +120,13 @@ private:
     // Game-specific
     class Player* mPlayer1;
     class Player* mPlayer2;
-    class std::map<std::string, float> mNotas;
+
+    class std::map<Materia, float> mNotas;
 
     class Teacher* activeTeacher;
     Actor* mLimiterMenu;
+    Materia mActiveMateria;
+
 
     std::vector<class Teacher*> mTeachers;
     std::vector<class Task*> mTasks;

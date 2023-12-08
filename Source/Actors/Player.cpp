@@ -13,6 +13,9 @@ Player::Player(struct Game *game, std::string &avatarPath)
         ,atkTimer(0.1f)
         ,numPontosExtras(1)
         ,stage(0)
+        ,invencibilityTime(0)
+        ,piscafrequencia(0.1)
+        ,pisca(true)
 {
 
     mDrawSprite = new DrawSpriteComponent(this, avatarPath, 48, 48, 100);
@@ -36,18 +39,30 @@ Player::Player(struct Game *game, std::string &avatarPath)
 void Player::OnUpdate(float deltaTime) {
 
     atkTimer -= deltaTime;
-
-    for (auto i : GetGame()->GetTasks())
-    {
-
-        if(GetComponent<CircleColliderComponent>()->Intersect(*i->GetComponent<CircleColliderComponent>()))
+    if (invencibilityTime > 0){
+        piscafrequencia -= deltaTime;
+        if (piscafrequencia < 0)
         {
+            piscafrequencia = 0.1;
+            mDrawSprite->SetIsVisible(pisca);
+            pisca = !pisca;
+        }
+        invencibilityTime -= deltaTime;
+    }
 
-            SetState(ActorState::Destroy);
+    if (invencibilityTime <= 0) {
+        mDrawSprite->SetIsVisible(true);
+        for (auto i: GetGame()->GetTasks()) {
 
-            //diminui nota ao invés de destruir. também ganha um tempo de invencibilidade que não conta pontos caso desvie,
-            //mas não diminui nota caso seja acertade.
-            break;
+            if (GetComponent<CircleColliderComponent>()->Intersect(*i->GetComponent<CircleColliderComponent>())) {
+
+                mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - 5, mGame->GetActiveMateria());
+                invencibilityTime = 2;
+                if (mGame->GetNota(mGame->GetActiveMateria()) <= 0) {
+                    SetState(ActorState::Destroy);
+                }
+                break;
+            }
         }
     }
 

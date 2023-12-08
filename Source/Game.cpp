@@ -75,8 +75,18 @@ void Game::InitializeActors()
     std::string player1avatar = "../Assets/Player/DPIBHPlayerPrototype.png";
     mPlayer1 = new Player(this, player1avatar);
 
-    auto teacher = new Teacher(this, Teacher::Ricardo);
-    auto teacher2 = new Teacher(this, Teacher::Salles);
+    //adicionar em uma certa ordem
+    //new Teacher(this, Teacher::Andre);
+    new Teacher(this, Teacher::Ricardo);
+    new Teacher(this, Teacher::Salles);
+
+
+    size_t noteSize = mTeachers.size();
+    for (int i = 0; i < noteSize; i++)
+    {
+        mNotas[Game::Materia(i)] = 40;
+    }
+
 
     for(auto it : mTeachers)
     {
@@ -89,8 +99,6 @@ void Game::InitializeActors()
 
 
 }
-
-Teacher* Game::GetActiveTeacher() { return activeTeacher;}
 
 void Game::SetActiveTeacher(int teacherIndex) {
     activeTeacher->SetState(ActorState::Paused);

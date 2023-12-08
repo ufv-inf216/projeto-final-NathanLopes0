@@ -41,6 +41,9 @@ private:
 
     void OnProcessInput(const Uint8 *keyState) override;
     int stage;
+    float invencibilityTime;
+    bool pisca;
+    float piscafrequencia;
 };
 
 
