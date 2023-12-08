@@ -32,6 +32,9 @@ Teacher::Teacher(Game *game, Type type)
         case Salles:
             prefix += "DPIBHSallesStartPrototypeScaled";
             break;
+        case Andre:
+            prefix += "DPIBHAndrePrototype";
+            break;
         default:
             SDL_Log("Teacher Sprite doesn't exist");
             break;
@@ -78,8 +81,12 @@ void Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, flo
     std::string spritePath;
     switch (GetType())
     {
+        
         case Type::Ricardo:
             spritePath = "../Assets/Teachers/DPIBHArduinoPrototype2.png";
+            break;
+        case Type::Salles:
+            spritePath = "../Assets/Icons/Capivara.png";
             break;
         default:
             spritePath = "../Assets/Icons/PlaceholderTask.png";

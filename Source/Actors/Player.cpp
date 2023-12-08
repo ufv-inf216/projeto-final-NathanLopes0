@@ -55,9 +55,9 @@ void Player::OnUpdate(float deltaTime) {
         for (auto i: GetGame()->GetTasks()) {
 
             if (GetComponent<CircleColliderComponent>()->Intersect(*i->GetComponent<CircleColliderComponent>())) {
-
-                mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - 5, mGame->GetActiveMateria());
-                invencibilityTime = 2;
+                float deduceNota = Random::GetFloatRange(9.0f, 13.0f);
+                mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, mGame->GetActiveMateria());
+                invencibilityTime = 1.2;
                 if (mGame->GetNota(mGame->GetActiveMateria()) <= 0) {
                     SetState(ActorState::Destroy);
                 }

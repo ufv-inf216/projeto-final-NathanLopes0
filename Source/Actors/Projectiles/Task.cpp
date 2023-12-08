@@ -15,9 +15,9 @@ Task::Task(Game *game, Teacher *owner, std::string &spritePath, float angleDirec
     waitTime(d)
 
 {
-    mDrawSprite = new DrawSpriteComponent(this, spritePath, 16, 16, 97);
+    mDrawSprite = new DrawSpriteComponent(this, spritePath, 32, 32, 97);
     mRigidBodyComponent = new RigidBodyComponent(this);
-    mColliderComponent = new CircleColliderComponent(this, 8);
+    mColliderComponent = new CircleColliderComponent(this, GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 2);
 
 
     float currVelocityX = Math::Cos(mDirection * (Math::Pi / 180)); //convertendo graus para radians e tirando sin e cos

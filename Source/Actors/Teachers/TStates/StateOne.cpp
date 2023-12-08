@@ -75,8 +75,7 @@ void StateOne::Update(float deltaTime) {
                                      mTeacher->GetGame()->GetActiveMateria());
     }
 
-    SDL_Log("%f, %f", stateTime, mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()));
-    //HandleStateTransition(stateTime);
+    SDL_Log("State Time: %f, Nota Atual: %f", stateTime, mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()));
 
 }
 
@@ -119,7 +118,7 @@ void StateOne::HandleStateTransition(float stateTimer) {
 
     //fazer o escalar ser uma variável que é recebida no Start e modificada, para poder ficar no estado por tempos
     //diferentes caso tenham professores diferentes.
-    if (stateTimer > 10)
+    if (stateTimer > 30)
     {
         if(mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()) >= 60)
         {

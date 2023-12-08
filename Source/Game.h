@@ -61,7 +61,7 @@ public:
 
     //funções de Nota
     float GetNota(const Materia materia) { return mNotas[materia]; }
-    void SetNota(const float newNota, Materia materia) { mNotas[materia] = newNota; }
+    void SetNota(const float newNota, Materia materia);
     bool Passou(const Materia materia) { return mNotas[materia] >= 60; }
 
     std::vector<class Task *> GetTasks() {return mTasks;}

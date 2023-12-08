@@ -312,3 +312,9 @@ void Game::RemoveTask(struct Task *task) {
     }
 
 }
+
+void Game::SetNota(const float newNota, Game::Materia materia) {
+
+    mNotas[materia] = Math::Min(newNota, 100.0f);
+
+}
