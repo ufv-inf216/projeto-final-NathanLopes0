@@ -1,9 +1,10 @@
 # DPI Bullet Hell
 DPI Bullet Hell é um jogo onde o jogador é um aluno tentando passar pelas matérias do curso de Ciência da Computação para se formar.
 ## Mecânicas Básicas
-O jogo é um "Bullet Hell", com um formato parecido com jogos de nave antigos, exceto que a nave é um aluno e o boss são professores do DPI. Além disso, ele não tem um número de Vidas e sim, uma ***Nota***, que começa em 40 a cada fase. Os projéteis dos alunos são ***Dúvidas*** que eles jogam nos professores que aumentam sua nota. Ser acertado diminui sua nota. Depois de receber muitas Dúvidas, os professores jogam ***Pontos Extras*** no aluno que pode ser coletado e guardado pra usar depois.
+O jogo é um "Bullet Hell", com um formato parecido com jogos de nave antigos, exceto que a nave é um aluno e o boss são professores do DPI. Além disso, ele não tem um número de Vidas e sim, uma ***Nota***, que começa em 40 a cada fase. Os projéteis dos alunos são ***Dúvidas*** que eles jogam nos professores que aumentam sua Nota. Ser acertado diminui sua Nota. Depois de receber muitas Dúvidas, os professores jogam ***Pontos Extras*** no aluno que pode ser coletado e guardado pra usar depois.
 
-O aluno pode ser movido com as setas do teclado ou as teclas WASD, como o jogador preferir. A Barra de Espaço lança as Dúvidas, e a tecla B usa um dos Pontos Extras que o aluno tenha coletado para limpar a tela dos projéteis dos professores.
+O aluno pode ser movido com as setas do teclado ou as teclas WASD, como o jogador preferir. A Barra de Espaço lança as Dúvidas, e a tecla B usa um dos Pontos Extras que o aluno tenha coletado para limpar a tela dos projéteis dos professores e ganhar aproximadamente 10 pontos, mas **fica sobrecarregado e não pode lançar Dúvidas por alguns segundos**.
+
 ## Condições de Vitória e Derrota
 Um aluno passa de fase quando chega no fim do tempo da fase com nota maior ou igual a sessenta. Caso termine com menos, ele deve refazer a fase, e sua nota volta para a inicial (40).
 
