@@ -15,9 +15,9 @@ Task::Task(Game *game, Teacher *owner, std::string &spritePath, float angleDirec
     waitTime(d)
 
 {
-    mDrawSprite = new DrawSpriteComponent(this, spritePath, 32, 32, 97);
+    mDrawSprite = new DrawSpriteWColorEffect(this, spritePath, 32, 32, 97);
     mRigidBodyComponent = new RigidBodyComponent(this);
-    mColliderComponent = new CircleColliderComponent(this, GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 2);
+    mColliderComponent = new CircleColliderComponent(this, GetComponent<DrawSpriteWColorEffect>()->GetSpriteWidth() / 2);
 
 
     float currVelocityX = Math::Cos(mDirection * (Math::Pi / 180)); //convertendo graus para radians e tirando sin e cos
@@ -34,8 +34,8 @@ Task::~Task() {
 
 void Task::OnUpdate(float deltaTime)  {
 
-    if(GetPosition().y > GetGame()->GetWindowHeight() || GetPosition().y < -GetComponent<DrawSpriteComponent>()->GetSpriteHeight()
-    || GetPosition().x < -GetComponent<DrawSpriteComponent>()->GetSpriteWidth() || GetPosition().x > GetGame()->GetWindowWidth())
+    if(GetPosition().y > GetGame()->GetWindowHeight() || GetPosition().y < -GetComponent<DrawSpriteWColorEffect>()->GetSpriteHeight()
+    || GetPosition().x < -GetComponent<DrawSpriteWColorEffect>()->GetSpriteWidth() || GetPosition().x > GetGame()->GetWindowWidth())
     {
         SetState(ActorState::Destroy);
         mGame->RemoveTask(this);

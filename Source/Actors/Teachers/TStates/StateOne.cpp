@@ -4,6 +4,7 @@
 
 #include "StateOne.h"
 #include "../Teacher.h"
+#include "../../Projectiles/Task.h"
 #include "../../Projectiles/Question.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
 #include "../../../Actors/LimiterMenu.h"
@@ -59,8 +60,17 @@ void StateOne::Update(float deltaTime) {
             bool playerDirection = false;
             int numTasks = 2;
             if(mTaskSpeed >= 400) numTasks = 3;
-            if (playerDirectionInt < 20) playerDirection = true;
-            Attack(deltaTime, startAngle, startAngle + 20, false, playerDirection, stateAtkfrequency, numTasks, mTaskSpeed, 1.2);
+            if (playerDirectionInt < 20) {
+                playerDirection = true;
+            }
+            auto tasksColor = Attack(deltaTime, startAngle, startAngle + 20, false, playerDirection, stateAtkfrequency, numTasks, mTaskSpeed, 1.2);
+            if (playerDirection)
+            {
+                for (auto it : tasksColor)
+                {
+                    it->GetComponent<DrawSpriteWColorEffect>()->SetColorEffect(180, 20, 180, 1);
+                }
+            }
             break;
         }
         case Teacher::Andre:

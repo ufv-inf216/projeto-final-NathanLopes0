@@ -13,8 +13,8 @@ public:
     DrawSpriteComponent(class Actor* owner, const std::string &texturePath, int width = 0, int height = 0, int drawOrder = 100);
 
     void Draw(SDL_Renderer* renderer) override;
-    int GetSpriteWidth() {return mWidth;}
-    int GetSpriteHeight() {return mHeight;}
+    int GetSpriteWidth() const {return mWidth;}
+    int GetSpriteHeight() const {return mHeight;}
 
 protected:
     // Map of textures loaded

@@ -59,6 +59,8 @@ add_executable(DPIBulletHell
         Source/Components/DrawComponents/DrawTextComponent.cpp
         Source/Font.cpp
         Source/CSV.h
+        Source/Components/DrawComponents/DrawSpriteWColorEffect.cpp
+        Source/Components/DrawComponents/DrawSpriteWColorEffect.h
 )
 
 find_package(SDL2 2.28.2 EXACT REQUIRED)

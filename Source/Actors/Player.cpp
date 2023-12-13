@@ -7,18 +7,21 @@
 #include "Projectiles/Question.h"
 #include "Projectiles/Task.h"
 
+float PISCA_OVERCHARGE_TIME = 0.5;
+
 Player::Player(struct Game *game, std::string &avatarPath)
         :Actor(game)
         ,pSpeed(300.0f)
         ,atkTimer(0.1f)
-        ,numPontosExtras(1)
+        ,numPontosExtras(99)
         ,stage(0)
         ,invencibilityTime(0)
         ,piscafrequencia(0.1)
         ,pisca(true)
+        ,piscaOvercharge(false)
 {
 
-    mDrawSprite = new DrawSpriteComponent(this, avatarPath, 48, 48, 100);
+    mDrawSprite = new DrawSpriteWColorEffect(this, avatarPath, 48, 48, 100);
     mRigidBodyComponent = new RigidBodyComponent(this);
     mColliderComponent = new CircleColliderComponent(this, 8);
 
@@ -39,6 +42,12 @@ Player::Player(struct Game *game, std::string &avatarPath)
 void Player::OnUpdate(float deltaTime) {
 
     atkTimer -= deltaTime;
+    if (atkTimer <= 0)
+    {
+        piscaOvercharge = false;
+        mDrawSprite->StopColorEffect();
+    }
+
     if (invencibilityTime > 0){
         piscafrequencia -= deltaTime;
         if (piscafrequencia < 0)
@@ -49,7 +58,6 @@ void Player::OnUpdate(float deltaTime) {
         }
         invencibilityTime -= deltaTime;
     }
-
     if (invencibilityTime <= 0) {
         mDrawSprite->SetIsVisible(true);
         for (auto i: GetGame()->GetTasks()) {
@@ -58,7 +66,7 @@ void Player::OnUpdate(float deltaTime) {
                 float deduceNota = Random::GetFloatRange(9.0f, 13.0f);
                 mGame->GetAudio()->PlaySound("pldead00.wav");
                 mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, mGame->GetActiveMateria());
-                invencibilityTime = 1.8;
+                invencibilityTime = 2.2;
                 if (mGame->GetNota(mGame->GetActiveMateria()) <= 0) {
                     SetState(ActorState::Destroy);
                 }
@@ -66,15 +74,17 @@ void Player::OnUpdate(float deltaTime) {
             }
         }
     }
-
     if (GetComponent<CircleColliderComponent>()->Intersect(*mGame->GetTeacher(GetStage())->GetComponent<CircleColliderComponent>()))
     {
-        SetState(ActorState::Destroy);
-        //diminuir nota, ativar invencibility frames ou então não deixar o jogador se aproximar?
-
+        float deduceNota = Random::GetFloatRange(16.0f, 24.0f);
+        mGame->GetAudio()->PlaySound("pldead00.wav");
+        mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, mGame->GetActiveMateria());
+        invencibilityTime = 2.2;
+        if (mGame->GetNota(mGame->GetActiveMateria()) <= 0)
+        {
+            SetState(ActorState::Destroy);
+        }
     }
-
-
 }
 
 void Player::OnProcessInput(const Uint8 *keyState) {
@@ -104,11 +114,11 @@ void Player::OnProcessInput(const Uint8 *keyState) {
 
     GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(newXSpeed,newYSpeed));
 
-    //limitando (um pouco) o jogador aos limites da tela
+    //limitando o jogador aos limites da tela
     SetPosition(Vector2(std::clamp(GetPosition().x, (float) GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 1.1f,(float)GetGame()->GetGameWindowWidth() +
-                                GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 2),
+                                GetComponent<DrawSpriteWColorEffect>()->GetSpriteWidth() / 2),
                         std::clamp(GetPosition().y, (float) GetComponent<DrawSpriteComponent>()->GetSpriteHeight(), (float)GetGame()->GetGameWindowHeight() +
-                                GetComponent<DrawSpriteComponent>()->GetSpriteHeight() / 5)
+                                GetComponent<DrawSpriteWColorEffect>()->GetSpriteHeight() / 5)
     ));
 
 
@@ -140,6 +150,8 @@ void Player::OnProcessInput(const Uint8 *keyState) {
         }
         mGame->GetAudio()->PlaySound("lazer00.wav");
         atkTimer = 5;
+        piscaOvercharge = true;
+        mDrawSprite->SetColorEffect(255, 0, 0, 255);
     }
 }
 
@@ -155,7 +167,6 @@ Vector2 Player::directionToPlayer(const Actor *object) {
     auto directionToPlayer = GetPosition() - objectPosition;
 
     directionToPlayer.Normalize();
-
     return directionToPlayer;
 
 }

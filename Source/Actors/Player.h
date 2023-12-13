@@ -9,7 +9,7 @@
 
 #include "Actor.h"
 #include "../Components/RigidBodyComponent.h"
-#include "../Components/DrawComponents/DrawSpriteComponent.h"
+#include "../Components/DrawComponents/DrawSpriteWColorEffect.h"
 #include "../Components/ColliderComponents/CircleColliderComponent.h"
 
 class Player : public Actor {
@@ -35,7 +35,7 @@ private:
     std::string avatarSpritePath;
     std::vector<class Question*> mQuestions;
 
-    DrawSpriteComponent* mDrawSprite;
+    DrawSpriteWColorEffect* mDrawSprite;
     RigidBodyComponent * mRigidBodyComponent;
     CircleColliderComponent* mColliderComponent;
 
@@ -43,7 +43,7 @@ private:
     void OnProcessInput(const Uint8 *keyState) override;
     int stage;
     float invencibilityTime;
-    bool pisca;
+    bool pisca, piscaOvercharge;
     float piscafrequencia;
 };
 

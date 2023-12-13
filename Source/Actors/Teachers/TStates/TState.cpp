@@ -44,9 +44,10 @@ bool TState::DetectCollision() {
     return false;
 }
 
-void TState::Attack(float deltaTime, float startAngle, float finalAngle, bool dividefocus, bool playerDirection_, float atkTimer_, int numTasks, float speed, float waitTime) {
+std::vector<Task *> TState::Attack(float deltaTime, float startAngle, float finalAngle, bool dividefocus, bool playerDirection_, float atkTimer_, int numTasks, float speed, float waitTime) {
     atkTimer -= deltaTime;
     soundTime -= deltaTime;
+    std::vector<Task*> returnTasks;
     if(atkTimer < 0)
     {
         float angleInterval = (finalAngle - startAngle) / (float)numTasks;
@@ -57,10 +58,13 @@ void TState::Attack(float deltaTime, float startAngle, float finalAngle, bool di
             if(dividefocus && playerDirection_) playerDirection = !playerDirection;
             if(!mTeacher->GetGame()->p1Exists()) playerDirection = false;
             float angle = startAngle + angleInterval * i;
-            mTeacher->TaskCreation(angle, angle, 1, speed, playerDirection, waitTime);
+            auto task = mTeacher->TaskCreation(angle, angle, 1, speed, playerDirection, waitTime);
+            returnTasks.push_back(task);
         }
         atkTimer = atkTimer_;
     }
+
+    return returnTasks;
 }
 
 void TState::PlayAttackAudio()

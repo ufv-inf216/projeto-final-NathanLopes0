@@ -7,6 +7,7 @@
 
 
 #include "../../../Components/AIComponents/FSMState.h"
+#include <vector>
 
 class TState : public FSMState {
 
@@ -21,9 +22,9 @@ public:
 protected:
 
     bool DetectCollision();
-    void Attack(float deltaTime, float startAngle,
-                float finalAngle, bool dividefocus, bool playerDirection,
-                float atkTimer_, int numTasks, float speed, float waitTime);
+    std::vector<class Task *> Attack(float deltaTime, float startAngle,
+                               float finalAngle, bool dividefocus, bool playerDirection,
+                               float atkTimer_, int numTasks, float speed, float waitTime);
     class Teacher* mTeacher;
     float atkTimer;
     float stateTime;

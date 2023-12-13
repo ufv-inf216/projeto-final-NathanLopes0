@@ -39,7 +39,8 @@ public:
     int GetSpriteHeight() {return GetComponent<DrawSpriteComponent>()->GetSpriteHeight(); }
     int GetSpriteWidth() { return GetComponent<DrawSpriteComponent>()->GetSpriteWidth(); }
 
-    void TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool playerDirection, double waitTime);
+    class Task *
+    TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool playerDirection, double waitTime);
 
 
     bool left;
