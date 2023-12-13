@@ -13,7 +13,7 @@ Player::Player(struct Game *game, std::string &avatarPath)
         :Actor(game)
         ,pSpeed(300.0f)
         ,atkTimer(0.1f)
-        ,numPontosExtras(99)
+        ,numPontosExtras(0)
         ,stage(0)
         ,invencibilityTime(0)
         ,piscafrequencia(0.1)
@@ -156,7 +156,7 @@ void Player::OnProcessInput(const Uint8 *keyState) {
 }
 
 bool Player::AddPontoExtra() {
-    if(numPontosExtras == 3) return false;
+    if(numPontosExtras >= 3) return false;
 
     numPontosExtras++;
     return true;
