@@ -22,7 +22,6 @@ void PowerUp::OnUpdate(float deltaTime) {
                 *mGame->GetPlayer1()->GetComponent<CircleColliderComponent>())) {
 
             mGame->GetPlayer1()->AddPontoExtra();
-            mGame->GetAudio()->PlaySound("powerup.wav");
             SetState(ActorState::Destroy);
 
         }

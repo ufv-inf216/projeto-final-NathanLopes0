@@ -7,8 +7,6 @@
 #include "Projectiles/Question.h"
 #include "Projectiles/Task.h"
 
-float PISCA_OVERCHARGE_TIME = 0.5;
-
 Player::Player(struct Game *game, std::string &avatarPath)
         :Actor(game)
         ,pSpeed(300.0f)
@@ -42,7 +40,7 @@ Player::Player(struct Game *game, std::string &avatarPath)
 void Player::OnUpdate(float deltaTime) {
 
     atkTimer -= deltaTime;
-    if (atkTimer <= 0)
+    if (piscaOvercharge && atkTimer <= 0)
     {
         piscaOvercharge = false;
         mDrawSprite->StopColorEffect();
@@ -78,9 +76,9 @@ void Player::OnUpdate(float deltaTime) {
     {
         float deduceNota = Random::GetFloatRange(16.0f, 24.0f);
         mGame->GetAudio()->PlaySound("pldead00.wav");
-        mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, mGame->GetActiveMateria());
+        mGame->SetNota(Math::Max(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, 0.f), mGame->GetActiveMateria());
         invencibilityTime = 2.2;
-        if (mGame->GetNota(mGame->GetActiveMateria()) <= 0)
+        if (mGame->GetNota(mGame->GetActiveMateria()) < 0)
         {
             SetState(ActorState::Destroy);
         }
@@ -156,8 +154,15 @@ void Player::OnProcessInput(const Uint8 *keyState) {
 }
 
 bool Player::AddPontoExtra() {
-    if(numPontosExtras >= 3) return false;
+    if(numPontosExtras >= 3)
+    {
+        mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) + Random::GetFloatRange(1.0f, 2.0f),
+                       mGame->GetActiveMateria());
 
+        return false;
+    }
+
+    mGame->GetAudio()->PlaySound("powerup.wav");
     numPontosExtras++;
     return true;
 }

@@ -8,7 +8,14 @@
 
 DrawSpriteWColorEffect::DrawSpriteWColorEffect(Actor *owner, const std::string &texturePath, int width, int height,
                                                int drawOrder, int r_, int g_, int b_, int a_) //chamando o construtor do DrawSprite, e desativando o efeito inicialmente
-                                               : DrawSpriteComponent(owner, texturePath, width, height, drawOrder), active(false) {
+                                               : DrawSpriteComponent(owner, texturePath, width, height, drawOrder), active(false),
+                                               r(r_),
+                                               g(g_),
+                                               b(b_),
+                                               a(a_)
+
+{
+
 }
 
 void DrawSpriteWColorEffect::Draw(SDL_Renderer *renderer) {

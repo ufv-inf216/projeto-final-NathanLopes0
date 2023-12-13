@@ -70,3 +70,13 @@
 1759	3560	7241966915716828	DPIBulletHell.exe	a2853395f995bc1e
 5	1939	7241975225790809	CMakeFiles/DPIBulletHell.dir/Source/Actors/Player.cpp.obj	b10e4359b5de7c9e
 1939	3765	7241975244009177	DPIBulletHell.exe	a2853395f995bc1e
+17	2427	7242003221978342	CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawSpriteWColorEffect.cpp.obj	8bc9fe254e886b06
+7	2788	7242003225599289	CMakeFiles/DPIBulletHell.dir/Source/Actors/Player.cpp.obj	b10e4359b5de7c9e
+2789	4788	7242003245535112	DPIBulletHell.exe	a2853395f995bc1e
+19	2435	7242037509133581	CMakeFiles/DPIBulletHell.dir/Source/Actors/PowerUp.cpp.obj	39698c9765d107a1
+11	2906	7242037513825510	CMakeFiles/DPIBulletHell.dir/Source/Actors/Player.cpp.obj	b10e4359b5de7c9e
+2906	6519	7242037549833744	DPIBulletHell.exe	a2853395f995bc1e
+9	4120	7242043285428439	CMakeFiles/DPIBulletHell.dir/Source/Actors/Player.cpp.obj	b10e4359b5de7c9e
+4121	7743	7242043321561232	DPIBulletHell.exe	a2853395f995bc1e
+10	4373	7242044009564443	CMakeFiles/DPIBulletHell.dir/Source/Actors/Player.cpp.obj	b10e4359b5de7c9e
+4373	8156	7242044047277552	DPIBulletHell.exe	a2853395f995bc1e
