@@ -21,8 +21,6 @@ public:
 protected:
 
 private:
-    float mTaskSpeed;
-    float stateAtkfrequency;
 
 };
 

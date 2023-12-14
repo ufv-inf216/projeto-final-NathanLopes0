@@ -16,15 +16,14 @@ public:
     void Start() override;
     void Update(float deltaTime) override;
     void HandleStateTransition(float stateTimer) override;
-    void Movement();
+    void Movement(float deltaTime);
 
 private:
 
-    float atkTimer;
-
     bool inCenter();
+    bool centeredOnce;
 
-    void moveToCenter();
+    void moveToCenter(float deltaTime);
 };
 
 

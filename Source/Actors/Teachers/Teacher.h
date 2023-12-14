@@ -33,7 +33,7 @@ public:
     void OnUpdate(float deltaTime) override;
     void CreateExtraPoint();
     Type GetType() { return mType; }
-    class TState * GetCurrentState() {return mCurrentState; }
+    class TState * GetCurrentState() { return mCurrentState; }
     void SetCurrentStateRepresentation(TState* state) {mCurrentState = state;}
 
     int GetSpriteHeight() {return GetComponent<DrawSpriteComponent>()->GetSpriteHeight(); }

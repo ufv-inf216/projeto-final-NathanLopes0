@@ -5,6 +5,7 @@
 #include "StartState.h"
 #include "../Teacher.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
+#include "../../LimiterMenu.h"
 
 StartState::StartState(FSMComponent *fsm) : TState(fsm, "start") {
 
@@ -15,6 +16,8 @@ void StartState::Start() {
     mTeacher->SetState(ActorState::Active);
     mTeacher->GetComponent<DrawSpriteComponent>()->SetIsVisible(true);
     mTeacher->SetCurrentStateRepresentation(this);
+    std::string nTxt = " ";
+    mTeacher->GetGame()->GetLimiterMenu()->writeNew(nTxt, 6);
 
     switch (mTeacher->GetType()) {
         case Teacher::Ricardo:

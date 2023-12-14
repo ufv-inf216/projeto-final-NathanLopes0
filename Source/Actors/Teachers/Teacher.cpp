@@ -12,6 +12,7 @@
 #include "TStates/StartState.h"
 #include "TStates/StateOne.h"
 #include "TStates/StateTwo.h"
+#include "TStates/StateThree.h"
 
 Teacher::Teacher(Game *game, Type type)
     :Actor(game),
@@ -52,6 +53,7 @@ Teacher::Teacher(Game *game, Type type)
     new StartState(mFSMComponent);
     new StateOne(mFSMComponent);
     new StateTwo(mFSMComponent);
+    new StateThree(mFSMComponent);
 
 }
 
@@ -69,7 +71,7 @@ void Teacher::OnUpdate(float deltaTime) {
         GetGame()->GetAudio()->PlaySound("kira00.wav");
     }
 
-    if (!mGame->p1Exists()) SDL_Quit();
+    if (!mGame->p1Exists()) mGame->Shutdown();
 }
 
 void Teacher::CreateExtraPoint() {
@@ -84,10 +86,10 @@ Task * Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, f
     {
         
         case Type::Ricardo:
-            spritePath = "../Assets/Teachers/DPIBHArduinoPrototype2.png";
+            spritePath = "../Assets/Teachers/Projectiles/DPIBHArduinoPrototype2.png";
             break;
         case Type::Salles:
-            spritePath = "../Assets/Icons/Capivara.png";
+            spritePath = "../Assets/Teachers/Projectiles/Capivara.png";
             break;
         default:
             spritePath = "../Assets/Icons/PlaceholderTask.png";

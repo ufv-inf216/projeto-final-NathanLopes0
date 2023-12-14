@@ -20,13 +20,16 @@ public:
 private:
 
     float offSetX, offSetY;
+    int mWidth, mHeight;
 
-    class DrawSpriteComponent * mDrawComponent;
+    class DrawSpriteWColorEffect * mDrawComponent;
     class Font* mFont;
     std::vector<class DrawTextComponent *> mDrawTextComponent;
 
 
     void SetPontosPlayer(int pontos);
+
+    void DrawApprovedSign();
 };
 
 

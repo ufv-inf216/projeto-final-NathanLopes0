@@ -36,9 +36,6 @@ add_executable(DPIBulletHell
         Source/Actors/Projectiles/Task.cpp
         Source/Actors/Projectiles/Task.h
         Source/Actors/Projectiles/Task.h
-        Source/Scene.cpp
-        Source/Scene.h
-        Source/Scene.h
         Source/AudioSystem.cpp
         Source/AudioSystem.h
         Source/Components/AIComponents/FSMComponent.cpp
@@ -61,6 +58,16 @@ add_executable(DPIBulletHell
         Source/CSV.h
         Source/Components/DrawComponents/DrawSpriteWColorEffect.cpp
         Source/Components/DrawComponents/DrawSpriteWColorEffect.h
+        Source/Actors/Teachers/TStates/StateThree.cpp
+        Source/Actors/Teachers/TStates/StateThree.h
+        Source/Scenes/MainMenu.cpp
+        Source/Scenes/MainMenu.h
+        Source/Scenes/StageSelect.cpp
+        Source/Scenes/StageSelect.h
+        Source/Scenes/Battle.cpp
+        Source/Scenes/Battle.h
+        Source/Scenes/SelectPlayers.cpp
+        Source/Scenes/SelectPlayers.h
 )
 
 find_package(SDL2 2.28.2 EXACT REQUIRED)

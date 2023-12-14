@@ -11,13 +11,14 @@ class DrawSpriteWColorEffect : public DrawSpriteComponent {
 
 public:
 
-    DrawSpriteWColorEffect(class Actor* owner, const std::string &texturePath, int width = 0, int height = 0, int drawOrder = 100, int r = 0, int g = 0, int b = 0, int a = 0);
+    DrawSpriteWColorEffect(class Actor* owner, const std::string &texturePath, int width = 0, int height = 0, int drawOrder = 100, int r = 0, int g = 0, int b = 0, float a = 0.f);
     void Draw(SDL_Renderer* renderer) override;
-    void SetColorEffect(int r, int g, int b, int a);
+    void SetColorEffect(int r, int g, int b, float a);
     void StopColorEffect() { active = false; }
 
 private:
-    int r, g, b, a;
+    int r, g, b;
+    float a;
     bool active;
 };
 

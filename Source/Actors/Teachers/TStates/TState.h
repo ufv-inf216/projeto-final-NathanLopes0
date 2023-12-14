@@ -26,10 +26,23 @@ protected:
                                float finalAngle, bool dividefocus, bool playerDirection,
                                float atkTimer_, int numTasks, float speed, float waitTime);
     class Teacher* mTeacher;
+
+    //how much the boss atacks
     float atkTimer;
+
+    //how much time has passed from the start of the State
     float stateTime;
+
+    //new sound add control variable
     float soundTime;
+
+    //movement change control variable
     float moveTime;
+
+    //variables for the Attack
+    float mTaskSpeed;
+    float stateAtkfrequency;
+
     void PlayAttackAudio();
 
 

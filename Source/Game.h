@@ -18,6 +18,14 @@ public:
         INF213
     };
 
+    enum class GameScene
+    {
+        MainMenu,
+        SelectPlayers,
+        StageSelect,
+        Battle
+    };
+
     Game(int windowWidth, int windowHeight);
 
     bool Initialize();
@@ -133,4 +141,6 @@ private:
     std::vector<class Teacher*> mTeachers;
     std::vector<class Task*> mTasks;
 
+    GameScene mGameState;
+    class Scene *mScene;
 };

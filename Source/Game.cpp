@@ -10,6 +10,10 @@
 #include "Actors/Actor.h"
 #include "Actors/Player.h"
 #include "Actors/LimiterMenu.h"
+#include "Scenes/MainMenu.h"
+#include "Scenes/SelectPlayers.h"
+#include "Scenes/StageSelect.h"
+#include "Scenes/Battle.h"
 #include "Components/DrawComponents/DrawComponent.h"
 #include "Components/DrawComponents/DrawTextComponent.h"
 
@@ -27,6 +31,7 @@ Game::Game(int windowWidth, int windowHeight)
         ,mPlayer2(nullptr)
         ,mGameWindowWidth(windowWidth / 2 - 50)
         ,mGameWindowHeight(windowHeight - 50)
+        ,mGameState(GameScene::MainMenu)
 {
 
 }
@@ -76,6 +81,29 @@ bool Game::Initialize()
 void Game::InitializeActors()
 {
 
+    /*switch (mGameState) {
+        case GameScene::MainMenu: {
+            mScene = new MainMenu(this);
+            mScene->Load();
+            break;
+        }
+        case GameScene::SelectPlayers: {
+            mScene = new SelectPlayers(this);
+            mScene->Load():
+            break;
+        }
+        case GameScene::StageSelect: {
+            mScene = new StageSelect(this);
+            mScene->Load();
+            break;
+        }
+        case GameScene::Battle: {
+            mScene = new Battle(this);
+            mScene->Load();
+            break;
+        }
+    }*/
+
     std::string limiterMenuPath = "../Assets/DPIBHBackgroundPlaceholder.png";
     mLimiterMenu = new LimiterMenu(this, limiterMenuPath, mWindowWidth, mWindowHeight);
     GetAudio()->PlaySound("backgroundmusic.mp3", true);
@@ -104,7 +132,6 @@ void Game::InitializeActors()
 
     activeTeacher = mTeachers[0];
     activeTeacher->Start();
-
 
 }
 

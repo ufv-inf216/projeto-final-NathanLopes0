@@ -4,17 +4,21 @@
 
 #include "LimiterMenu.h"
 #include "../Font.h"
-#include "../Components/DrawComponents/DrawSpriteComponent.h"
+#include "../Components/DrawComponents/DrawSpriteWColorEffect.h"
 #include "../Components/DrawComponents/DrawTextComponent.h"
+#include "../Components/DrawComponents/DrawAnimatedComponent.h"
 #include "../Game.h"
 #include "../Actors/Teachers/TStates/TState.h"
 
 LimiterMenu::LimiterMenu(Game* game, std::string& spritePath, int width, int height)
     :Actor(game)
     ,offSetX(256)
-    ,offSetY(48) {
+    ,offSetY(48)
+    ,mWidth(width)
+    ,mHeight(height)
+    {
 
-    mDrawComponent = new DrawSpriteComponent(this, spritePath, width, height, 101);
+    mDrawComponent = new DrawSpriteWColorEffect(this, spritePath, width, height, 101);
     SetPosition(Vector2(GetGame()->GetWindowWidth() / 2, GetGame()->GetWindowHeight() / 2));
 
     mFont = new Font();
@@ -57,7 +61,7 @@ void LimiterMenu::SetNotaAtual(float notaAtual) {
 
 void LimiterMenu::SetStateTimeAtual(float stateTimer) {
 
-    int currTimer = 30 - (int)stateTimer;
+    int currTimer = 17 - (int)stateTimer;
 
     std::string StateTimeAtual = std::to_string(currTimer);
     if(StateTimeAtual.size() == 1)
@@ -68,7 +72,7 @@ void LimiterMenu::SetStateTimeAtual(float stateTimer) {
 
 void LimiterMenu::SetPontosPlayer(int pontos)
 {
-    std::string PontosAtual = "Numero de Pontos Extras: " + std::to_string(pontos) + " de 3";
+    std::string PontosAtual = std::to_string(pontos) + " Pontos Extras";
     mDrawTextComponent[2]->SetText(PontosAtual);
 }
 
@@ -83,7 +87,10 @@ void LimiterMenu::OnUpdate(float deltaTime) {
     int currPontos = mGame->GetPlayer1()->GetNumPontosExtras();
     SetPontosPlayer(currPontos);
 
-
+    if (currPontos >= 60)
+    {
+        DrawApprovedSign();
+    }
 
 }
 
@@ -101,4 +108,13 @@ void LimiterMenu::writeNew(std::string &newString, int offSetY_) {
 void LimiterMenu::changeText(int index, std::string & newText)
 {
     mDrawTextComponent[index]->SetText(newText);
+}
+
+void LimiterMenu::DrawApprovedSign()
+{
+    auto approvedSign = new Actor(mGame);
+    approvedSign->SetPosition(Vector2((float) mGame->GetGameWindowWidth() + offSetX + 320,
+                                      (float) mGame->GetGameWindowHeight() / 8));
+    auto mostraASign = new DrawAnimatedComponent(approvedSign, "../Assets/Icons/DPIBHApprovedSign.png","../Assets/Icons/DPIBHApprovedSign.json");
+
 }
