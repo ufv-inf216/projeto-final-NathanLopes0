@@ -11,3 +11,5 @@ https://docs.google.com/spreadsheets/d/1PpNt_53qGO9u3AhNKnX64fbdlKaec6UViChkq_kx
 	-tirar temporariamente a capacidade do boss atirar quando usa o Pt Extra
 	-colocar mini-sprites dos Pts Extras em volta do Player quando ele tem (diminuir necessidade de olhar pro lado)
 	-fazer mais feedback visual quando a Nota >= 60
+
+fazer Movement() de StateTwo e StateThree
