@@ -6,6 +6,7 @@
 #include "../../Actors/Actor.h"
 #include "../../Game.h"
 #include "../../Json.h"
+#include "../../Scenes/Scene.h"
 #include <fstream>
 
 DrawAnimatedComponent::DrawAnimatedComponent(class Actor* owner, const std::string &spriteSheetPath, const std::string &spriteSheetData, int drawOrder)
@@ -26,7 +27,7 @@ DrawAnimatedComponent::~DrawAnimatedComponent()
 void DrawAnimatedComponent::LoadSpriteSheet(const std::string& texturePath, const std::string& dataPath)
 {
     // Load sprite sheet texture
-    mSpriteSheetSurface = mOwner->GetGame()->LoadTexture(texturePath);
+    mSpriteSheetSurface = mOwner->GetScene()->GetGame()->LoadTexture(texturePath);
 
     // Load sprite sheet data
     std::ifstream spriteSheetFile(dataPath);
@@ -49,8 +50,8 @@ void DrawAnimatedComponent::Draw(SDL_Renderer *renderer) {
 
     auto spriteIdx = mAnimations[mAnimName][(int) mAnimTimer];
 
-    int posx = GetOwner()->GetPosition().x - GetGame()->GetCameraPos().x;
-    int posy = GetOwner()->GetPosition().y - GetGame()->GetCameraPos().y;
+    int posx = GetOwner()->GetPosition().x - GetScene()->GetCameraPos().x;
+    int posy = GetOwner()->GetPosition().y - GetScene()->GetCameraPos().y;
 
 
     //provavelmente mudar o 32 fixo para uma variável. Mas n tava dando certo no Mario. O que fazer?

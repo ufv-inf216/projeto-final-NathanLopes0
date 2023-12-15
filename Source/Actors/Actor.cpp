@@ -8,23 +8,24 @@
 
 #include "Actor.h"
 #include "../Game.h"
+#include "../Scenes/Scene.h"
 #include "../Components/Component.h"
 #include <algorithm>
 
-Actor::Actor(Game* game)
+Actor::Actor(Scene* scene)
         : mState(ActorState::Active)
         , mPosition(Vector2::Zero)
         , mScale(1.0f)
         , mRotation(0.0f)
-        , mGame(game)
+        , mScene(scene)
         , mIsOnGround(false)
 {
-    mGame->AddActor(this);
+    mScene->GetGame()->AddActor(this);
 }
 
 Actor::~Actor()
 {
-    mGame->RemoveActor(this);
+    mScene->GetGame()->RemoveActor(this);
 
     for(auto component : mComponents)
     {

@@ -9,9 +9,10 @@
 #include "../Components/DrawComponents/DrawAnimatedComponent.h"
 #include "../Game.h"
 #include "../Actors/Teachers/TStates/TState.h"
+#include "../Scenes/Scene.h"
 
-LimiterMenu::LimiterMenu(Game* game, std::string& spritePath, int width, int height)
-    :Actor(game)
+LimiterMenu::LimiterMenu(Scene* scene, std::string& spritePath, int width, int height)
+    :Actor(scene)
     ,offSetX(256)
     ,offSetY(48)
     ,mWidth(width)
@@ -19,29 +20,29 @@ LimiterMenu::LimiterMenu(Game* game, std::string& spritePath, int width, int hei
     {
 
     mDrawComponent = new DrawSpriteWColorEffect(this, spritePath, width, height, 101);
-    SetPosition(Vector2(GetGame()->GetWindowWidth() / 2, GetGame()->GetWindowHeight() / 2));
+    SetPosition(Vector2(GetScene()->GetGame()->GetWindowWidth() / 2, GetScene()->GetGame()->GetWindowHeight() / 2));
 
     mFont = new Font();
     mFont->Load("../Assets/Fonts/Zelda.ttf");
 
-    Vector2 textPosition = Vector2((float) mGame->GetGameWindowWidth() + offSetX,
-                                   (float) mGame->GetGameWindowHeight() / 8);
+    Vector2 textPosition = Vector2((float) mScene->GetGame()->GetGameWindowWidth() + offSetX,
+                                   (float) mScene->GetGame()->GetGameWindowHeight() / 8);
     Vector2 offSetYVec = Vector2(0, offSetY);
 
     //Nota do Aluno
-    auto mostraNota = new Actor(mGame);
+    auto mostraNota = new Actor(mScene);
     mostraNota->SetPosition(textPosition + offSetYVec * 0);
     auto tMostraNota = new DrawTextComponent(mostraNota, "00", mFont, 256, 32, 32, 102);
     mDrawTextComponent.push_back(tMostraNota);
 
     //Timer do Estado
-    auto mostraTimer = new Actor(mGame);
+    auto mostraTimer = new Actor(mScene);
     mostraTimer->SetPosition(textPosition + offSetYVec * 4 + Vector2(128, 0));
     auto tMostraTimer = new DrawTextComponent(mostraTimer, "00", mFont, 512, 64, 32, 102);
     mDrawTextComponent.push_back(tMostraTimer);
 
     //Numero de Pontos Extras
-    auto mostraPontos = new Actor(mGame);
+    auto mostraPontos = new Actor(mScene);
     mostraPontos->SetPosition(textPosition + offSetYVec * 1 + Vector2(64, 0));
     auto tMostraPontos = new DrawTextComponent(mostraPontos, "00", mFont, 384, 32, 32, 102);
     mDrawTextComponent.push_back(tMostraPontos);
@@ -78,13 +79,13 @@ void LimiterMenu::SetPontosPlayer(int pontos)
 
 void LimiterMenu::OnUpdate(float deltaTime) {
 
-    float currNote = mGame->GetNota(mGame->GetActiveMateria());
+    float currNote = mScene->GetGame()->GetNota(mScene->GetGame()->GetActiveMateria());
     SetNotaAtual(currNote);
 
-    float currTimer = mGame->GetActiveTeacher()->GetCurrentState()->GetStateTime();
+    float currTimer = mScene->GetGame()->GetActiveTeacher()->GetCurrentState()->GetStateTime();
     SetStateTimeAtual(currTimer);
 
-    int currPontos = mGame->GetPlayer1()->GetNumPontosExtras();
+    int currPontos = mScene->GetPlayer()->GetNumPontosExtras();
     SetPontosPlayer(currPontos);
 
     if (currPontos >= 60)
@@ -96,9 +97,9 @@ void LimiterMenu::OnUpdate(float deltaTime) {
 
 void LimiterMenu::writeNew(std::string &newString, int offSetY_) {
 
-    auto newTextActor = new Actor(mGame);
-    auto textPosition = Vector2((float)mGame->GetGameWindowWidth() + offSetX,
-                                (float)mGame->GetGameWindowHeight() / 8);
+    auto newTextActor = new Actor(mScene);
+    auto textPosition = Vector2((float)mScene->GetGame()->GetGameWindowWidth() + offSetX,
+                                (float)mScene->GetGame()->GetGameWindowHeight() / 8);
 
     newTextActor->SetPosition(textPosition + Vector2(0, offSetY * offSetY_));
     auto tMostraTexto = new DrawTextComponent(newTextActor, newString, mFont, 256, 32, 32, 102);
@@ -112,9 +113,9 @@ void LimiterMenu::changeText(int index, std::string & newText)
 
 void LimiterMenu::DrawApprovedSign()
 {
-    auto approvedSign = new Actor(mGame);
-    approvedSign->SetPosition(Vector2((float) mGame->GetGameWindowWidth() + offSetX + 320,
-                                      (float) mGame->GetGameWindowHeight() / 8));
-    auto mostraASign = new DrawAnimatedComponent(approvedSign, "../Assets/Icons/DPIBHApprovedSign.png","../Assets/Icons/DPIBHApprovedSign.json");
+//    auto approvedSign = new Actor(mScene);
+//    approvedSign->SetPosition(Vector2((float) mGame->GetGameWindowWidth() + offSetX + 320,
+//                                      (float) mGame->GetGameWindowHeight() / 8));
+//    auto mostraASign = new DrawAnimatedComponent(approvedSign, "../Assets/Icons/DPIBHApprovedSign.png","../Assets/Icons/DPIBHApprovedSign.json");
 
 }

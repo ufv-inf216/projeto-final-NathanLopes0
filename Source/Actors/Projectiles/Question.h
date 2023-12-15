@@ -12,7 +12,7 @@ class Question : public Projectile {
 
 public:
 
-    Question(Game * game, class Player * owner, std::string &spritePath);
+    Question(class Scene * scene, class Player * owner, std::string &spritePath);
 
 private:
     Player* mOwner;

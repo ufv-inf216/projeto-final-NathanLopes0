@@ -6,7 +6,7 @@
 #define DPIBULLETHELL_DRONE_H
 
 
-#include "../Actor.h."
+#include "../Actor.h"
 
 class Drone : public Actor {
 

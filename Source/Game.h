@@ -14,8 +14,9 @@ class Game
 {
 public:
     enum Materia {
-        INF250,
-        INF213
+        INF250, //Ricardo
+        INF213, //Salles
+        INF330 //Andre
     };
 
     enum class GameScene
@@ -23,7 +24,8 @@ public:
         MainMenu,
         SelectPlayers,
         StageSelect,
-        Battle
+        Battle,
+        Win
     };
 
     Game(int windowWidth, int windowHeight);
@@ -63,8 +65,8 @@ public:
     SDL_Texture* LoadTexture(const std::string& texturePath);
 
     // Game-specific
-    class Player * GetPlayer1() { return mPlayer1; }
-    class Player* GetPlayer2() { return mPlayer2; }
+//    class Player * GetPlayer1() { return mPlayer1; }
+//    class Player* GetPlayer2() { return mPlayer2; }
     bool p1Exists() {return mPlayer1!= nullptr && mPlayer1->GetState() != ActorState::Destroy; }
     bool p2Exists() {return mPlayer2 != nullptr && mPlayer2->GetState() != ActorState::Destroy; }
 
@@ -73,22 +75,27 @@ public:
     void SetNota(const float newNota, Materia materia);
     bool Passou(const Materia materia) { return mNotas[materia] >= 60; }
 
+    //Tasks
     std::vector<class Task *> GetTasks() {return mTasks;}
     void AddTask(class Task * task) { mTasks.push_back(task); }
     void RemoveTask(class Task * task);
 
-    class Teacher * GetTeacher(int i) { return mTeachers[i]; }
-    std::vector<Teacher*> GetTeachers() { return mTeachers; }
-    void AddTeacher(class Teacher* teacher) { mTeachers.push_back(teacher); }
-
-
-    void SetActiveTeacher(int teacherIndex);
-
-    Teacher *GetActiveTeacher() { return activeTeacher; }
+    //Teachers
+//    std::vector<Teacher*> GetTeachers() { return mTeachers; }
+//    void AddTeacher(class Teacher* teacher) { mTeachers.push_back(teacher); }
+    class Teacher *GetActiveTeacher();
 
     Materia GetActiveMateria()  { return mActiveMateria; }
     void SetActiveMateria(Game::Materia materia) { mActiveMateria = materia;}
-    class LimiterMenu* GetLimiterMenu() {return mLimiterMenu;}
+    //class LimiterMenu* GetLimiterMenu() {return mLimiterMenu;}
+
+    int GetCurrStage() {return currStage;}
+    void SetStage(int i) {currStage = i;}
+
+
+    //Scenes
+    void SetScene(GameScene scene);
+    void UnloadActors();
 
 private:
     void ProcessInput();
@@ -124,21 +131,18 @@ private:
     // Track if we're updating actors right now
     bool mIsRunning;
     bool mUpdatingActors;
+    bool mChangeScene;
 
     Vector2 mCameraPos;
 
     // Game-specific
     class Player* mPlayer1;
     class Player* mPlayer2;
+    int currStage;
 
     class std::map<Materia, float> mNotas;
 
-    class Teacher* activeTeacher;
-    class LimiterMenu* mLimiterMenu;
     Materia mActiveMateria;
-
-
-    std::vector<class Teacher*> mTeachers;
     std::vector<class Task*> mTasks;
 
     GameScene mGameState;

@@ -8,6 +8,10 @@
 #include "../../Projectiles/Question.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
 #include "../../LimiterMenu.h"
+#include "../../../Random.h"
+#include "../../../Components/DrawComponents/DrawSpriteWColorEffect.h"
+#include "../../../Scenes/Scene.h"
+#include "../../../Game.h"
 
 StateOne::StateOne(FSMComponent *fsm)
     : TState(fsm, "stateOne")
@@ -22,7 +26,7 @@ void StateOne::Start() {
     stateTime = 0;
     mTeacher->SetCurrentStateRepresentation(this);
     std::string nTxt = "Prova 1 de 3";
-    mTeacher->GetGame()->GetLimiterMenu()->changeText(3, nTxt);
+    mTeacher->GetScene()->GetLimiterMenu()->changeText(3, nTxt);
 
     switch (mTeacher->GetType()) {
         case Teacher::Ricardo:
@@ -75,8 +79,9 @@ void StateOne::Update(float deltaTime) {
 
     if(DetectCollision()) {
         float points = Random::GetFloatRange(0.07, 0.15);
-        mTeacher->GetGame()->SetNota(mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()) + points,
-                                     mTeacher->GetGame()->GetActiveMateria());
+        auto mt = mTeacher->GetScene()->GetGame()->GetActiveMateria();
+        mTeacher->GetScene()->GetGame()->SetNota(mTeacher->GetScene()->GetGame()->GetNota(mt) + points,
+                                     mt);
     }
 }
 
@@ -89,7 +94,7 @@ void StateOne::Movement(float deltaTime)
         mTeacher->GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(150, 0));
         moveTime = 1;
     }
-    if (mTeacher->GetPosition().x > (float)mTeacher->GetGame()->GetGameWindowWidth() - (float)mTeacher->GetSpriteWidth() / 2)
+    if (mTeacher->GetPosition().x > (float)mTeacher->GetScene()->GetGame()->GetGameWindowWidth() - (float)mTeacher->GetSpriteWidth() / 2)
     {
         mTeacher->GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(-150,0));
         moveTime = 1;
@@ -119,7 +124,7 @@ void StateOne::HandleStateTransition(float stateTimer) {
 
     //colocar 17 - 20. está 2 apenas pra testar a mudança de estado.
     if (stateTimer > 17) {
-        mTeacher->GetGame()->GetAudio()->PlaySound("enep01.wav");
+        mTeacher->GetScene()->GetGame()->GetAudio()->PlaySound("enep01.wav");
         mFSM->SetState("stateTwo");
     }
 }

@@ -6,6 +6,8 @@
 #include "../Teacher.h"
 #include "../../Projectiles/Question.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
+#include "../../../Scenes/Scene.h"
+#include "../../../Game.h"
 
 TState::TState(FSMComponent *fsm, const std::string &name) : FSMState(fsm, name), atkTimer(0), stateTime(0), soundTime(0) {
 
@@ -18,8 +20,7 @@ void TState::Update(float deltaTime) {
 }
 
 bool TState::DetectCollision() {
-    if (mTeacher->GetGame()->p1Exists()) {
-        for (auto it: mTeacher->GetGame()->GetPlayer1()->GetProjectiles()) {
+        for (auto it: mTeacher->GetScene()->GetPlayer()->GetProjectiles()) {
             if (it->GetState() == ActorState::Active) {
                 if (mTeacher->GetComponent<CircleColliderComponent>()->Intersect(*it->GetComponent<CircleColliderComponent>())) {
                     it->SetState(ActorState::Paused);
@@ -29,18 +30,17 @@ bool TState::DetectCollision() {
                 }
             }
         }
-    }
-    if (mTeacher->GetGame()->p2Exists()) {
-        for (auto it: mTeacher->GetGame()->GetPlayer2()->GetProjectiles()) {
-            if (it->GetState() == ActorState::Active) {
-                if (mTeacher->GetComponent<CircleColliderComponent>()->Intersect(*it->GetComponent<CircleColliderComponent>())) {
-                    it->SetState(ActorState::Destroy);
-                    mTeacher->extraPointCounter--;
-                    return true;
-                }
-            }
-        }
-    }
+//    if (mTeacher->GetScene()->GetGame()->p2Exists()) {
+//        for (auto it: mTeacher->GetScene()->GetGame()->GetPlayer2()->GetProjectiles()) {
+//            if (it->GetState() == ActorState::Active) {
+//                if (mTeacher->GetComponent<CircleColliderComponent>()->Intersect(*it->GetComponent<CircleColliderComponent>())) {
+//                    it->SetState(ActorState::Destroy);
+//                    mTeacher->extraPointCounter--;
+//                    return true;
+//                }
+//            }
+//        }
+//    }
     return false;
 }
 
@@ -56,7 +56,6 @@ std::vector<Task *> TState::Attack(float deltaTime, float startAngle, float fina
         for(int i = 0; i < numTasks; i++)
         {
             if(dividefocus && playerDirection_) playerDirection = !playerDirection;
-            if(!mTeacher->GetGame()->p1Exists()) playerDirection = false;
             float angle = startAngle + angleInterval * i;
             auto task = mTeacher->TaskCreation(angle, angle, 1, speed, playerDirection, waitTime);
             returnTasks.push_back(task);
@@ -70,7 +69,7 @@ std::vector<Task *> TState::Attack(float deltaTime, float startAngle, float fina
 void TState::PlayAttackAudio()
 {
     if(soundTime < 0) {
-        auto audio = mTeacher->GetGame()->GetAudio();
+        auto audio = mTeacher->GetScene()->GetGame()->GetAudio();
         switch (mTeacher->GetType()) {
             case Teacher::Ricardo:
                 audio->PlaySound("tan01.wav");

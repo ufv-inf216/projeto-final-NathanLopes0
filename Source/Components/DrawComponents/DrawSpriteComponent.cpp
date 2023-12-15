@@ -3,6 +3,7 @@
 #include "DrawSpriteComponent.h"
 #include "../../Actors/Actor.h"
 #include "../../Game.h"
+#include "../../Scenes/Scene.h"
 
 DrawSpriteComponent::DrawSpriteComponent(class Actor* owner, const std::string &texturePath, const int width, const int height, const int drawOrder)
         :DrawComponent(owner, drawOrder)
@@ -10,7 +11,7 @@ DrawSpriteComponent::DrawSpriteComponent(class Actor* owner, const std::string &
         ,mHeight(height)
 {
 
-    mSpriteSheetSurface = GetGame()->LoadTexture(texturePath);
+    mSpriteSheetSurface = GetScene()->GetGame()->LoadTexture(texturePath);
 
 
 }
@@ -23,8 +24,8 @@ void DrawSpriteComponent::Draw(SDL_Renderer *renderer)
     //porem da ruim na hora de desenhar o menu..
 
     auto srcrect = new SDL_Rect{0, 0, mWidth, mHeight};
-    int posx = GetOwner()->GetPosition().x - GetOwner()->GetGame()->GetCameraPos().x - mWidth/2;
-    int posy = GetOwner()->GetPosition().y - GetOwner()->GetGame()->GetCameraPos().y - mHeight/2;
+    int posx = GetOwner()->GetPosition().x - GetOwner()->GetScene()->GetGame()->GetCameraPos().x - mWidth/2;
+    int posy = GetOwner()->GetPosition().y - GetOwner()->GetScene()->GetGame()->GetCameraPos().y - mHeight/2;
     auto dstrect = new SDL_Rect {posx, posy, mWidth, mHeight};
 
     auto flipflag = SDL_RendererFlip::SDL_FLIP_NONE;

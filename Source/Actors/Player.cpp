@@ -6,39 +6,45 @@
 #include "Player.h"
 #include "Projectiles/Question.h"
 #include "Projectiles/Task.h"
+#include "../Components/DrawComponents/DrawSpriteWColorEffect.h"
+#include "../Components/ColliderComponents/CircleColliderComponent.h"
+#include "../Components/RigidBodyComponent.h"
+#include "../Game.h"
+#include "../Scenes/Scene.h"
+#include "../Random.h"
 
-Player::Player(struct Game *game, std::string &avatarPath)
-        :Actor(game)
+Player::Player(class Scene *scene, std::string &avatarPath)
+        :Actor(scene)
         ,pSpeed(300.0f)
         ,atkTimer(0.1f)
         ,numPontosExtras(0)
-        ,stage(0)
         ,invencibilityTime(0)
         ,piscafrequencia(0.1)
         ,pisca(true)
         ,piscaOvercharge(false)
 {
-
     mDrawSprite = new DrawSpriteWColorEffect(this, avatarPath, 48, 48, 100);
     mRigidBodyComponent = new RigidBodyComponent(this);
     mColliderComponent = new CircleColliderComponent(this, 8);
 
-    SetPosition(Vector2(GetGame()->GetGameWindowWidth() / 2, GetGame()->GetGameWindowHeight() - GetComponent<DrawSpriteComponent>()->GetSpriteHeight()));
+    SetPosition(Vector2(mScene->GetGame()->GetGameWindowWidth() / 2, mScene->GetGame()->GetGameWindowHeight() - GetComponent<DrawSpriteComponent>()->GetSpriteHeight()));
     std::string spriteQuestionPath = "../Assets/Player/DPIBHStudentProjectile(Question)v3.png";
 
     for (int i = 0; i < 500; i++)
     {
-        auto* question = new Question(GetGame(), this, spriteQuestionPath);
+        auto* question = new Question(mScene, this, spriteQuestionPath);
         question->SetState(ActorState::Paused);
         question->GetComponent<DrawSpriteComponent>()->SetIsVisible(false);
         mQuestions.push_back(question);
 
     }
 
+//    mDrawSprite->SetIsVisible(false);
+//    SetState(ActorState::Paused);
 }
 
-void Player::OnUpdate(float deltaTime) {
-
+void Player::OnUpdate(float deltaTime)
+{
     atkTimer -= deltaTime;
     if (piscaOvercharge && atkTimer <= 0)
     {
@@ -58,27 +64,29 @@ void Player::OnUpdate(float deltaTime) {
     }
     if (invencibilityTime <= 0) {
         mDrawSprite->SetIsVisible(true);
-        for (auto i: GetGame()->GetTasks()) {
+        for (auto i: mScene->GetGame()->GetTasks()) {
 
-            if (GetComponent<CircleColliderComponent>()->Intersect(*i->GetComponent<CircleColliderComponent>())) {
+            if (mColliderComponent->Intersect(*i->GetComponent<CircleColliderComponent>())) {
                 float deduceNota = Random::GetFloatRange(9.0f, 13.0f);
-                mGame->GetAudio()->PlaySound("pldead00.wav");
-                mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, mGame->GetActiveMateria());
+                mScene->GetGame()->GetAudio()->PlaySound("pldead00.wav");
+                auto mt = mScene->GetGame()->GetActiveMateria();
+                mScene->GetGame()->SetNota(mScene->GetGame()->GetNota(mt) - deduceNota, mt);
                 invencibilityTime = 2.2;
-                if (mGame->GetNota(mGame->GetActiveMateria()) <= 0) {
+                if (mScene->GetGame()->GetNota(mt) <= 0) {
                     SetState(ActorState::Destroy);
                 }
                 break;
             }
         }
     }
-    if (GetComponent<CircleColliderComponent>()->Intersect(*mGame->GetTeacher(GetStage())->GetComponent<CircleColliderComponent>()))
+    if (mColliderComponent->Intersect(*mScene->GetActiveTeacher()->GetComponent<CircleColliderComponent>()))
     {
         float deduceNota = Random::GetFloatRange(16.0f, 24.0f);
-        mGame->GetAudio()->PlaySound("pldead00.wav");
-        mGame->SetNota(Math::Max(mGame->GetNota(mGame->GetActiveMateria()) - deduceNota, 0.f), mGame->GetActiveMateria());
+        mScene->GetGame()->GetAudio()->PlaySound("pldead00.wav");
+        auto mt = mScene->GetGame()->GetActiveMateria();
+        mScene->GetGame()->SetNota(Math::Max(mScene->GetGame()->GetNota(mt) - deduceNota, 0.f), mt);
         invencibilityTime = 2.2;
-        if (mGame->GetNota(mGame->GetActiveMateria()) < 0)
+        if (mScene->GetGame()->GetNota(mt) < 0)
         {
             SetState(ActorState::Destroy);
         }
@@ -113,9 +121,9 @@ void Player::OnProcessInput(const Uint8 *keyState) {
     GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(newXSpeed,newYSpeed));
 
     //limitando o jogador aos limites da tela
-    SetPosition(Vector2(std::clamp(GetPosition().x, (float) GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 1.1f,(float)GetGame()->GetGameWindowWidth() +
+    SetPosition(Vector2(std::clamp(GetPosition().x, (float) GetComponent<DrawSpriteComponent>()->GetSpriteWidth() / 1.1f,(float)mScene->GetGame()->GetGameWindowWidth() +
                                 GetComponent<DrawSpriteWColorEffect>()->GetSpriteWidth() / 2),
-                        std::clamp(GetPosition().y, (float) GetComponent<DrawSpriteComponent>()->GetSpriteHeight(), (float)GetGame()->GetGameWindowHeight() +
+                        std::clamp(GetPosition().y, (float) GetComponent<DrawSpriteComponent>()->GetSpriteHeight(), (float)mScene->GetGame()->GetGameWindowHeight() +
                                 GetComponent<DrawSpriteWColorEffect>()->GetSpriteHeight() / 5)
     ));
 
@@ -132,7 +140,7 @@ void Player::OnProcessInput(const Uint8 *keyState) {
                     break;
                 }
             }
-            mGame->GetAudio()->PlaySound("qst00.wav");
+            mScene->GetGame()->GetAudio()->PlaySound("qst00.wav");
             atkTimer = 0.12;
         }
     }
@@ -140,13 +148,14 @@ void Player::OnProcessInput(const Uint8 *keyState) {
     if (keyState[SDL_SCANCODE_B] && numPontosExtras > 0 && atkTimer < 0)
     {
         numPontosExtras--;
-        mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) + 10, mGame->GetActiveMateria());
-        for(auto it : GetGame()->GetTasks())
+        auto mt = mScene->GetGame()->GetActiveMateria();
+        mScene->GetGame()->SetNota(mScene->GetGame()->GetNota(mt) + 10, mt);
+        for(auto it : mScene->GetGame()->GetTasks())
         {
             it->SetState(ActorState::Destroy);
-            GetGame()->RemoveTask(it);
+            mScene->GetGame()->RemoveTask(it);
         }
-        mGame->GetAudio()->PlaySound("lazer00.wav");
+        mScene->GetGame()->GetAudio()->PlaySound("lazer00.wav");
         atkTimer = 5;
         piscaOvercharge = true;
         mDrawSprite->SetColorEffect(255, 0, 0, 255);
@@ -156,13 +165,14 @@ void Player::OnProcessInput(const Uint8 *keyState) {
 bool Player::AddPontoExtra() {
     if(numPontosExtras >= 3)
     {
-        mGame->SetNota(mGame->GetNota(mGame->GetActiveMateria()) + Random::GetFloatRange(1.0f, 2.0f),
-                       mGame->GetActiveMateria());
+        auto mt = mScene->GetGame()->GetActiveMateria();
+        mScene->GetGame()->SetNota(mScene->GetGame()->GetNota(mt) + Random::GetFloatRange(1.0f, 2.0f),
+                       mt);
 
         return false;
     }
 
-    mGame->GetAudio()->PlaySound("powerup.wav");
+    mScene->GetGame()->GetAudio()->PlaySound("powerup.wav");
     numPontosExtras++;
     return true;
 }
@@ -173,13 +183,5 @@ Vector2 Player::directionToPlayer(const Actor *object) {
 
     directionToPlayer.Normalize();
     return directionToPlayer;
-
-}
-
-void Player::addStage() {
-
-    stage++;
-    int md = mGame->GetTeachers().size();
-    stage %= md;
 
 }

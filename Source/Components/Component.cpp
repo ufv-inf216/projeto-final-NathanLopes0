@@ -8,6 +8,7 @@
 
 #include "Component.h"
 #include "../Actors/Actor.h"
+#include "../Scenes/Scene.h"
 
 Component::Component(Actor* owner, int updateOrder)
           :mOwner(owner)
@@ -30,9 +31,9 @@ void Component::ProcessInput(const Uint8* keyState)
 {
 }
 
-class Game* Component::GetGame() const
+class Scene* Component::GetScene() const
 {
-    return mOwner->GetGame();
+    return mOwner->GetScene();
 }
 
 

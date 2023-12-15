@@ -10,7 +10,7 @@
 
 class PowerUp : public Actor {
 public:
-    PowerUp(Game * game);
+    PowerUp(Scene * scene);
     void OnUpdate(float deltaTime) override;
 
 private:

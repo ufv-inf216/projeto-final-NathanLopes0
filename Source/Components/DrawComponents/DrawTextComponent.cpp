@@ -6,6 +6,7 @@
 #include "../../Font.h"
 #include "../../Actors/Actor.h"
 #include "../../Game.h"
+#include "../../Scenes/Scene.h"
 
 DrawTextComponent::DrawTextComponent(class Actor* owner, const std::string &text, Font *font, int width, int height, int size, int drawOrder)
         :DrawComponent(owner, drawOrder)
@@ -14,7 +15,7 @@ DrawTextComponent::DrawTextComponent(class Actor* owner, const std::string &text
         ,mSize(size)
         ,mFont(font)
 {
-    mTextSurface = mFont->RenderText(owner->GetGame()->GetRenderer(), text, Vector3(1.0, 1.0, 1.0), size, 500);
+    mTextSurface = mFont->RenderText(owner->GetScene()->GetGame()->GetRenderer(), text, Vector3(1.0, 1.0, 1.0), size, 500);
 }
 
 DrawTextComponent::~DrawTextComponent()
@@ -25,7 +26,7 @@ DrawTextComponent::~DrawTextComponent()
 void DrawTextComponent::SetText(const std::string &text)
 {
     SDL_DestroyTexture(mTextSurface);
-    mTextSurface = mFont->RenderText(mOwner->GetGame()->GetRenderer(), text, Vector3(1.0, 1.0, 1.0), mSize, 500);
+    mTextSurface = mFont->RenderText(mOwner->GetScene()->GetGame()->GetRenderer(), text, Vector3(1.0, 1.0, 1.0), mSize, 500);
 }
 
 void DrawTextComponent::Draw(SDL_Renderer *renderer)

@@ -5,9 +5,12 @@
 
 #include "Task.h"
 #include <algorithm>
+#include "../../Components/DrawComponents/DrawSpriteWColorEffect.h"
+#include "../../Scenes/Scene.h"
+#include "../../Game.h"
 
-Task::Task(Game *game, Teacher *owner, std::string &spritePath, float angleDirection, float fspeed, bool b, double d)
-    :Projectile(game, spritePath),
+Task::Task(Scene *scene, Teacher *owner, std::string &spritePath, float angleDirection, float fspeed, bool b, double d)
+    :Projectile(scene, spritePath),
     mOwner(owner),
     mFowardSpeed(fspeed),
     mDirection(angleDirection),
@@ -25,7 +28,7 @@ Task::Task(Game *game, Teacher *owner, std::string &spritePath, float angleDirec
 
     mRigidBodyComponent->SetVelocity(Vector2(currVelocityX, currVelocityY) * mFowardSpeed);
 
-    mGame->AddTask(this);
+    mScene->GetGame()->AddTask(this);
 }
 
 Task::~Task() {
@@ -34,17 +37,17 @@ Task::~Task() {
 
 void Task::OnUpdate(float deltaTime)  {
 
-    if(GetPosition().y > GetGame()->GetWindowHeight() || GetPosition().y < -GetComponent<DrawSpriteWColorEffect>()->GetSpriteHeight()
-    || GetPosition().x < -GetComponent<DrawSpriteWColorEffect>()->GetSpriteWidth() || GetPosition().x > GetGame()->GetWindowWidth())
+    if(GetPosition().y > mScene->GetGame()->GetWindowHeight() || GetPosition().y < -GetComponent<DrawSpriteWColorEffect>()->GetSpriteHeight()
+    || GetPosition().x < -GetComponent<DrawSpriteWColorEffect>()->GetSpriteWidth() || GetPosition().x > mScene->GetGame()->GetWindowWidth())
     {
         SetState(ActorState::Destroy);
-        mGame->RemoveTask(this);
+        mScene->GetGame()->RemoveTask(this);
     }
     if (playerDirection) {
         if (waitTime > 0) {
             waitTime -= deltaTime;
         } else {
-            auto dTP = GetGame()->GetPlayer1()->directionToPlayer(this);
+            auto dTP = mScene->GetPlayer()->directionToPlayer(this);
             mRigidBodyComponent->SetVelocity(dTP * mFowardSpeed);
             playerDirection = false;
         }

@@ -4,8 +4,10 @@
 
 #include "PowerUp.h"
 #include "../Game.h"
+#include "../Components/RigidBodyComponent.h"
+#include "../Scenes/Scene.h"
 
-PowerUp::PowerUp(Game *game) : Actor(game) {
+PowerUp::PowerUp(Scene *scene) : Actor(scene) {
 
     mDrawSprite = new DrawSpriteComponent(this, "../Assets/Icons/ExtraPoint.png", 32, 32, 99);
     mRigidBodyComponent = new RigidBodyComponent(this);
@@ -17,14 +19,11 @@ PowerUp::PowerUp(Game *game) : Actor(game) {
 
 void PowerUp::OnUpdate(float deltaTime) {
 
-    if(mGame->p1Exists()) {
         if (GetComponent<CircleColliderComponent>()->Intersect(
-                *mGame->GetPlayer1()->GetComponent<CircleColliderComponent>())) {
+                *mScene->GetPlayer()->GetComponent<CircleColliderComponent>())) {
 
-            mGame->GetPlayer1()->AddPontoExtra();
+            mScene->GetPlayer()->AddPontoExtra();
             SetState(ActorState::Destroy);
 
         }
-    }
-
 }

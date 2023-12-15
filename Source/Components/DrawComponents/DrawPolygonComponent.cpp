@@ -5,6 +5,7 @@
 #include "DrawPolygonComponent.h"
 #include "../../Actors/Actor.h"
 #include "../../Game.h"
+#include "../../Scenes/Scene.h"
 
 DrawPolygonComponent::DrawPolygonComponent(class Actor* owner, std::vector<Vector2> &vertices, int drawOrder)
         :DrawComponent(owner)
@@ -19,7 +20,7 @@ void DrawPolygonComponent::Draw(SDL_Renderer *renderer)
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
     Vector2 pos = mOwner->GetPosition();
-    Vector2 cameraPos = mOwner->GetGame()->GetCameraPos();
+    Vector2 cameraPos = mOwner->GetScene()->GetGame()->GetCameraPos();
 
     // Render vertices as lines
     for(int i = 0; i < mVertices.size() - 1; i++) {

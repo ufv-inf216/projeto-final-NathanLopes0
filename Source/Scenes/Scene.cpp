@@ -3,6 +3,8 @@
 //
 
 #include "Scene.h"
+#include "../Actors/Teachers/Teacher.h"
+#include "../Actors/Player.h"
 
 Scene::Scene(Game* game)
 {
@@ -22,4 +24,16 @@ const Vector2& Scene::GetCameraPos()
 void Scene::ProcessInput(const Uint8* keyState)
 {
     // Process scene input
+}
+
+Teacher* Scene::GetActiveTeacher() {
+
+}
+
+Player* Scene::GetPlayer() {
+    return nullptr;
+}
+
+LimiterMenu* Scene::GetLimiterMenu() {
+    return nullptr;
 }

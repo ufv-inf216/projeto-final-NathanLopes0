@@ -2,10 +2,12 @@
 // Created by User on 16/11/2023.
 //
 #include "Question.h"
+#include "../../Scenes/Scene.h"
+#include "../../Game.h"
 
 
-Question::Question(Game *game, Player *owner, std::string &spritePath)
-    : Projectile(game, spritePath),
+Question::Question(Scene *scene, Player *owner, std::string &spritePath)
+    : Projectile(scene, spritePath),
     mOwner(owner),
     mFowardSpeed(800)
 {
@@ -19,7 +21,7 @@ void Question::OnUpdate(float deltaTime) {
     //SetPosition(GetPosition() + Vector2(0, -mFowardSpeed * deltaTime));
 
     //modo normal
-    SetPosition(GetPosition() + Vector2::Normalize(mGame->GetActiveTeacher()->GetPosition() - GetPosition()) * mFowardSpeed * deltaTime);
+    SetPosition(GetPosition() + Vector2::Normalize(mScene->GetGame()->GetActiveTeacher()->GetPosition() - GetPosition()) * mFowardSpeed * deltaTime);
 
     if (GetPosition().y < -100) {
         SetState(ActorState::Paused);

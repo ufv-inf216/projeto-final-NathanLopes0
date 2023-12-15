@@ -9,6 +9,9 @@
 #include "Scene.h"
 
 class SelectPlayers : public Scene {
+public:
+    SelectPlayers(class Game* game);
+private:
 
 };
 

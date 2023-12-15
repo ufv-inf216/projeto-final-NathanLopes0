@@ -10,10 +10,21 @@
 class Battle : public Scene {
 
 public:
+    explicit Battle(class Game* game);
+    void Load() override;
 
+    class Teacher * GetActiveTeacher() override;
+    class Player* GetPlayer() override;
 private:
 
+    class Player * mPlayer;
+    class Teacher * mActiveTeacher;
     class LimiterMenu* mLimiterMenu;
+
+
+    void ProcessInput(const Uint8 *keyState);
+
+    LimiterMenu *GetLimiterMenu();
 };
 
 

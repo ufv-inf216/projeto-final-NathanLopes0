@@ -8,6 +8,10 @@
 #include "../../Projectiles/Task.h"
 #include "../../LimiterMenu.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
+#include "../../../Scenes/Scene.h"
+#include "../../../Game.h"
+#include "../../../Random.h"
+#include "../../../Components/DrawComponents/DrawSpriteWColorEffect.h"
 
 StateTwo::StateTwo(FSMComponent *fsm) : TState(fsm, "stateTwo"),
     centeredOnce(false)
@@ -21,7 +25,7 @@ void StateTwo::Start() {
     stateTime = 0;
     mTeacher->SetCurrentStateRepresentation(this);
     std::string nTxt = "Prova 2 de 3";
-    mTeacher->GetGame()->GetLimiterMenu()->changeText(3, nTxt);
+    mTeacher->GetScene()->GetLimiterMenu()->changeText(3, nTxt);
 
     switch (mTeacher->GetType()) {
         case Teacher::Ricardo: {
@@ -44,7 +48,7 @@ bool StateTwo::inCenter()
 {
     float centerRadius = 20;
     if((mTeacher->GetPosition() -
-    Vector2(mTeacher->GetGame()->GetGameWindowWidth()/ 2, mTeacher->GetSpriteHeight())).Length() < centerRadius) {
+    Vector2(mTeacher->GetScene()->GetGame()->GetGameWindowWidth()/ 2, mTeacher->GetSpriteHeight())).Length() < centerRadius) {
         centeredOnce = true;
         return true;
     }
@@ -53,7 +57,7 @@ bool StateTwo::inCenter()
 
 void StateTwo::moveToCenter(float deltaTime)
 {
-    Vector2 directionToCenter = Vector2(mTeacher->GetGame()->GetGameWindowWidth()/ 2, mTeacher->GetSpriteHeight()) - mTeacher->GetPosition();
+    Vector2 directionToCenter = Vector2(mTeacher->GetScene()->GetGame()->GetGameWindowWidth()/ 2, mTeacher->GetSpriteHeight()) - mTeacher->GetPosition();
     directionToCenter.Normalize();
 
     mTeacher->SetPosition(Vector2(mTeacher->GetPosition()) + (directionToCenter * 100 * deltaTime));
@@ -90,8 +94,9 @@ void StateTwo::Update(float deltaTime) {
         }
         if (DetectCollision()) {
             float points = Random::GetFloatRange(0.1, 0.24);
-            mTeacher->GetGame()->SetNota(mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()) + points,
-                                         mTeacher->GetGame()->GetActiveMateria());
+            auto mt = mTeacher->GetScene()->GetGame()->GetActiveMateria();
+            mTeacher->GetScene()->GetGame()->SetNota(mTeacher->GetScene()->GetGame()->GetNota(mt) + points,
+                                         mt);
         }
     }
 }
@@ -113,7 +118,7 @@ void StateTwo::Movement(float deltaTime) {
         mTeacher->GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(150, 0));
         moveTime = 1;
     }
-    if (mTeacher->GetPosition().x > (float)mTeacher->GetGame()->GetGameWindowWidth() - (float)mTeacher->GetSpriteWidth() / 2)
+    if (mTeacher->GetPosition().x > (float)mTeacher->GetScene()->GetGame()->GetGameWindowWidth() - (float)mTeacher->GetSpriteWidth() / 2)
     {
         mTeacher->GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(-150,0));
         moveTime = 1;

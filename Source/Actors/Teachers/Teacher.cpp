@@ -9,13 +9,20 @@
 #include "../Projectiles/Question.h"
 #include "../Projectiles/Task.h"
 #include "../../Components/AIComponents/FSMComponent.h"
+#include "../../Components/RigidBodyComponent.h"
+#include "../../Components/ColliderComponents/CircleColliderComponent.h"
+#include "../../Random.h"
+#include "../../Game.h"
+#include "../../Scenes/Scene.h"
+#include "../Player.h"
+#include "../PowerUp.h"
 #include "TStates/StartState.h"
 #include "TStates/StateOne.h"
 #include "TStates/StateTwo.h"
 #include "TStates/StateThree.h"
 
-Teacher::Teacher(Game *game, Type type)
-    :Actor(game),
+Teacher::Teacher(Scene *scene, Type type)
+    :Actor(scene),
     mType(type),
     left(true),
     right(false),
@@ -41,8 +48,6 @@ Teacher::Teacher(Game *game, Type type)
             break;
     }
 
-
-    mGame->AddTeacher(this);
     //componentes
     mDrawSprite = new DrawSpriteComponent(this, prefix + ".png", 128, 128, 100);
     mRigidBodyComponent = new RigidBodyComponent(this);
@@ -57,25 +62,26 @@ Teacher::Teacher(Game *game, Type type)
 
 }
 
-void Teacher::Start() {
+void Teacher::Start()
+{
     mFSMComponent->Start("start");
 }
 
-void Teacher::OnUpdate(float deltaTime) {
-
+void Teacher::OnUpdate(float deltaTime)
+{
     if (extraPointCounter <= 0)
     {
         CreateExtraPoint();
 
         extraPointCounter = Random::GetIntRange(40, 80);
-        GetGame()->GetAudio()->PlaySound("kira00.wav");
+        mScene->GetGame()->GetAudio()->PlaySound("kira00.wav");
     }
 
-    if (!mGame->p1Exists()) mGame->Shutdown();
 }
 
-void Teacher::CreateExtraPoint() {
-    auto point = new PowerUp(mGame);
+void Teacher::CreateExtraPoint()
+{
+    auto point = new PowerUp(mScene);
     point->SetPosition(GetPosition() + Vector2(0, 64));
 }
 
@@ -96,7 +102,6 @@ Task * Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, f
             break;
 
     }
-    std::vector<Task*> allTasks;
     float difAngle = finalAngle - startAngle;
     float angleDifference;
     if (difAngle >= 0)
@@ -107,8 +112,10 @@ Task * Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, f
     for (int i = 0; i < numTasks; i++) {
 
         float currAngle = -startAngle - (angleDifference * (i + 1));
-        auto task = new Task(GetGame(), this, spritePath, currAngle, speed, playerDirection, waitTime);
+        auto task = new Task(mScene, this, spritePath, currAngle, speed, playerDirection, waitTime);
         task->SetPosition(GetPosition());
         return task;
     }
+
+    return nullptr;
 }

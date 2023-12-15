@@ -3,3 +3,7 @@
 //
 
 #include "SelectPlayers.h"
+
+SelectPlayers::SelectPlayers(Game *game) : Scene(game) {
+
+}

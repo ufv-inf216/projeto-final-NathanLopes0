@@ -6,38 +6,33 @@
 #define DPIBULLETHELL_TEACHER_H
 
 #include <string>
-#include "../../Random.h"
-#include "../../Game.h"
-#include "../Player.h"
-#include "../PowerUp.h"
+#include "../Actor.h"
 #include "../../Components/DrawComponents/DrawSpriteComponent.h"
-#include "../../Components/RigidBodyComponent.h"
-#include "../../Components/ColliderComponents/CircleColliderComponent.h"
 
 class Teacher : public Actor {
 public:
     enum Type
     {
         Ricardo,
-        Julio,
+        Salles,
         Sabrina,
         Lucas,
         Andre,
-        Salles,
+        Julio,
         Thiago,
         Marcos
 
     };
 
-    Teacher(class Game* game, Type type);
+    Teacher(class Scene* scene, Type type);
     void OnUpdate(float deltaTime) override;
     void CreateExtraPoint();
     Type GetType() { return mType; }
     class TState * GetCurrentState() { return mCurrentState; }
     void SetCurrentStateRepresentation(TState* state) {mCurrentState = state;}
 
-    int GetSpriteHeight() {return GetComponent<DrawSpriteComponent>()->GetSpriteHeight(); }
-    int GetSpriteWidth() { return GetComponent<DrawSpriteComponent>()->GetSpriteWidth(); }
+    int GetSpriteHeight() {return GetComponent<class DrawSpriteComponent>()->GetSpriteHeight(); }
+    int GetSpriteWidth() { return GetComponent<class DrawSpriteComponent>()->GetSpriteWidth(); }
 
     class Task *
     TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool playerDirection, double waitTime);
@@ -59,7 +54,6 @@ private:
     std::vector<class Task*> mTasks;
 
     Type mType;
-    int hp;
 };
 
 

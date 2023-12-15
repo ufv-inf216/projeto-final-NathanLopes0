@@ -18,7 +18,7 @@ class Projectile : public Actor {
 public:
 
 
-    Projectile(class Game* game, std::string &spritePath);
+    Projectile(class Scene* scene, std::string &spritePath);
 
 
 protected:

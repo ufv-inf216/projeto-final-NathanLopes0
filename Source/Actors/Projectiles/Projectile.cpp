@@ -6,8 +6,8 @@
 #include <string>
 #include "Projectile.h"
 
-Projectile::Projectile(class Game *game, std::string &spritePath)
-        : Actor(game),
+Projectile::Projectile(class Scene *scene, std::string &spritePath)
+        : Actor(scene),
         mDrawSprite(nullptr),
         mColliderComponent(nullptr)
 

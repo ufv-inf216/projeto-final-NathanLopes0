@@ -8,7 +8,12 @@
 #include "Scene.h"
 
 class StageSelect : public Scene {
+public:
+    StageSelect(class Game* game);
+    void Load() override;
 
+private:
+    class Font* mStageSelectFont;
 };
 
 

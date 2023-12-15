@@ -5,18 +5,19 @@
 #include "DrawComponent.h"
 #include "../../Actors/Actor.h"
 #include "../../Game.h"
+#include "../../Scenes/Scene.h"
 
 DrawComponent::DrawComponent(class Actor* owner, int drawOrder)
     :Component(owner)
     ,mDrawOrder(drawOrder)
     ,mIsVisible(true)
 {
-    mOwner->GetGame()->AddDrawable(this);
+    mOwner->GetScene()->GetGame()->AddDrawable(this);
 }
 
 DrawComponent::~DrawComponent()
 {
-    mOwner->GetGame()->RemoveDrawable(this);
+    mOwner->GetScene()->GetGame()->RemoveDrawable(this);
 }
 
 

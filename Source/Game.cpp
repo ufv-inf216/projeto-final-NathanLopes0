@@ -10,6 +10,7 @@
 #include "Actors/Actor.h"
 #include "Actors/Player.h"
 #include "Actors/LimiterMenu.h"
+#include "Actors/Teachers/Teacher.h"
 #include "Scenes/MainMenu.h"
 #include "Scenes/SelectPlayers.h"
 #include "Scenes/StageSelect.h"
@@ -29,9 +30,11 @@ Game::Game(int windowWidth, int windowHeight)
         ,mWindowHeight(windowHeight)
         ,mPlayer1(nullptr)
         ,mPlayer2(nullptr)
+        ,mChangeScene(false)
         ,mGameWindowWidth(windowWidth / 2 - 50)
         ,mGameWindowHeight(windowHeight - 50)
         ,mGameState(GameScene::MainMenu)
+        ,currStage(0)
 {
 
 }
@@ -80,8 +83,7 @@ bool Game::Initialize()
 
 void Game::InitializeActors()
 {
-
-    /*switch (mGameState) {
+    switch (mGameState) {
         case GameScene::MainMenu: {
             mScene = new MainMenu(this);
             mScene->Load();
@@ -89,7 +91,7 @@ void Game::InitializeActors()
         }
         case GameScene::SelectPlayers: {
             mScene = new SelectPlayers(this);
-            mScene->Load():
+            mScene->Load();
             break;
         }
         case GameScene::StageSelect: {
@@ -102,44 +104,14 @@ void Game::InitializeActors()
             mScene->Load();
             break;
         }
-    }*/
+        default:
+            break;
+    }
 
-    std::string limiterMenuPath = "../Assets/DPIBHBackgroundPlaceholder.png";
-    mLimiterMenu = new LimiterMenu(this, limiterMenuPath, mWindowWidth, mWindowHeight);
-    GetAudio()->PlaySound("backgroundmusic.mp3", true);
-
-    std::string player1avatar = "../Assets/Player/DPIBHPlayerPrototype.png";
-    mPlayer1 = new Player(this, player1avatar);
-
-    //adicionar em uma certa ordem
-    //new Teacher(this, Teacher::Andre);
-    new Teacher(this, Teacher::Ricardo);
-    new Teacher(this, Teacher::Salles);
-
-
-    size_t noteSize = mTeachers.size();
-    for (int i = 0; i < noteSize; i++)
+    for (int i = 0; i < 2; i++)
     {
         mNotas[Game::Materia(i)] = 40;
     }
-
-
-    for(auto it : mTeachers)
-    {
-        it->SetState(ActorState::Paused);
-        it->GetComponent<DrawSpriteComponent>()->SetIsVisible(false);
-    }
-
-    activeTeacher = mTeachers[0];
-    activeTeacher->Start();
-
-}
-
-void Game::SetActiveTeacher(int teacherIndex) {
-    activeTeacher->SetState(ActorState::Paused);
-    activeTeacher->GetComponent<DrawSpriteComponent>()->SetIsVisible(false);
-    activeTeacher = mTeachers[teacherIndex];
-    activeTeacher->Start();
 }
 
 void Game::RunLoop()
@@ -171,6 +143,11 @@ void Game::ProcessInput()
     {
         actor->ProcessInput(state);
     }
+
+    if (mScene)
+    {
+        mScene->ProcessInput(state);
+    }
 }
 
 void Game::UpdateGame()
@@ -185,11 +162,19 @@ void Game::UpdateGame()
 
     mTicksCount = SDL_GetTicks();
 
-    // Update all actors and pending actors
-    UpdateActors(deltaTime);
+    if(!mChangeScene) {
+        // Update all actors and pending actors
+        UpdateActors(deltaTime);
 
-    // Update camera position
-    UpdateCamera();
+        // Update camera position
+        UpdateCamera();
+    }
+    else
+    {
+        UnloadActors();
+        InitializeActors();
+        mChangeScene = false;
+    }
 }
 
 void Game::UpdateCamera()
@@ -325,14 +310,22 @@ SDL_Texture* Game::LoadTexture(const std::string& texturePath) {
 
 void Game::Shutdown()
 {
+    UnloadActors();
+
+    SDL_DestroyRenderer(mRenderer);
+    SDL_DestroyWindow(mWindow);
+    SDL_Quit();
+}
+
+void Game::UnloadActors()
+{
     while (!mActors.empty())
     {
         delete mActors.back();
     }
 
-    SDL_DestroyRenderer(mRenderer);
-    SDL_DestroyWindow(mWindow);
-    SDL_Quit();
+    delete mScene;
+    mScene = nullptr;
 }
 
 void Game::RemoveTask(struct Task *task) {
@@ -352,4 +345,19 @@ void Game::SetNota(const float newNota, Game::Materia materia) {
 
     mNotas[materia] = Math::Min(newNota, 100.0f);
 
+}
+
+void Game::SetScene(GameScene gameState)
+{
+    mAudio->StopAllSounds();
+    mGameState = gameState;
+    mChangeScene = true;
+}
+
+Teacher* Game::GetActiveTeacher() {
+    if(mGameState == GameScene::Battle)
+    {
+        return mScene->GetActiveTeacher();
+    }
+    else return nullptr;
 }

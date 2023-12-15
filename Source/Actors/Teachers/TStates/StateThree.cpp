@@ -7,6 +7,10 @@
 #include "../../Projectiles/Task.h"
 #include "../../LimiterMenu.h"
 #include "../../../Components/AIComponents/FSMComponent.h"
+#include "../../../Scenes/Scene.h"
+#include "../../../Game.h"
+#include "../../../Random.h"
+#include "../../../Components/DrawComponents/DrawSpriteWColorEffect.h"
 
 
 StateThree::StateThree(FSMComponent *fsm) : TState(fsm, "stateThree"), centeredOnce(false) {
@@ -18,7 +22,7 @@ void StateThree::Start() {
     stateTime = 0;
     mTeacher->SetCurrentStateRepresentation(this);
     std::string nTxt = "Prova 3 de 3";
-    mTeacher->GetGame()->GetLimiterMenu()->changeText(3, nTxt);
+    mTeacher->GetScene()->GetLimiterMenu()->changeText(3, nTxt);
 
     switch (mTeacher->GetType()) {
         case Teacher::Ricardo: {
@@ -41,7 +45,7 @@ bool StateThree::inCenter()
 {
     float centerRadius = 20;
     if((mTeacher->GetPosition() -
-        Vector2((float)mTeacher->GetGame()->GetGameWindowWidth()/ 2, (float)mTeacher->GetSpriteHeight())).Length() < centerRadius) {
+        Vector2((float)mTeacher->GetScene()->GetGame()->GetGameWindowWidth()/ 2, (float)mTeacher->GetSpriteHeight())).Length() < centerRadius) {
         centeredOnce = true;
         return true;
     }
@@ -50,7 +54,7 @@ bool StateThree::inCenter()
 
 void StateThree::moveToCenter(float deltaTime)
 {
-    Vector2 directionToCenter = Vector2((float)mTeacher->GetGame()->GetGameWindowWidth()/ 2, (float)mTeacher->GetSpriteHeight()) - mTeacher->GetPosition();
+    Vector2 directionToCenter = Vector2((float)mTeacher->GetScene()->GetGame()->GetGameWindowWidth()/ 2, (float)mTeacher->GetSpriteHeight()) - mTeacher->GetPosition();
     directionToCenter.Normalize();
 
     mTeacher->SetPosition(Vector2(mTeacher->GetPosition()) + (directionToCenter * 100 * deltaTime));
@@ -87,8 +91,9 @@ void StateThree::Update(float deltaTime) {
 
         if(DetectCollision()) {
             float points = Random::GetFloatRange(0.15, 0.3);
-            mTeacher->GetGame()->SetNota(mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()) + points,
-                                         mTeacher->GetGame()->GetActiveMateria());
+            auto mt = mTeacher->GetScene()->GetGame()->GetActiveMateria();
+            mTeacher->GetScene()->GetGame()->SetNota(mTeacher->GetScene()->GetGame()->GetNota(mt) + points,
+                                         mt);
         }
     }
 }
@@ -104,7 +109,7 @@ void StateThree::Movement(float deltaTime) {
             moveTime = 1;
         }
         if (mTeacher->GetPosition().x >
-            (float) mTeacher->GetGame()->GetGameWindowWidth() - (float) mTeacher->GetSpriteWidth() / 2) {
+            (float) mTeacher->GetScene()->GetGame()->GetGameWindowWidth() - (float) mTeacher->GetSpriteWidth() / 2) {
             mTeacher->GetComponent<RigidBodyComponent>()->SetVelocity(Vector2(-150, 0));
             moveTime = 1;
         }
@@ -133,15 +138,20 @@ void StateThree::Movement(float deltaTime) {
 void StateThree::HandleStateTransition(float stateTimer) {
     if (stateTimer > 17)
     {
-        for(auto it : mTeacher->GetGame()->GetTasks())
+        for(auto it : mTeacher->GetScene()->GetGame()->GetTasks())
         {
             it->SetState(ActorState::Destroy);
-            mTeacher->GetGame()->RemoveTask(it);
+            mTeacher->GetScene()->GetGame()->RemoveTask(it);
         }
-        if (mTeacher->GetGame()->GetNota(mTeacher->GetGame()->GetActiveMateria()) >= 60)
+        if (mTeacher->GetScene()->GetGame()->GetNota(mTeacher->GetScene()->GetGame()->GetActiveMateria()) >= 60)
         {
-            mTeacher->GetGame()->GetPlayer1()->addStage();
-            mTeacher->GetGame()->SetActiveTeacher(mTeacher->GetGame()->GetPlayer1()->GetStage());
+            int newStage = mTeacher->GetScene()->GetGame()->GetCurrStage() + 1;
+            if (newStage > 1)
+                mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::MainMenu);
+            else {
+                mTeacher->GetScene()->GetGame()->SetStage(newStage);
+                mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);
+            }
         }
         else
             mFSM->SetState("start");

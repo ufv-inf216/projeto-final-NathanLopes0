@@ -11,7 +11,7 @@
 
 class LimiterMenu : public Actor {
 public:
-    LimiterMenu(Game* game, std::string& spritePath, int width, int height);
+    LimiterMenu(class Scene* scene, std::string& spritePath, int width, int height);
     void SetNotaAtual(float notaAtual);
     void SetStateTimeAtual(float stateTimer);
     void OnUpdate(float deltaTime) override;
