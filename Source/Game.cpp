@@ -16,6 +16,7 @@
 #include "Scenes/StageSelect.h"
 #include "Scenes/Battle.h"
 #include "Scenes/Win.h"
+#include "Scenes/Lose.h"
 #include "Components/DrawComponents/DrawComponent.h"
 #include "Components/DrawComponents/DrawTextComponent.h"
 
@@ -107,6 +108,11 @@ void Game::InitializeActors()
         }
         case GameScene::Win: {
             mScene = new Win(this);
+            mScene->Load();
+            break;
+        }
+        case GameScene::Lose :{
+            mScene = new Lose(this);
             mScene->Load();
             break;
         }

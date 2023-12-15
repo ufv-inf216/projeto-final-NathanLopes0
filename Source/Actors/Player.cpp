@@ -22,6 +22,7 @@ Player::Player(class Scene *scene, std::string &avatarPath)
         ,piscafrequencia(0.1)
         ,pisca(true)
         ,piscaOvercharge(false)
+        ,lose(false)
 {
     mDrawSprite = new DrawSpriteWColorEffect(this, avatarPath, 48, 48, 100);
     mRigidBodyComponent = new RigidBodyComponent(this);
@@ -38,58 +39,56 @@ Player::Player(class Scene *scene, std::string &avatarPath)
         mQuestions.push_back(question);
 
     }
-
-//    mDrawSprite->SetIsVisible(false);
-//    SetState(ActorState::Paused);
 }
 
 void Player::OnUpdate(float deltaTime)
 {
     atkTimer -= deltaTime;
-    if (piscaOvercharge && atkTimer <= 0)
-    {
-        piscaOvercharge = false;
-        mDrawSprite->StopColorEffect();
-    }
-
-    if (invencibilityTime > 0){
-        piscafrequencia -= deltaTime;
-        if (piscafrequencia < 0)
-        {
-            piscafrequencia = 0.1;
-            mDrawSprite->SetIsVisible(pisca);
-            pisca = !pisca;
+    if(!lose) {
+        if (piscaOvercharge && atkTimer <= 0) {
+            piscaOvercharge = false;
+            mDrawSprite->StopColorEffect();
         }
-        invencibilityTime -= deltaTime;
-    }
-    if (invencibilityTime <= 0) {
-        mDrawSprite->SetIsVisible(true);
-        for (auto i: mScene->GetGame()->GetTasks()) {
 
-            if (mColliderComponent->Intersect(*i->GetComponent<CircleColliderComponent>())) {
-                float deduceNota = Random::GetFloatRange(9.0f, 13.0f);
-                mScene->GetGame()->GetAudio()->PlaySound("pldead00.wav");
-                auto mt = mScene->GetGame()->GetActiveMateria();
-                mScene->GetGame()->SetNota(mScene->GetGame()->GetNota(mt) - deduceNota, mt);
-                invencibilityTime = 2.2;
-                if (mScene->GetGame()->GetNota(mt) <= 0) {
-                    SetState(ActorState::Destroy);
+        if (invencibilityTime > 0) {
+            piscafrequencia -= deltaTime;
+            if (piscafrequencia < 0) {
+                piscafrequencia = 0.1;
+                mDrawSprite->SetIsVisible(pisca);
+                pisca = !pisca;
+            }
+            invencibilityTime -= deltaTime;
+        }
+        if (invencibilityTime <= 0) {
+            mDrawSprite->SetIsVisible(true);
+            for (auto i: mScene->GetGame()->GetTasks()) {
+                if (mColliderComponent->Intersect(*i->GetComponent<CircleColliderComponent>())) {
+                    float deduceNota = Random::GetFloatRange(9.0f, 13.0f);
+                    mScene->GetGame()->GetAudio()->PlaySound("pldead00.wav");
+                    auto mt = mScene->GetGame()->GetActiveMateria();
+                    mScene->GetGame()->SetNota(mScene->GetGame()->GetNota(mt) - deduceNota, mt);
+                    invencibilityTime = 2.2;
+                    if (mScene->GetGame()->GetNota(mt) <= 0) {
+                        lose = true;
+                    }
+                    break;
                 }
-                break;
+            }
+        }
+        if (mColliderComponent->Intersect(*mScene->GetActiveTeacher()->GetComponent<CircleColliderComponent>())) {
+            float deduceNota = Random::GetFloatRange(16.0f, 24.0f);
+            mScene->GetGame()->GetAudio()->PlaySound("pldead00.wav");
+            auto mt = mScene->GetGame()->GetActiveMateria();
+            mScene->GetGame()->SetNota(Math::Max(mScene->GetGame()->GetNota(mt) - deduceNota, 0.f), mt);
+            invencibilityTime = 2.4;
+            if (mScene->GetGame()->GetNota(mt) <= 0) {
+                lose = true;
             }
         }
     }
-    if (mColliderComponent->Intersect(*mScene->GetActiveTeacher()->GetComponent<CircleColliderComponent>()))
+    else
     {
-        float deduceNota = Random::GetFloatRange(16.0f, 24.0f);
-        mScene->GetGame()->GetAudio()->PlaySound("pldead00.wav");
-        auto mt = mScene->GetGame()->GetActiveMateria();
-        mScene->GetGame()->SetNota(Math::Max(mScene->GetGame()->GetNota(mt) - deduceNota, 0.f), mt);
-        invencibilityTime = 2.2;
-        if (mScene->GetGame()->GetNota(mt) < 0)
-        {
-            SetState(ActorState::Destroy);
-        }
+        mScene->GetGame()->SetScene(Game::GameScene::Lose);
     }
 }
 

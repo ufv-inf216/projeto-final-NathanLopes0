@@ -90,7 +90,7 @@ void StateThree::Update(float deltaTime) {
         }
 
         if(DetectCollision()) {
-            float points = Random::GetFloatRange(0.15, 0.3);
+            float points = Random::GetFloatRange(0.2, 0.4);
             auto mt = mTeacher->GetScene()->GetGame()->GetActiveMateria();
             mTeacher->GetScene()->GetGame()->SetNota(mTeacher->GetScene()->GetGame()->GetNota(mt) + points,
                                          mt);

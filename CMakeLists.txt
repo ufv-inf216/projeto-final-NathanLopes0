@@ -70,6 +70,8 @@ add_executable(DPIBulletHell
         Source/Scenes/SelectPlayers.h
         Source/Scenes/Win.cpp
         Source/Scenes/Win.h
+        Source/Scenes/Lose.cpp
+        Source/Scenes/Lose.h
 )
 
 find_package(SDL2 2.28.2 EXACT REQUIRED)

@@ -41,6 +41,7 @@ private:
     float invencibilityTime;
     bool pisca, piscaOvercharge;
     float piscafrequencia;
+    bool lose;
 };
 
 

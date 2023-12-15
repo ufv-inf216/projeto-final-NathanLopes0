@@ -25,7 +25,8 @@ public:
         SelectPlayers,
         StageSelect,
         Battle,
-        Win
+        Win,
+        Lose
     };
 
     Game(int windowWidth, int windowHeight);
