@@ -62,7 +62,7 @@ void LimiterMenu::SetNotaAtual(float notaAtual) {
 
 void LimiterMenu::SetStateTimeAtual(float stateTimer) {
 
-    int currTimer = 17 - (int)stateTimer;
+    int currTimer = 18 - (int)stateTimer;
 
     std::string StateTimeAtual = std::to_string(currTimer);
     if(StateTimeAtual.size() == 1)
@@ -82,7 +82,7 @@ void LimiterMenu::OnUpdate(float deltaTime) {
     float currNote = mScene->GetGame()->GetNota(mScene->GetGame()->GetActiveMateria());
     SetNotaAtual(currNote);
 
-    float currTimer = mScene->GetGame()->GetActiveTeacher()->GetCurrentState()->GetStateTime();
+    float currTimer = mScene->GetActiveTeacher()->GetCurrentState()->GetStateTime();
     SetStateTimeAtual(currTimer);
 
     int currPontos = mScene->GetPlayer()->GetNumPontosExtras();

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/User/Downloads/projeto-final-NathanLopes0/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target DPIBulletHell
 
@@ -49,264 +49,338 @@ cmake_ninja_workdir = C$:/Users/User/Downloads/projeto-final-NathanLopes0/cmake-
 
 build cmake_object_order_depends_target_DPIBulletHell: phony || CMakeFiles/DPIBulletHell.dir
 
-build CMakeFiles/DPIBulletHell.dir/Source/Game.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Game.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Game.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Game.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Game.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Main.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Main.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Main.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Main.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Actor.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Actor.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Actor.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Actor.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Actor.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/ColliderComponents/CircleColliderComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/ColliderComponents/CircleColliderComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/ColliderComponents/CircleColliderComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/ColliderComponents/CircleColliderComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\ColliderComponents\CircleColliderComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\ColliderComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/Component.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/Component.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/Component.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/Component.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\Component.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Player.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Player.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Player.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Player.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Player.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/Teacher.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Teachers/Teacher.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/Teacher.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Teachers/Teacher.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\Teacher.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents\DrawComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawAnimatedComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawAnimatedComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawAnimatedComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawAnimatedComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents\DrawAnimatedComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/RigidBodyComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/RigidBodyComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/RigidBodyComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/RigidBodyComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\RigidBodyComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Random.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Random.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Random.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Random.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Random.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Math.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Math.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Math.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Math.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Math.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawPolygonComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawPolygonComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawPolygonComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawPolygonComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents\DrawPolygonComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawSpriteComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawSpriteComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawSpriteComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawSpriteComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents\DrawSpriteComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Projectiles/Projectile.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Projectiles/Projectile.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Projectiles/Projectile.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Projectiles/Projectile.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Projectiles\Projectile.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Projectiles
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/PowerUp.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/PowerUp.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/PowerUp.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/PowerUp.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\PowerUp.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Projectiles/Question.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Projectiles/Question.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Projectiles/Question.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Projectiles/Question.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Projectiles\Question.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Projectiles
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Projectiles/Task.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Projectiles/Task.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Projectiles/Task.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Projectiles/Task.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Projectiles\Task.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Projectiles
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/AudioSystem.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/AudioSystem.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/AudioSystem.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/AudioSystem.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\AudioSystem.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/AIComponents/FSMComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/AIComponents/FSMComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/AIComponents/FSMComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/AIComponents/FSMComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\AIComponents\FSMComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\AIComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/AIComponents/FSMState.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/AIComponents/FSMState.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/AIComponents/FSMState.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/AIComponents/FSMState.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\AIComponents\FSMState.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\AIComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StartState.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StartState.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StartState.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StartState.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates\StartState.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/TState.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/TState.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/TState.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/TState.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates\TState.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StateOne.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StateOne.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StateOne.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StateOne.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates\StateOne.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StateTwo.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StateTwo.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StateTwo.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StateTwo.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates\StateTwo.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/Drone.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Teachers/Drone.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/Drone.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Teachers/Drone.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\Drone.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/LimiterMenu.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/LimiterMenu.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/LimiterMenu.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/LimiterMenu.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\LimiterMenu.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Scenes/Scene.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Scenes/Scene.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Scenes/Scene.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Scenes/Scene.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Scenes\Scene.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Scenes
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawTextComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawTextComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawTextComponent.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawTextComponent.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents\DrawTextComponent.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Font.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Font.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Font.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Font.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Font.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawSpriteWColorEffect.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawSpriteWColorEffect.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Components/DrawComponents/DrawSpriteWColorEffect.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Components/DrawComponents/DrawSpriteWColorEffect.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents\DrawSpriteWColorEffect.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Components\DrawComponents
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StateThree.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StateThree.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Actors/Teachers/TStates/StateThree.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Actors/Teachers/TStates/StateThree.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates\StateThree.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Actors\Teachers\TStates
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Scenes/MainMenu.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Scenes/MainMenu.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Scenes/MainMenu.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Scenes/MainMenu.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Scenes\MainMenu.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Scenes
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Scenes/StageSelect.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Scenes/StageSelect.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Scenes/StageSelect.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Scenes/StageSelect.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Scenes\StageSelect.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Scenes
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Scenes/Battle.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Scenes/Battle.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Scenes/Battle.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Scenes/Battle.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Scenes\Battle.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Scenes
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Scenes/SelectPlayers.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Scenes/SelectPlayers.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Scenes/SelectPlayers.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Scenes/SelectPlayers.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Scenes\SelectPlayers.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Scenes
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
-build CMakeFiles/DPIBulletHell.dir/Source/Scenes/Win.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Downloads/projeto-final-NathanLopes0/Source/Scenes/Win.cpp || cmake_object_order_depends_target_DPIBulletHell
+build CMakeFiles/DPIBulletHell.dir/Source/Scenes/Win.cpp.obj: CXX_COMPILER__DPIBulletHell_unscanned_Debug C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/Source/Scenes/Win.cpp || cmake_object_order_depends_target_DPIBulletHell
   DEP_FILE = CMakeFiles\DPIBulletHell.dir\Source\Scenes\Win.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem "C:/Program Files/SDL2/cmake/../include" -isystem "C:/Program Files/SDL2_image-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_mixer-2.6.3/cmake/../include" -isystem "C:/Program Files/SDL2_ttf-2.20.2/cmake/../include"
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   OBJECT_FILE_DIR = CMakeFiles\DPIBulletHell.dir\Source\Scenes
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
+  TARGET_PDB = DPIBulletHell.pdb
 
 
 # =============================================================================
@@ -322,16 +396,17 @@ build DPIBulletHell.exe: CXX_EXECUTABLE_LINKER__DPIBulletHell_Debug CMakeFiles/D
   OBJECT_DIR = CMakeFiles\DPIBulletHell.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\DPIBulletHell.dir\
   TARGET_FILE = DPIBulletHell.exe
   TARGET_IMPLIB = libDPIBulletHell.dll.a
-  TARGET_PDB = DPIBulletHell.exe.dbg
+  TARGET_PDB = DPIBulletHell.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\User\Downloads\projeto-final-NathanLopes0\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\User\Documents\GitHub\projeto-final-NathanLopes0\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -342,7 +417,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\User\Downloads\projeto-final-NathanLopes0\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\User\Downloads\projeto-final-NathanLopes0 -BC:\Users\User\Downloads\projeto-final-NathanLopes0\cmake-build-debug"
+  COMMAND = cmd.exe /C "cd /D C:\Users\User\Documents\GitHub\projeto-final-NathanLopes0\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\User\Documents\GitHub\projeto-final-NathanLopes0 -BC:\Users\User\Documents\GitHub\projeto-final-NathanLopes0\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -360,7 +435,7 @@ build DPIBulletHell: phony DPIBulletHell.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/User/Downloads/projeto-final-NathanLopes0/cmake-build-debug
+# Folder: C:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/cmake-build-debug
 
 build all: phony DPIBulletHell.exe
 
@@ -371,14 +446,14 @@ build all: phony DPIBulletHell.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/FeatureSummary.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config-version.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config-version.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config-version.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config-version.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config.cmake C$:/Users/User/Downloads/projeto-final-NathanLopes0/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.0/CMakeCCompiler.cmake CMakeFiles/3.27.0/CMakeCXXCompiler.cmake CMakeFiles/3.27.0/CMakeRCCompiler.cmake CMakeFiles/3.27.0/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/FeatureSummary.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config-version.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config-version.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config-version.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config-version.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config.cmake C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.0/CMakeCCompiler.cmake CMakeFiles/3.27.0/CMakeCXXCompiler.cmake CMakeFiles/3.27.0/CMakeRCCompiler.cmake CMakeFiles/3.27.0/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/FeatureSummary.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config-version.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config-version.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config-version.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config-version.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config.cmake C$:/Users/User/Downloads/projeto-final-NathanLopes0/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.0/CMakeCCompiler.cmake CMakeFiles/3.27.0/CMakeCXXCompiler.cmake CMakeFiles/3.27.0/CMakeRCCompiler.cmake CMakeFiles/3.27.0/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/FeatureSummary.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config-version.cmake C$:/Program$ Files/SDL2/cmake/sdl2-config.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config-version.cmake C$:/Program$ Files/SDL2_image-2.6.3/cmake/sdl2_image-config.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config-version.cmake C$:/Program$ Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config-version.cmake C$:/Program$ Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config.cmake C$:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.0/CMakeCCompiler.cmake CMakeFiles/3.27.0/CMakeCXXCompiler.cmake CMakeFiles/3.27.0/CMakeRCCompiler.cmake CMakeFiles/3.27.0/CMakeSystem.cmake: phony
 
 
 #############################################

@@ -17,5 +17,13 @@ void Win::Load()
 {
     auto message = new Actor(this);
     message->SetPosition(Vector2(mGame->GetWindowWidth() / 2, mGame->GetWindowHeight() / 2));
-    new DrawTextComponent(message, "Voce Formou! Parabens!", mFont, 500, 500, 72);
+    new DrawTextComponent(message, "Voce Formou! Parabens!", mFont, 320, 128, 64);
+}
+
+const Vector2& Win::GetCameraPos() {
+    return Vector2::Zero;
+}
+
+void Win::ProcessInput(const Uint8 *keyState) {
+
 }

@@ -136,7 +136,7 @@ void StateThree::Movement(float deltaTime) {
 
 
 void StateThree::HandleStateTransition(float stateTimer) {
-    if (stateTimer > 17)
+    if (stateTimer > 18)
     {
         for(auto it : mTeacher->GetScene()->GetGame()->GetTasks())
         {
@@ -147,7 +147,7 @@ void StateThree::HandleStateTransition(float stateTimer) {
         {
             int newStage = mTeacher->GetScene()->GetGame()->GetCurrStage() + 1;
             if (newStage > 1)
-                mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::MainMenu);
+                mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Win);
             else {
                 mTeacher->GetScene()->GetGame()->SetStage(newStage);
                 mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);

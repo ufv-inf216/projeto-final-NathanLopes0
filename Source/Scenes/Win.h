@@ -15,6 +15,10 @@ public:
 private:
 
     class Font* mFont;
+
+    const Vector2 &GetCameraPos();
+
+    void ProcessInput(const Uint8 *keyState);
 };
 
 

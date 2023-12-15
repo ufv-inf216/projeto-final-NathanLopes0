@@ -123,7 +123,7 @@ void StateOne::Movement(float deltaTime)
 void StateOne::HandleStateTransition(float stateTimer) {
 
     //colocar 17 - 20. está 2 apenas pra testar a mudança de estado.
-    if (stateTimer > 17) {
+    if (stateTimer > 18) {
         mTeacher->GetScene()->GetGame()->GetAudio()->PlaySound("enep01.wav");
         mFSM->SetState("stateTwo");
     }
