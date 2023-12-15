@@ -1,10 +1,10 @@
-fazer menus!!
-
-imagem de background
+fazer menus!
+	--começar o Load da cena Battle. Ela vai ter várias coisas que atualmente estão no Game (Player, activeTeacher, etc)
+	--Game::GetActiveTeacher() { if (mScene = Battle) return Battle.activeTeacher; }
 
 https://docs.google.com/spreadsheets/d/1PpNt_53qGO9u3AhNKnX64fbdlKaec6UViChkq_kxpzg/edit#gid=23139697
-	-diminuir tamanho da fase (tentar cada boss com 51 segundos no total, 17 por estado. Adicionar finalState com mais 17 caso nota <60 >=40)
-	-nota dada depois dos 3 estados.
+	-Adicionar finalState com mais 17 caso nota <60 >=40)
 	-tirar temporariamente a capacidade do boss atirar quando usa o Pt Extra
 	-colocar mini-sprites dos Pts Extras em volta do Player quando ele tem (diminuir necessidade de olhar pro lado)
 	-fazer mais feedback visual quando a Nota >= 60
+
