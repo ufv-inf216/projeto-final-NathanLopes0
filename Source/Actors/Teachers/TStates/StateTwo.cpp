@@ -103,7 +103,7 @@ void StateTwo::Update(float deltaTime) {
 
 void StateTwo::HandleStateTransition(float stateTimer) {
 
-    if (stateTimer > 18)
+    if (stateTimer > 17)
     {
         mFSM->SetState("stateThree");
     }

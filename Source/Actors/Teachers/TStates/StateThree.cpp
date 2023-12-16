@@ -136,7 +136,7 @@ void StateThree::Movement(float deltaTime) {
 
 
 void StateThree::HandleStateTransition(float stateTimer) {
-    if (stateTimer > 18)
+    if (stateTimer > 17)
     {
         for(auto it : mTeacher->GetScene()->GetGame()->GetTasks())
         {
@@ -145,15 +145,15 @@ void StateThree::HandleStateTransition(float stateTimer) {
         }
         if (mTeacher->GetScene()->GetGame()->GetNota(mTeacher->GetScene()->GetGame()->GetActiveMateria()) >= 60)
         {
-            int newStage = mTeacher->GetScene()->GetGame()->GetCurrStage() + 1;
-            if (newStage > 1)
-                mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Win);
-            else {
-                mTeacher->GetScene()->GetGame()->SetStage(newStage);
-                mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);
-            }
+                int newStage = mTeacher->GetScene()->GetGame()->GetCurrStage() + 1;
+                if (newStage > 1)
+                    mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Win);
+                else {
+                    mTeacher->GetScene()->GetGame()->SetStage(newStage);
+                    mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);
+                }
         }
         else
-            mFSM->SetState("start");
+            mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);
     }
 }

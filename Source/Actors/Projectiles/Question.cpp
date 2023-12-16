@@ -21,7 +21,9 @@ void Question::OnUpdate(float deltaTime) {
     //SetPosition(GetPosition() + Vector2(0, -mFowardSpeed * deltaTime));
 
     //modo normal
-    SetPosition(GetPosition() + Vector2::Normalize(mScene->GetGame()->GetActiveTeacher()->GetPosition() - GetPosition()) * mFowardSpeed * deltaTime);
+    auto actTeacher = mScene->GetGame()->GetActiveTeacher();
+    if (actTeacher != nullptr)
+        SetPosition(GetPosition() + Vector2::Normalize(mScene->GetGame()->GetActiveTeacher()->GetPosition() - GetPosition()) * mFowardSpeed * deltaTime);
 
     if (GetPosition().y < -100) {
         SetState(ActorState::Paused);
