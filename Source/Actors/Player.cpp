@@ -31,6 +31,8 @@ Player::Player(class Scene *scene, std::string &avatarPath)
     SetPosition(Vector2(mScene->GetGame()->GetGameWindowWidth() / 2, mScene->GetGame()->GetGameWindowHeight() - GetComponent<DrawSpriteComponent>()->GetSpriteHeight()));
     std::string spriteQuestionPath = "../Assets/Player/DPIBHStudentProjectile(Question)v3.png";
 
+
+    //vector of Questions, no need to alocate memory every time
     for (int i = 0; i < 500; i++)
     {
         auto* question = new Question(mScene, this, spriteQuestionPath);
@@ -44,6 +46,7 @@ Player::Player(class Scene *scene, std::string &avatarPath)
 void Player::OnUpdate(float deltaTime)
 {
     atkTimer -= deltaTime;
+
     if(!lose) {
         if (piscaOvercharge && atkTimer <= 0) {
             piscaOvercharge = false;
@@ -154,6 +157,7 @@ void Player::OnProcessInput(const Uint8 *keyState) {
             it->SetState(ActorState::Destroy);
             mScene->GetGame()->RemoveTask(it);
         }
+        mScene->GetActiveTeacher()->SetExtraPointTime(1.5);
         mScene->GetGame()->GetAudio()->PlaySound("lazer00.wav");
         atkTimer = 5;
         piscaOvercharge = true;

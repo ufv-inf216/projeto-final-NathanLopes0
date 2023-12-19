@@ -36,6 +36,7 @@ private:
     class DrawSpriteWColorEffect* mDrawSprite;
     class RigidBodyComponent * mRigidBodyComponent;
     class CircleColliderComponent* mColliderComponent;
+    std::vector <class DrawSpriteComponent*> mDrawPoints;
 
 
     float invencibilityTime;

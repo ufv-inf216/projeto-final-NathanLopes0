@@ -105,6 +105,7 @@ void StateTwo::HandleStateTransition(float stateTimer) {
 
     if (stateTimer > 17)
     {
+        mTeacher->GetScene()->GetGame()->GetAudio()->PlaySound("enep01.wav");
         mFSM->SetState("stateThree");
     }
 

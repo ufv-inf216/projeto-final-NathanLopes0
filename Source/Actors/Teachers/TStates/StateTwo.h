@@ -14,7 +14,7 @@ public:
     explicit StateTwo(FSMComponent* fsm);
 
     void Start() override;
-    void Update(float deltaTime) override;
+    void Update(float deltaTime);
     void HandleStateTransition(float stateTimer) override;
     void Movement(float deltaTime);
 

@@ -19,7 +19,14 @@ LimiterMenu::LimiterMenu(Scene* scene, std::string& spritePath, int width, int h
     ,mHeight(height)
     {
 
-    mDrawComponent = new DrawSpriteWColorEffect(this, spritePath, width, height, 101);
+    mDrawComponent = new DrawAnimatedComponent(this, "../Assets/Background2.png", "../Assets/Background2.json", 101);
+    mDrawComponent->AddAnimation("approved", {0});
+    mDrawComponent->AddAnimation("normal", {1});
+    mDrawComponent->AddAnimation("reproved", {2});
+
+    mDrawComponent->SetAnimation("normal");
+    mDrawComponent->SetAnimFPS(10.0f);
+
     SetPosition(Vector2(GetScene()->GetGame()->GetWindowWidth() / 2, GetScene()->GetGame()->GetWindowHeight() / 2));
 
     mFont = new Font();
@@ -46,6 +53,19 @@ LimiterMenu::LimiterMenu(Scene* scene, std::string& spritePath, int width, int h
     mostraPontos->SetPosition(textPosition + offSetYVec * 1 + Vector2(64, 0));
     auto tMostraPontos = new DrawTextComponent(mostraPontos, "00", mFont, 384, 32, 32, 102);
     mDrawTextComponent.push_back(tMostraPontos);
+
+    //Desenho de pontos extras
+    for (int i = 0; i < 3; i++) {
+        auto mostraPontosDraw = new Actor(mScene);
+        mostraPontosDraw->SetPosition(Vector2::Zero);
+        mExtraPoints.push_back(mostraPontosDraw);
+        auto tMostraPontosDraw = new DrawSpriteComponent(mostraPontosDraw,
+                                                         "../Assets/Icons/DPIBHPowerIcon2.png",
+                                                         16, 16,
+                                                         100);
+        mDrawExtraPoints.push_back(tMostraPontosDraw);
+    }
+
 }
 
 
@@ -88,11 +108,22 @@ void LimiterMenu::OnUpdate(float deltaTime) {
     int currPontos = mScene->GetPlayer()->GetNumPontosExtras();
     SetPontosPlayer(currPontos);
 
-    if (currPontos >= 60)
-    {
-        DrawApprovedSign();
-    }
+    DrawPoints(currPontos);
+    ManageAnimations();
+}
 
+void LimiterMenu::ManageAnimations()
+{
+    auto currNote = mScene->GetGame()->GetNota(mScene->GetGame()->GetActiveMateria());
+    if(currNote >= 60)
+    {
+        mDrawComponent->SetAnimation("approved");
+
+    }
+    else if (currNote < 40)
+        mDrawComponent->SetAnimation("reproved");
+    else
+        mDrawComponent->SetAnimation("normal");
 }
 
 void LimiterMenu::writeNew(std::string &newString, int offSetY_) {
@@ -113,9 +144,36 @@ void LimiterMenu::changeText(int index, std::string & newText)
 
 void LimiterMenu::DrawApprovedSign()
 {
-//    auto approvedSign = new Actor(mScene);
-//    approvedSign->SetPosition(Vector2((float) mGame->GetGameWindowWidth() + offSetX + 320,
-//                                      (float) mGame->GetGameWindowHeight() / 8));
-//    auto mostraASign = new DrawAnimatedComponent(approvedSign, "../Assets/Icons/DPIBHApprovedSign.png","../Assets/Icons/DPIBHApprovedSign.json");
+
+}
+
+void LimiterMenu::DrawPoints(int currPontos)
+{
+    for (auto it : mDrawExtraPoints)
+    {
+        it->SetIsVisible(false);
+    }
+
+    for(int i = 0; i < currPontos; i++)
+    {
+        mDrawExtraPoints[i]->SetIsVisible(true);
+        switch (i) {
+            case 0: {
+                auto Pos = mScene->GetPlayer()->GetPosition() + Vector2(32, 0);
+                mExtraPoints[0]->SetPosition(Pos);
+                break;
+            }
+            case 1: {
+                auto Pos = mScene->GetPlayer()->GetPosition() + Vector2(-32, 0);
+                mExtraPoints[1]->SetPosition(Pos);
+                break;
+            }
+            case 2: {
+                auto Pos = mScene->GetPlayer()->GetPosition() + Vector2(0, 32);
+                mExtraPoints[2]->SetPosition(Pos);
+                break;
+            }
+        }
+    }
 
 }

@@ -22,14 +22,20 @@ private:
     float offSetX, offSetY;
     int mWidth, mHeight;
 
-    class DrawSpriteWColorEffect * mDrawComponent;
+    class DrawAnimatedComponent * mDrawComponent;
     class Font* mFont;
     std::vector<class DrawTextComponent *> mDrawTextComponent;
+    std::vector<class Actor*> mExtraPoints;
+    std::vector <class DrawSpriteComponent*> mDrawExtraPoints;
 
 
     void SetPontosPlayer(int pontos);
 
     void DrawApprovedSign();
+
+    void ManageAnimations();
+
+    void DrawPoints(int currPontos);
 };
 
 

@@ -44,27 +44,34 @@ void DrawAnimatedComponent::LoadSpriteSheet(const std::string& texturePath, cons
 
         mSpriteSheetData.emplace_back(rect);
     }
+
 }
 
 void DrawAnimatedComponent::Draw(SDL_Renderer *renderer) {
 
-    auto spriteIdx = mAnimations[mAnimName][(int) mAnimTimer];
+    int spriteIdx = mAnimations[mAnimName][(int)mAnimTimer];
 
-    int posx = GetOwner()->GetPosition().x - GetScene()->GetCameraPos().x;
-    int posy = GetOwner()->GetPosition().y - GetScene()->GetCameraPos().y;
+    // Is the texture in the map?
+    if(spriteIdx < mSpriteSheetData.size())
+    {
+        Vector2 pos = mOwner->GetPosition();
+        Vector2 cameraPos = mOwner->GetScene()->GetGame()->GetCameraPos();
 
+        SDL_Rect *clipRect = mSpriteSheetData[spriteIdx];
+        SDL_Rect renderQuad = {static_cast<int>(pos.x - clipRect->w/2.0f - cameraPos.x),
+                               static_cast<int>(pos.y - clipRect->h/2.0f - cameraPos.y),
+                               clipRect->w,
+                               clipRect->h};
 
-    //provavelmente mudar o 32 fixo para uma variável. Mas n tava dando certo no Mario. O que fazer?
-    auto dstrect = new SDL_Rect{posx, posy, 32, 32};
+        SDL_RendererFlip flip = SDL_FLIP_NONE;
+
+        SDL_RenderCopyEx(renderer, mSpriteSheetSurface, clipRect, &renderQuad, .0f, nullptr, flip);
+    }
 
     auto flipflag = SDL_RendererFlip::SDL_FLIP_NONE;
 
     if (GetOwner()->GetRotation() == Math::Pi)
         flipflag = SDL_RendererFlip::SDL_FLIP_HORIZONTAL;
-
-    SDL_RenderCopyEx(renderer, mSpriteSheetSurface, mSpriteSheetData[spriteIdx],
-                    dstrect, NULL, nullptr, flipflag);
-
 }
 
 

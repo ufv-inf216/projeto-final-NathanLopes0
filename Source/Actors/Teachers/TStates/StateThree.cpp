@@ -145,6 +145,7 @@ void StateThree::HandleStateTransition(float stateTimer) {
         }
         if (mTeacher->GetScene()->GetGame()->GetNota(mTeacher->GetScene()->GetGame()->GetActiveMateria()) >= 60)
         {
+                mTeacher->GetScene()->GetGame()->GetAudio()->PlaySound("enep01.wav");
                 int newStage = mTeacher->GetScene()->GetGame()->GetCurrStage() + 1;
                 if (newStage > 1)
                     mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Win);

@@ -5,8 +5,6 @@
 #include "MainMenu.h"
 #include "../Game.h"
 #include "../Font.h"
-#include "../Actors/Actor.h"
-#include "../Components/DrawComponents/DrawSpriteComponent.h"
 #include "../Components/DrawComponents/DrawTextComponent.h"
 #include "../Components/DrawComponents/DrawSpriteWColorEffect.h"
 

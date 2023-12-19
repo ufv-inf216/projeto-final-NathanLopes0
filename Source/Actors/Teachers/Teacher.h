@@ -33,9 +33,13 @@ public:
 
     int GetSpriteHeight() {return GetComponent<class DrawSpriteComponent>()->GetSpriteHeight(); }
     int GetSpriteWidth() { return GetComponent<class DrawSpriteComponent>()->GetSpriteWidth(); }
+    void SetExtraPointCounter(float extraPtC);
 
     class Task *
-    TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool playerDirection, double waitTime);
+    TaskCreation(float angle, float speed, bool playerDirection, double waitTime);
+
+    float GetExtraPointTime() const { return extraPointTime; }
+    virtual void SetExtraPointTime(float ptT) { extraPointTime = ptT; }
 
 
     bool left;
@@ -52,6 +56,8 @@ private:
     class FSMComponent* mFSMComponent;
     class TState* mCurrentState;
     std::vector<class Task*> mTasks;
+
+    float extraPointTime;
 
     Type mType;
 };

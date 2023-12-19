@@ -26,7 +26,8 @@ Teacher::Teacher(Scene *scene, Type type)
     mType(type),
     left(true),
     right(false),
-    extraPointCounter(20)
+    extraPointCounter(20),
+    extraPointTime(0)
 
 {
 
@@ -69,6 +70,9 @@ void Teacher::Start()
 
 void Teacher::OnUpdate(float deltaTime)
 {
+    if (extraPointCounter > 0)
+        extraPointTime -= deltaTime;
+
     if (extraPointCounter <= 0)
     {
         CreateExtraPoint();
@@ -85,7 +89,7 @@ void Teacher::CreateExtraPoint()
     point->SetPosition(GetPosition() + Vector2(0, 64));
 }
 
-Task * Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, float speed, bool playerDirection, double waitTime) {
+Task * Teacher::TaskCreation(float angle, float speed, bool playerDirection, double waitTime) {
 
     std::string spritePath;
     switch (GetType())
@@ -102,20 +106,9 @@ Task * Teacher::TaskCreation(float startAngle, float finalAngle, int numTasks, f
             break;
 
     }
-    float difAngle = finalAngle - startAngle;
-    float angleDifference;
-    if (difAngle >= 0)
-        angleDifference = difAngle / (numTasks + 1);
-    else
-        angleDifference = (difAngle + 360) / (numTasks + 1);
 
-    for (int i = 0; i < numTasks; i++) {
+    auto task = new Task(mScene, this, spritePath, -angle, speed, playerDirection, waitTime);
+    task->SetPosition(GetPosition());
+    return task;
 
-        float currAngle = -startAngle - (angleDifference * (i + 1));
-        auto task = new Task(mScene, this, spritePath, currAngle, speed, playerDirection, waitTime);
-        task->SetPosition(GetPosition());
-        return task;
-    }
-
-    return nullptr;
 }

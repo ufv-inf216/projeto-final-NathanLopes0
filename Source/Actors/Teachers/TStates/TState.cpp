@@ -9,13 +9,17 @@
 #include "../../../Scenes/Scene.h"
 #include "../../../Game.h"
 
-TState::TState(FSMComponent *fsm, const std::string &name) : FSMState(fsm, name), atkTimer(0), stateTime(0), soundTime(0) {
+TState::TState(FSMComponent *fsm, const std::string &name) : FSMState(fsm, name),
+atkTimer(0),
+stateTime(0),
+soundTime(0)
+{
 
     mTeacher = dynamic_cast<Teacher *>(mFSM->GetOwner());
 
 }
 
-void TState::Update(float deltaTime) {
+void TState::Update(float deltaTime){
 
 }
 
@@ -30,34 +34,23 @@ bool TState::DetectCollision() {
                 }
             }
         }
-//    if (mTeacher->GetScene()->GetGame()->p2Exists()) {
-//        for (auto it: mTeacher->GetScene()->GetGame()->GetPlayer2()->GetProjectiles()) {
-//            if (it->GetState() == ActorState::Active) {
-//                if (mTeacher->GetComponent<CircleColliderComponent>()->Intersect(*it->GetComponent<CircleColliderComponent>())) {
-//                    it->SetState(ActorState::Destroy);
-//                    mTeacher->extraPointCounter--;
-//                    return true;
-//                }
-//            }
-//        }
-//    }
     return false;
 }
 
 std::vector<Task *> TState::Attack(float deltaTime, float startAngle, float finalAngle, bool dividefocus, bool playerDirection_, float atkTimer_, int numTasks, float speed, float waitTime) {
+
+    std::vector<Task *> returnTasks;
+    if (mTeacher->GetExtraPointTime() > 0) return returnTasks;
     atkTimer -= deltaTime;
     soundTime -= deltaTime;
-    std::vector<Task*> returnTasks;
-    if(atkTimer < 0)
-    {
-        float angleInterval = (finalAngle - startAngle) / (float)numTasks;
+    if (atkTimer < 0) {
+        float angleInterval = (finalAngle - startAngle) / (float) numTasks;
         bool playerDirection = playerDirection_;
         PlayAttackAudio();
-        for(int i = 0; i < numTasks; i++)
-        {
-            if(dividefocus && playerDirection_) playerDirection = !playerDirection;
+        for (int i = 0; i < numTasks; i++) {
+            if (dividefocus && playerDirection_) playerDirection = !playerDirection;
             float angle = startAngle + angleInterval * i;
-            auto task = mTeacher->TaskCreation(angle, angle, 1, speed, playerDirection, waitTime);
+            auto task = mTeacher->TaskCreation(angle, speed, playerDirection, waitTime);
             returnTasks.push_back(task);
         }
         atkTimer = atkTimer_;
