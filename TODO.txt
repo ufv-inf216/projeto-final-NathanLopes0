@@ -5,7 +5,7 @@ fazer menus!
 
 https://docs.google.com/spreadsheets/d/1PpNt_53qGO9u3AhNKnX64fbdlKaec6UViChkq_kxpzg/edit#gid=23139697
 	-Adicionar finalState com mais 17 caso nota <60 >=40)
-	-tirar temporariamente a capacidade do boss atirar quando usa o Pt Extra OK
-	-colocar mini-sprites dos Pts Extras em volta do Player quando ele tem (diminuir necessidade de olhar pro lado)
-	-fazer mais feedback visual quando a Nota >= 60
+	-tirar temporariamente a capacidade do boss atirar quando usa o Pt Extra - OK
+	-colocar mini-sprites dos Pts Extras em volta do Player quando ele tem (diminuir necessidade de olhar pro lado) - doin'
+	-fazer mais feedback visual quando a Nota >= 60 - OK
 
