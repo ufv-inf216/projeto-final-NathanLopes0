@@ -146,13 +146,17 @@ void StateThree::HandleStateTransition(float stateTimer) {
         if (mTeacher->GetScene()->GetGame()->GetNota(mTeacher->GetScene()->GetGame()->GetActiveMateria()) >= 60)
         {
                 mTeacher->GetScene()->GetGame()->GetAudio()->PlaySound("enep01.wav");
-                int newStage = mTeacher->GetScene()->GetGame()->GetCurrStage() + 1;
-                if (newStage > 1)
-                    mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Win);
-                else {
-                    mTeacher->GetScene()->GetGame()->SetStage(newStage);
-                    mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);
-                }
+
+                //se passou, vai pro proximo.
+//                int newStage = mTeacher->GetScene()->GetGame()->GetCurrStage() + 1;
+//                if (newStage > 1)
+//                    mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Win);
+//                else {
+//                    mTeacher->GetScene()->GetGame()->SetStage(newStage);
+//                    mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);
+//                }
+                //se passou, vai pra seleção de estagio
+                mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::StageSelect);
         }
         else
             mTeacher->GetScene()->GetGame()->SetScene(Game::GameScene::Battle);

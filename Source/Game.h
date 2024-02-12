@@ -14,9 +14,16 @@ class Game
 {
 public:
     enum Materia {
-        INF250, //Ricardo
         INF213, //Salles
-        INF330 //Andre
+        INF250, //Ricardo
+        INF220, //Thiago
+        INF330, //Andre
+        INF332, //Arroyo
+        INF420, //Julio
+        BIOINF, //Sabrina
+        INF394, //Marcos
+        VISCCP, //Michel
+        TCC //Lucas
     };
 
     enum class GameScene

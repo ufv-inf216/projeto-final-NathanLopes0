@@ -13,15 +13,16 @@ class Teacher : public Actor {
 public:
     enum Type
     {
-        Ricardo,
         Salles,
-        Sabrina,
-        Lucas,
-        Andre,
-        Julio,
+        Ricardo,
         Thiago,
-        Marcos
-
+        Andre,
+        Arroyo,
+        Julio,
+        Sabrina,
+        Marcos,
+        Michel,
+        Lucas
     };
 
     Teacher(class Scene* scene, Type type);

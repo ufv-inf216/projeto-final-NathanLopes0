@@ -120,7 +120,7 @@ void Game::InitializeActors()
             break;
     }
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 10; i++)
     {
         mNotas[Game::Materia(i)] = 40;
     }

@@ -6,7 +6,7 @@ CMake Deprecation Warning at C:/Program Files/SDL2/cmake/sdl2-config.cmake:4 (cm
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  CMakeLists.txt:77 (find_package)
+  CMakeLists.txt:79 (find_package)
 
 
 CMake Deprecation Warning at C:/Program Files/SDL2_image-2.6.3/cmake/sdl2_image-config.cmake:10 (cmake_minimum_required):
@@ -16,7 +16,7 @@ CMake Deprecation Warning at C:/Program Files/SDL2_image-2.6.3/cmake/sdl2_image-
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  CMakeLists.txt:78 (find_package)
+  CMakeLists.txt:80 (find_package)
 
 
 CMake Deprecation Warning at C:/Program Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-config.cmake:10 (cmake_minimum_required):
@@ -26,7 +26,7 @@ CMake Deprecation Warning at C:/Program Files/SDL2_mixer-2.6.3/cmake/sdl2_mixer-
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  CMakeLists.txt:79 (find_package)
+  CMakeLists.txt:81 (find_package)
 
 
 CMake Deprecation Warning at C:/Program Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-config.cmake:10 (cmake_minimum_required):
@@ -36,9 +36,9 @@ CMake Deprecation Warning at C:/Program Files/SDL2_ttf-2.20.2/cmake/sdl2_ttf-con
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  CMakeLists.txt:80 (find_package)
+  CMakeLists.txt:82 (find_package)
 
 
--- Configuring done (0.1s)
+-- Configuring done (1.3s)
 -- Generating done (0.0s)
 -- Build files have been written to: C:/Users/User/Documents/GitHub/projeto-final-NathanLopes0/cmake-build-debug

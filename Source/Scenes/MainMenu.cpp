@@ -27,7 +27,7 @@ void MainMenu::Load() {
 
     auto pressSpace = new Actor(this);
     pressSpace->SetPosition(Vector2(600, 700));
-    new DrawTextComponent(pressSpace, "Matricular (Aperte Espaço)", mMainMenuFont, 500, 64, 72);
+    new DrawTextComponent(pressSpace, "Jogar", mMainMenuFont, 500, 64, 72);
 }
 
 void MainMenu::ProcessInput(const Uint8 *keyState) {
@@ -36,6 +36,6 @@ void MainMenu::ProcessInput(const Uint8 *keyState) {
 
     if(keyState[SDL_SCANCODE_SPACE])
     {
-        mGame->SetScene(Game::GameScene::Battle);
+        mGame->SetScene(Game::GameScene::StageSelect);
     }
 }

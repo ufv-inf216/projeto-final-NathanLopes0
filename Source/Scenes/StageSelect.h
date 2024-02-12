@@ -11,9 +11,14 @@ class StageSelect : public Scene {
 public:
     StageSelect(class Game* game);
     void Load() override;
+    void ProcessInput(const Uint8* keyState) override;
 
 private:
     class Font* mStageSelectFont;
+    std::vector<class Button*> button;
+    int mButtonSelected, numMat, mTimer;
+
+
 };
 
 
