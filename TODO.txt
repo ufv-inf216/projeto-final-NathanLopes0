@@ -1,6 +1,12 @@
 fazer menus!
 	-Menu de seleção de personagem
-	-seleção de fase -> integrar com o fim de Battle / fim de StateThree
+
+	-seleção de fase -> integrar com o fim de Battle / fim de StateThree - OK
+		- botoes colocados, escrever código da matéria neles.
+		- escrever nota atual de cada matéria.
+		- fazer botao levar para batalha certa. - OK
+		- bloquear botoes da frente até passar da fase anterior.
+	
 	
 
 https://docs.google.com/spreadsheets/d/1PpNt_53qGO9u3AhNKnX64fbdlKaec6UViChkq_kxpzg/edit#gid=23139697
