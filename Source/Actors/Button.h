@@ -21,6 +21,8 @@ private:
     class Font* mFont;
     class DrawSpriteWColorEffect* mDrawComponent;
     class DrawTextComponent* mDrawTextComponent;
+
+    void SetButtonText(std::string &newText);
 };
 
 

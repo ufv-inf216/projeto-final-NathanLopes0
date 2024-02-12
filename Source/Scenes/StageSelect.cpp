@@ -18,6 +18,7 @@ StageSelect::StageSelect(Game *game) : Scene(game)
 
     mStageSelectFont = new Font();
     mStageSelectFont->Load("../Assets/Fonts/Zelda.ttf");
+    button.reserve(10);
 
 }
 
@@ -33,24 +34,24 @@ void StageSelect::Load()
 
     //criando botoes
     std::string buttonSpritePath = "../Assets/Icons/DPIBHSelectSubjectButtonPrototype.png";
+    std::string subjectCode = "";
     for (int j = 0; j < 4; j++)
     {
         switch(j)
         {
             case 0:
             {
-                std::string subjectCode = "INF 213";
+                subjectCode = "INF 213";
                 auto stage = new Button(this, buttonSpritePath, subjectCode);
                 stage->SetPosition(Vector2(widthBorder + buttonWidth/2, GetGame()->GetWindowHeight()/2));
                 button.push_back(stage);
+                break;
             }
-            break;
             case 1:
             {
-                float area2x = widthBorder + 1.f * (espacamentoX + buttonWidth);
+                float area2x = widthBorder + 1.20f * (espacamentoX + buttonWidth);
                 for (int i = 0; i < 4; i++)
                 {
-                    std::string subjectCode;
                     switch (i) {
                         case 0:
                             subjectCode = "INF 250";
@@ -73,27 +74,31 @@ void StageSelect::Load()
                     stage->SetPosition(Vector2(area2x, area2y));
                     button.push_back(stage);
                 }
+                break;
             }
-            break;
+
             case 2:
             {
-                float area2x = widthBorder + 2.f * (espacamentoX + buttonWidth);
+                float area2x = widthBorder + 2.25f * (espacamentoX + buttonWidth);
                 for (int i = 0; i < 4; i++)
                 {
-                    std::string subjectCode;
                     switch (i) {
-                        case 0:
+                        case 0: {
                             subjectCode = "INF 420";
                             break;
-                        case 1:
+                        }
+                        case 1: {
                             subjectCode = "BIO INF";
                             break;
-                        case 2:
+                        }
+                        case 2: {
                             subjectCode = "INF 394";
                             break;
-                        case 3:
+                        }
+                        case 3: {
                             subjectCode = "VIS CCP";
                             break;
+                        }
                         default:
                             subjectCode = "ERROR";
                             break;
@@ -103,16 +108,18 @@ void StageSelect::Load()
                     stage->SetPosition(Vector2(area2x, area2y));
                     button.push_back(stage);
                 }
+                break;
             }
-            break;
             case 3:
             {
-                std::string subjectCode = "TCC";
+                subjectCode = "TCC";
                 auto stage = new Button(this, buttonSpritePath, subjectCode);
                 stage->SetPosition(Vector2(GetGame()->GetWindowWidth() - widthBorder - buttonWidth/2, GetGame()->GetWindowHeight()/2));
                 button.push_back(stage);
+                break;
             }
-            break;
+            default:
+                break;
         }
     }
     button[0]->changeSelected();

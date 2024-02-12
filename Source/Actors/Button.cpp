@@ -20,7 +20,7 @@ Button::Button(Scene* scene, std::string &spritepath, std::string &subjectCode)
 
     mDrawComponent = new DrawSpriteWColorEffect(this, spritepath
                                                 ,width, height);
-    mDrawTextComponent = new DrawTextComponent(this, subjectCode, mFont, 64, 16, 32);
+    mDrawTextComponent = new DrawTextComponent(this, subjectCode, mFont, 64, 24, 16, 110);
 
 }
 
