@@ -10,6 +10,7 @@ O jogo é um "Bullet Hell", com um formato parecido com jogos de nave antigos, e
 
 O aluno pode ser movido com as setas do teclado ou as teclas WASD, como o jogador preferir. A Barra de Espaço lança as Dúvidas, e a tecla B usa um dos Pontos Extras que o aluno tenha coletado para limpar a tela dos projéteis dos professores e ganhar aproximadamente 10 pontos, mas **fica sobrecarregado e não pode lançar Dúvidas por alguns segundos**.
 
+
 ## Condições de Vitória e Derrota
 Um aluno passa de fase quando chega no fim do tempo da fase com nota maior ou igual a sessenta. Caso termine com menos, ele deve refazer a fase, e sua nota volta para a inicial (40).
 
