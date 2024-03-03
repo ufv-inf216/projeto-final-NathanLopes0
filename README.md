@@ -13,7 +13,9 @@ O aluno pode ser movido com as setas do teclado ou as teclas WASD, como o jogado
 ## Condições de Vitória e Derrota
 Um aluno passa de fase quando chega no fim do tempo da fase com nota maior ou igual a sessenta. Caso termine com menos, ele deve refazer a fase, e sua nota volta para a inicial (40).
 
-Ele tem que passar de 3 provas (fases) de uma matéria pra passar dela por completo, então, por exemplo, depois que passar da fase do professor Ricardo 3 vezes, ele passará da matéria. Nessa demonstração há apenas 2 professores, e deve-se passar de 3 provas de cada. O objetivo é acumular 60 pontos ou mais no final das provas.
+Ele tem que passar de 3 provas (fases) de uma matéria pra passar dela por completo, então, por exemplo, depois que passar da fase do professor Ricardo 3 vezes, ele passará da matéria. Nessa demonstração há apenas 2 professores completos (INF 213, INF 250), e deve-se passar de 3 provas de cada. O objetivo é acumular 60 pontos ou mais no final das provas.
+
+Por enquanto, há uma das 3 fases de INF 330, mas as outras duas o professor fica parado.
 
 O jogo acaba em derrota se, a qualquer momento, sua nota chegar a 0.
 
