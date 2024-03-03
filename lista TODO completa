@@ -1,0 +1,33 @@
+Menus:
+  Fazer um menu inicial com mais opções:
+    Começar
+    Opções
+      Dificuldade do Jogo
+      Desativar/Ativar Diálogos
+  Depois de selecionar "Começar": montar um menu de seleção de personagem (ideia para lançamento inicial). No futuro, substituir por "criação" de personagem
+    Criação: escolher 1 em 4 cabelos, corpos, roupa, etc. Depois combinar os sprites escolhidos para "montar" um player.
+    Seleção: Seleciona entre 4 avatares previamente definidos.
+  
+  Depois de selecionado, ir para um menu de seleção de fases
+    Fases iniciais desbloqueadas, Fases futuras bloqueadas. Criar sistema de desbloqueio de fases de acordo com o desempenho das anteriores.
+      Usar variáveis que já estão em "Game" que já guardam essas informações.
+      O desempenho ("Nota") das fases ficam a mostra na tela de seleção de fases.
+  
+  Criar Menu de Pause durante a batalha.
+    Três Opções: "Continuar", "Voltar", "Sair".
+    O menu deixa a batalha em pause a mostra no fundo da tela.
+
+
+Outros:
+  Criar mais bosses (arte, padrões de ataque, músicas). 10 no total.
+  
+  Montar sistema de diálogos para vitória e derrota.
+  Animar as sprites dos bosses e dos jogadores.
+  Criar sistema de Save. Só pode salvar na tela de seleção de fase.
+  Mudar algumas variáveis de velocidade/quantidade de projéteis e outras pequenas mecânicas de acordo com a Dificuldade escolhida.
+  Melhorar HUD.
+    Aumentar o tamanho da tela jogável.
+    Melhorar a arte da HUD (a atual é apenas um protótipo inicial).
+
+
+      
