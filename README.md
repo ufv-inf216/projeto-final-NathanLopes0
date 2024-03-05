@@ -8,6 +8,8 @@ DPI Bullet Hell é um jogo onde o jogador é um aluno tentando passar pelas mat�
 ## Mecânicas Básicas
 O jogo é um "Bullet Hell", com um formato parecido com jogos de nave antigos, exceto que a nave é um aluno e o boss são professores do DPI. Além disso, ele não tem um número de Vidas e sim, uma ***Nota***, que começa em 40 a cada fase. Os projéteis dos alunos são ***Dúvidas*** que eles jogam nos professores que aumentam sua Nota. Ser acertado diminui sua Nota. Depois de receber muitas Dúvidas, os professores jogam ***Pontos Extras*** no aluno que pode ser coletado e guardado pra usar depois.
 
+![](https://github.com/ufv-inf216/projeto-final-NathanLopes0/blob/main/gameplay1.gif)
+
 O aluno pode ser movido com as setas do teclado ou as teclas WASD, como o jogador preferir. A Barra de Espaço lança as Dúvidas, e a tecla B usa um dos Pontos Extras que o aluno tenha coletado para limpar a tela dos projéteis dos professores e ganhar aproximadamente 10 pontos, mas **fica sobrecarregado e não pode lançar Dúvidas por alguns segundos**.
 
 
