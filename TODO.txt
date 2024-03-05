@@ -2,7 +2,7 @@ fazer menus!
 	-Menu de seleção de personagem
 
 	-seleção de fase -> integrar com o fim de Battle / fim de StateThree - OK
-		- botoes colocados, escrever código da matéria neles.
+		- botoes colocados, escrever código da matéria neles. - OK
 		- escrever nota atual de cada matéria.
 		- fazer botao levar para batalha certa. - OK
 		- bloquear botoes da frente até passar da fase anterior.
@@ -14,7 +14,10 @@ https://docs.google.com/spreadsheets/d/1PpNt_53qGO9u3AhNKnX64fbdlKaec6UViChkq_kx
 		-jogador deve usar do que ja passou para conseguir criar uma estratégia pra passar.
 		-inicialmente posso criar um estado simples com qualquer coisa só pra conseguir integrar com as condições e ver se ta tudo certo.
 			Depois pensar nos ataques. - doin'
-	-aumentar o tamanho da tela que dá pra andar
+	-aumentar o tamanho da tela que dá pra andar. - **
+		- mudar sprite usado pra HUD
+		- mudar variáveis de limitação
+			- talvez usar sprite como objeto e usar colisão (?)
 	-tirar temporariamente a capacidade do boss atirar quando usa o Pt Extra - OK
 	-colocar mini-sprites dos Pts Extras em volta do Player quando ele tem (diminuir necessidade de olhar pro lado) - OK
 	-fazer mais feedback visual quando a Nota >= 60 - OK
